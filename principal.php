@@ -7,9 +7,7 @@
 
     /*Consultas BD para autocompletado de formularios*/
     include_once("librerias/php/conexion.php");
-    $query = "SELECT * FROM usuario";
-    $rs = mysql_query($query);
-    $num = mysql_num_rows($rs);
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -124,8 +122,6 @@
                                             </select>
                          </div>
                          </div>
-
-                        
                         <div class="container-fluid">
                         	    <div class="row">
                            			<div class="col-md-2">

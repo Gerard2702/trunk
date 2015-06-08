@@ -1,13 +1,13 @@
 <?php
 
-include_once("conexion.php");
+include_once("../php/conexion.php");
 
 $usuario = mysql_real_escape_string($_POST['usuario']);
-$contraseña = mysql_real_escape_string($_POST['contraseña']) ;
+$contraseña = mysql_real_escape_string(md5($_POST['contraseña']));
 
 
 /*con la siguiente sentencia sql verificamos que exista el usuario que pretende ingresar al sistema*/
-$sql = "SELECT * from usuario where usuario='$usuario' and pass='$contraseña';" or die(mysql_error());
+$sql = "SELECT * from usuarios where nombre_usuario='$usuario' and pass='$contraseña';" or die(mysql_error());
 
 $resultado = mysql_query($sql) or die(mysql_error());
 $filas = mysql_num_rows($resultado);
@@ -21,7 +21,6 @@ $filas = mysql_num_rows($resultado);
         
      }    
      else{
-
         echo "false";
      }
 
