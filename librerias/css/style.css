@@ -1,0 +1,75 @@
+header{
+	background: #3C8DBC;
+	color: #DADADA;
+	box-shadow: 0 0 5px #595959;
+	border-bottom: 1px solid #273748;
+}
+
+footer{
+	position: fixed;
+	width: 100%;
+	bottom:0;
+	background: #BFBFC9;
+	color: white;
+}
+h4{
+	margin-top: 0px;
+}
+.logo {
+  width: 75px;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+
+.logoe {
+  width: 75px;
+  margin-top:10px;
+  margin-bottom: 10px;
+  float: right;
+}
+
+.titulo1{
+	margin-top: 10px;
+	text-transform: uppercase;
+}
+.titulo2 {
+	color: #5CC6D0;
+	text-transform: uppercase;
+	margin-top: 0px;
+}
+
+.titulo3 {
+	margin-top: 0px;
+}
+
+
+#inicio {
+  background: #C1C5D0 !important;
+  padding-top: 12%;
+}
+
+#box{
+  background: white;
+  padding-bottom: 40px;
+  box-shadow: 0 0 4px #D8D8D8;
+  border-radius: 3px;
+}
+
+#header-login{
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+	background:#286090; 
+	color:white;
+}
+
+/*ESTILOS DE BOOTSTRAP MODIFICADOS*/
+.navbar-default{
+	border-radius: 0px !important;
+}
+
+.navbar-nav > li > a {
+    border-right: 1px solid !important;   
+    border-right-color: #e7e7e7 !important; 
+}
+
+background:#66afe9; border-color:#66afe9; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6); outline: 0 none;
