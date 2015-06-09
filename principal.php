@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
-<body>
+<body onload="cargarPagina(<?php echo $_SESSION['tipo_rol']?>)">
 	<!-- HEADER DEL SISTEMA -->
 <header>
 	<div class="container-fluid">
@@ -56,126 +56,15 @@
       </button>
       <a class="navbar-brand active" href="principal.php">INICIO</a>
     </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li ><a href="" onClick="cargar_ingresar();">Ingresar<span class="sr-only">(current)</span></a></li>
-        
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user text-default"></i>&nbsp;Bienvenido &nbsp;<?php echo $_SESSION['usuario']; ?> <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="librerias/php/cerrarSesion.php">Cerrar Sesion</a></li>
-          </ul>
-        </li>
-        </ul>
-    </div><!-- /.navbar-collapse -->
+    <!-- MENU DEL SISTEMA-->
+    <div  id="menu">
+     
+    </div>
   </div><!-- /.container-fluid -->
 </nav>
-
+<!-- CONTENIDO DEL SISTEMA -->
 <div class="container-fluid" id="contenido" >
-  <div class="row">
-    
-    <div class="col-md-12 col-sm-12 col-xs-12">
-   	 <h3>Ingreso de datos</h3>
-    	<div class="panel panel-primary">
-  			<div class="panel-heading">
-    			<h4>Datos Generales</h4>
-  		</div>
-  		<div class="panel-body">
-    <!-- INICIO DEL CUERPO DEL FORMULARIO-->
-    		<div class="col-md-4">
-                            <div class="form-group">
-                                            <label>Departamento</label>
-                                            <select class="form-control" id="deshabilitado" disabled="deshabilitado">
-                                                <option>La Libertad</option>
-                                                <option></option>
-                                                <option></option>
-                                                <option></option>
-                                                <option></option>
-                                            </select>
-                         </div>
-                         </div>
-
-                          <div class="col-md-4">
-                            <div class="form-group">
-                                            <label>Municipio</label>
-                                            <select class="form-control" id="deshabilitado" disabled="deshabilitado">
-                                                <option>Nuevo Cuscatlan</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                         </div>
-                         </div>
-
-                         <div class="col-md-4">
-                            <div class="form-group">
-                                            <label>Colonia/Barrio/Caserio/Residencial</label>
-                                            <select class="form-control">
-                                                <option>Colonia La Esperanza #1</option>
-                                                <option>Colonia La Esperanza #2</option>
-                                                <option>Colonia 7 de Marzo</option>
-                                                <option>Barrio El Centro</option>
-                                                <option>Residencial Via del Mar</option>
-                                            </select>
-                         </div>
-                         </div>
-                        <div class="container-fluid">
-                        	    <div class="row">
-                           			<div class="col-md-2">
-                            			<div class="form-group">
-                                            <label>Area</label>
-                                            <input class="form-control" id="campoDeshabilitado" type="text" placeholder="Urbana" disabled>
-                         				</div>
-                        			 </div>
-
-                        			 	<div class="col-md-6">
-                            				<div class="form-group">
-                                            	<label>Pasaje/Poligono/Senda/Etc.</label>
-                                            <input class="form-control" type="text" placeholder="Escriba su direccion aqui">
-                         					</div>
-                        			 	</div>
-
-                        			 	<div class="col-md-2">
-                            			<div class="form-group">
-                                            <label>Numero de Vivienda</label>
-                                            <input class="form-control" id="campoDeshabilitado" type="text" placeholder="Escriba el Numero">
-                         				</div>
-                        			 </div>
-                        	
-                        	
-                        		</div>                        	
-                        </div>
-						
-
-					    <div class="container-fluid">
-                        	    <div class="row">
-                           			<div class="col-md-3">
-                            			<div class="form-group">
-                                           <label>Religion</label>
-                                            <select class="form-control">
-                                                <option>Catolicos</option>
-                                                <option>Evangelicos</option>
-                                                <option>Testigos de Jehova</option>
-                                                <option>Adventistas</option>
-                                                <option>Mormonesx		</option>
-                                            </select>
-                         				</div>
-                        			 </div>
-                        			 </div>
-                        	
-                        	
-                        		</div>                        	
-                        </div>
-  		</div>
-</div>
-    
-    
-      
-    </div>
-  </div>
+  
 </div>
 <!-- FOOTER DEL SISTEMA-->
 <footer>
@@ -186,10 +75,10 @@
   </div>	
 </footer>
 		
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<script type="http://code.jquery.com/jquery-latest.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="librerias/js/jquery-1.11.3.js"></script>
+  <script src="librerias/js/jquery-migrate-1.2.1.min.js"></script>
+  <script src="librerias/js/bootstrap.js"></script>
+  <script src="librerias/js/cargarPrincipal.js"></script>
   <script type="text/javascript">
   $("#alerta").hide();
 
