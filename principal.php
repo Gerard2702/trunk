@@ -23,6 +23,13 @@
   <!-- Estilos ccs Font-awesome -->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <!-- Datepciker -->
+  <script type="text/javascript" src="librerias/js/zebra_datepicker.js"></script>
+  <script type="text/javascript" src="librerias/js/zebra_datepicker.src.js"></script>
+  <link rel="stylesheet" href="librerias/css/default.css" type="text/css">
+  <script type="text/javascript" src="librerias/js/funcionesDatepicker.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 </head>
 <body onload="cargarPagina(<?php echo $_SESSION['tipo_rol']?>)">
 	<!-- HEADER DEL SISTEMA -->
@@ -33,6 +40,7 @@
 				<img src="" class="img-responsive img-circle" alt="Responsive image">
 			</div>
 		</div>
+  
 		<div class="col-md-8 text-center">
 			<h2 class="titulo1"><b>SISTEMA DE REGISTRO DE POBLACION Y VIVIENDAS</b></h2>
 			<h4 class="titulo2">DEPARTAMENTO DE DESARROLLO SOCIAL</h4>	
@@ -69,7 +77,7 @@
 <!-- FOOTER DEL SISTEMA-->
 <footer>
 	<div class="container">
-		<div class="col-md-12 col-xs-12">
+		<div class="col-md-12 col-xs-12 visible-sm visible-md visible-lg ">
 			<h5 class="text-center">Footer</h5>
 		</div>
   </div>	
