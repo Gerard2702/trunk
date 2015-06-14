@@ -1,6 +1,28 @@
 <script src="librerias/js/cargarFormularios.js"></script>
+<script src="librerias/js/funcionesFrmgenerales.js"></script>
 <script type="text/javascript" src="../js/funcionesDatepicker.js"></script>
+<script type="text/javascript">
+  /*ocultas el div con el id alerta*/
+  $("#alerta").hide(); 
+  $("#area").value("urbana");
+  </script>
 
+<?php  
+    session_start(); /* Verificar inicio de sesion*/
+    $usuario = $_SESSION['usuario'];
+    if(!isset($usuario)){
+        header("Location: index.php");
+    }
+
+    /*Consultas BD para autocompletado de formularios*/
+    include_once("../php/conexion.php");
+
+    /*recupera la colonia y el area*/
+    $query = "SELECT id_area,nombre from colonia";
+    $rs = mysql_query($query);
+    $num = mysql_num_rows($rs);
+
+?>
 
 <div class="container">
   <div class="row">
@@ -55,13 +77,20 @@
                          <div class="col-md-4">
                             <div class="form-group">
                                             <label>Colonia/Barrio/Caserio/Residencial</label>
-                                            <select class="form-control">
-                                                <option>Colonia La Esperanza #1</option>
-                                                <option>Colonia La Esperanza #2</option>
-                                                <option>Colonia 7 de Marzo</option>
-                                                <option>Barrio El Centro</option>
-                                                <option>Residencial Via del Mar</option>
+                                            <select type="text" class="form-control" id="colonia" onchange="verificarArea();">
+                                            <option value=''>Seleccione una Colonia</option>
+                                                <?php 
+                                                   if($num>0){
+                                                      while($filas = mysql_fetch_array($rs)){
+                                                    echo "<option value='".$filas['nombre']."'>".$filas['nombre']."</option>";}
+                                                   }else{
+                                                     echo "<option value='0'>No hay registros</option>";
+                                                   }
+                                                   ?>
                                             </select>
+                                            <div id="alerta">
+                                               <p class="text-danger conten-alert"></p>
+                                            </div>
                          </div>
                          </div>
 
@@ -76,7 +105,7 @@
                                 <div class="col-md-2">
                                   <div class="form-group">
                                             <label>Area</label>
-                                            <input class="form-control" id="campoDeshabilitado" type="text" placeholder="Urbana" disabled>
+                                            <input class="form-control" id="area" value=""type="text" placeholder="Area" disabled>
                                 </div>
                                </div>
 
@@ -254,3 +283,9 @@
   </div>
  </div>
 </div>
+
+<script type="text/javascript">
+  /*ocultas el div con el id alerta*/
+  $("#alerta").hide(); 
+  $("#area").value("urbana");
+  </script>

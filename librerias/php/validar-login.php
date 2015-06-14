@@ -1,6 +1,6 @@
 <?php
 
-include_once("../php/conexion.php");
+include_once("conexion.php");
 
 $usuario = mysql_real_escape_string($_POST['usuario']);
 $contraseña = mysql_real_escape_string(md5($_POST['contraseña']));
