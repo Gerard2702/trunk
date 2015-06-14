@@ -89,7 +89,7 @@
 
                                 <div class="col-md-2">
                                   <div class="form-group">
-                                            <label>Numero de Vivienda</label>
+                                             <label>Numero de Vivienda</label>
                                             <input class="form-control" id="numvi" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" type="text" placeholder="Escriba el Numero">
                                 </div>
                                </div>
@@ -127,6 +127,14 @@
                                                 <option>Extensa</option>
                                                 <option>Extendia</option>
                                             </select>
+                                </div>
+                               </div>
+                                <div class="col-md-3">
+                                  <div class="form-group">
+                                           <label>Seguridad</label>
+                                            <select class="form-control">
+                                             
+                                             </select>
                                 </div>
                                </div>
                                </div>
@@ -212,6 +220,13 @@
                           
                     </div>
                     </div>
+                    <div class="col-md-6">
+                                <div class="form-group">
+                                   <label>Observaciones</label>
+                                   <textarea class="form-control" rows="6"></textarea>
+                                </div>
+
+                    </div>  
                     </div>
                  
                           <br>
