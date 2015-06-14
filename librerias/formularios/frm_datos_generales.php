@@ -12,8 +12,21 @@
           Datos Generales
       </div>
       <div class="panel-body">
-    <!-- INICIO DEL CUERPO DEL FORMULARIO-->
-        <div class="col-md-4">
+          <!-- INICIO DEL CUERPO DEL FORMULARIO-->
+
+          <div class="container-fluid">
+                              <div class="row">
+                              <div class="col-md-offset-8" >
+                              <label>Fecha de Censado</label>
+
+                               </div>
+                          <br>  
+          </div> 
+
+
+           <div class="container-fluid">
+                              <div class="row">
+                                                    <div class="col-md-4">
                             <div class="form-group">
                                             <label>Departamento</label>
                                             <select class="form-control" id="deshabilitado" disabled="deshabilitado">
@@ -51,6 +64,13 @@
                                             </select>
                          </div>
                          </div>
+
+                          
+                          
+                            </div>                          
+                        </div>
+
+
                         <div class="container-fluid">
                               <div class="row">
                                 <div class="col-md-2">
@@ -81,6 +101,12 @@
 
               <div class="container-fluid">
                               <div class="row">
+                                   <div class="col-md-2">
+                                  <div class="form-group">
+                                      <label>Cantidad de Familias</label>
+                                      <input class="form-control" id="numfa" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" type="text" placeholder="Escriba el Numero">
+                                </div>
+                               </div>
                                 <div class="col-md-3">
                                   <div class="form-group">
                                            <label>Religion</label>
@@ -93,12 +119,105 @@
                                             </select>
                                 </div>
                                </div>
+                               <div class="col-md-3">
+                                  <div class="form-group">
+                                           <label>Tipo de Familia</label>
+                                            <select class="form-control">
+                                                <option>Nuclear</option>
+                                                <option>Extensa</option>
+                                                <option>Extendia</option>
+                                            </select>
+                                </div>
+                               </div>
                                </div>
                           
+                          </div>  
+
+                 <div class="container-fluid">
+                    <div class="row">
+                    <div class="col-md-3">  
+                        <div class="form-group has-feedback">
+                              <label>Vectores y Mascotas</label>
+                                              <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Zancudos
+                                                </label>
+                                            </div>
+                                              <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Moscas
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Moscas
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Chinches Picudas
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Cucarachas
+                                                </label>
+                                            </div>
+                                          </div>
+                    </div>
+
+                    <div class="col-md-3">
+                    <div class="form-group">
+
+                          <label>Perros</label>
+                          <select class="form-control">
+                                  <option>0</option>
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>5</option>
+                                  <option>5</option>
+                                  <option>6</option>
+                                  <option>7</option>
+                                  <option>8</option>
+                                  <option>9</option>
+                                  <option>10</option>
+                          </select>
+                          <label>Gatos</label>
+                          <select class="form-control">
+                                  <option>0</option>
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>5</option>
+                                  <option>5</option>
+                                  <option>6</option>
+                                  <option>7</option>
+                                  <option>8</option>
+                                  <option>9</option>
+                                  <option>10</option>
+                          </select>
+                          <label>Otras Mascotas</label>
+                          <select class="form-control">
+                                  <option>0</option>
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>5</option>
+                                  <option>5</option>
+                                  <option>6</option>
+                                  <option>7</option>
+                                  <option>8</option>
+                                  <option>9</option>
+                                  <option>10</option>
+                          </select>
+                          
+                          
+                    </div>
+                    </div>
+                    </div>
+                 
                           <br>
                           <br>
                           <br>
-                            </div>                              
+                            </div>                                       
                         </div>
       </div>
        <div class="container-fluid">

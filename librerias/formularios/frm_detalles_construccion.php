@@ -1,8 +1,29 @@
-<script src="librerias/js/cargarFormularios.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- Estilos Bootstrap -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.css">
+    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" type="text/css" href="../librerias/css/style.css">
+    <!-- Estilos ccs Font-awesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<br>
+<div class="container">
+	
+
 		<div class="main row">
 		
-		<div class="col-lg-12 col-md-12">
-        <h3>INGRESO DE DATOS</h3>
+		<div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Detalles de construccion y Tenencia de Animales
@@ -71,6 +92,7 @@
                             </div>
                           </div>
 
+                          
 
                                             <div class="col-md-3">
 
@@ -95,7 +117,7 @@
                                             
                           </div>
 
-                          <div class="container-fluid">
+                          <div class="container">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
@@ -147,17 +169,6 @@
 
                                             </div>
                                         </div>
-                                        <div class="clearfix"></div>
-                            <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-md-5 col-sm-6 col-xs-6">
-                                 <button type="button" title="Atras" style="float:right;" class="btn btn-success btn-sm" onclick="cargarGenerales();"><i class="fa fa-chevron-left"></i>&nbsp;Anterior&nbsp;</button>
-                              </div>
-                              <div class="col-md-5 col-md-offset-2 col-sm-6 col-xs-6">
-                                 <button type="button" title="Siguiente"class="btn btn-success btn-sm" onclick="">Siguiente&nbsp;<i class="fa fa-chevron-right"></i></button>
-                              </div>
-                            </div>  
-                            </div>
 
                                      
                             
@@ -169,3 +180,12 @@
                         </dvi>
                      
                           
+    </div>
+</div>
+
+<script src="./bootstrap/js/jquery.js"></script>
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
