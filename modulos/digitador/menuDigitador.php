@@ -11,7 +11,7 @@
         <li ><a href="#" onClick="cargarNoCensada();">Viviendas No Censadas<span class="sr-only">(current)</span></a></li>
         <li ><a href="" onClick="">Consultas por vivienda<span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Consultas Generales<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Consultas Generales&nbsp;<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li role="presentation" class="dropdown-header">Por Categoria</li>
             <li><a href="#" onClick="cargarBusquedaReligion();">Religion</a></li>

@@ -40,8 +40,8 @@
                                     <td>Universitario</td>
                                     <td>Profesor de Computacion</td>
                                     <td>
-                                        <a href=""><span class="glyphicon glyphicon-edit"></span> Ver y Editar</a>
-                                        <a href=""><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
+                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-edit"></span> Ver y Editar</a>
+                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -51,8 +51,8 @@
                                     <td>Universitario</td>
                                     <td>Profesor de Computacion</td>
                                     <td>
-                                        <a href=""><span class="glyphicon glyphicon-edit"></span> Ver y Editar</a>
-                                        <a href=""><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
+                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-edit"></span> Ver y Editar</a>
+                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -62,8 +62,8 @@
                                     <td>Universitario</td>
                                     <td>Profesor de Computacion</td>
                                     <td>
-                                        <a href=""><span class="glyphicon glyphicon-edit"></span> Ver y Editar</a>
-                                        <a href=""><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
+                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-edit"></span> Ver y Editar</a>
+                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -73,8 +73,8 @@
                                     <td>Universitario</td>
                                     <td>Profesor de Computacion</td>
                                     <td>
-                                        <a href=""><span class="glyphicon glyphicon-edit"></span> Ver y Editar</a>
-                                        <a href=""><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
+                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-edit"></span> Ver y Editar</a>
+                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
                                     </td>
                                 </tr>
                             </tbody>
