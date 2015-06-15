@@ -23,6 +23,12 @@
   <!-- Estilos ccs Font-awesome -->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <!-- Bootstrap Multiselec -->
+  <script type="text/javascript" src="librerias/js/bootstrap-multiselect.js"></script>
+  <script type="text/javascript" src="librerias/js/bootstrap-multiselect-collapsible-groups.js"></script>
+ 
+  <link rel="stylesheet" href="librerias/css/bootstrap-multiselect.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <!-- Datepciker -->
   <script type="text/javascript" src="librerias/js/zebra_datepicker.js"></script>
   <script type="text/javascript" src="librerias/js/zebra_datepicker.src.js"></script>

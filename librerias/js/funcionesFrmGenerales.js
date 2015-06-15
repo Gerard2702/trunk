@@ -4,6 +4,7 @@ function verificarArea()//valida que se haya seleccionado una colonia y busca el
  	  	    $("#alerta").show();
  	  	    $("#alerta").html("<p>No selecciono una colonia</p>");
  	  	   	$("#colonia").focus();
+ 	  	   	$("#area").val("");
  	  	   	return false;
  	  	 }
 		else{
@@ -17,10 +18,10 @@ function verificarArea()//valida que se haya seleccionado una colonia y busca el
  	  	 	 	     success: function(respuesta){ 
  	  	 	 	     	       	 	 	     	      
  	  	 	 	     	if(respuesta=="urbana"){
- 	  	 	 		$("#area").val("urbana");
+ 	  	 	 		$("#area").val("Urbana");
  	  	 	 	        }
  	  	 	 	    else{
- 	  	 	 	     $("#area").val("rural");   
+ 	  	 	 	     $("#area").val("Rural");   
  	  	 	 	     	          }  
  	  	 	 	     	 }//fin del succes function
                     }); //fin del ajax 

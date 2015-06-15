@@ -1,10 +1,10 @@
 <script src="librerias/js/cargarFormularios.js"></script>
 <script src="librerias/js/funcionesFrmgenerales.js"></script>
 <script type="text/javascript" src="../js/funcionesDatepicker.js"></script>
+
 <script type="text/javascript">
   /*ocultas el div con el id alerta*/
   $("#alerta").hide(); 
-  $("#area").value("urbana");
   </script>
 
 <?php  
@@ -35,17 +35,14 @@
       </div>
       <div class="panel-body">
           <!-- INICIO DEL CUERPO DEL FORMULARIO-->
-
           <div class="container-fluid">
                               <div class="row">
                               <div class="col-md-offset-8" >
                               <label>Fecha de Censado</label>
-
+      <input type="date">
                                </div>
                           <br>  
           </div> 
-
-
            <div class="container-fluid">
                               <div class="row">
                                                     <div class="col-md-4">
