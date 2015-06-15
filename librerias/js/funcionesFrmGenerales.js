@@ -1,3 +1,4 @@
+
 function verificarArea()//valida que se haya seleccionado una colonia y busca el area
 {
 	if($("#colonia").val()==""){

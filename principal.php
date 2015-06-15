@@ -95,38 +95,6 @@
   <script src="librerias/js/cargarPrincipal.js"></script>
   <script type="text/javascript">
   $("#alerta").hide();
-
-    $("#ingresar-datos").submit(function(event){
-
-    event.preventDefault(); /*evitamos que se recarge la página*/
-    $.ajax({
-        type: "POST",
-        url: "registrarDatos.php",
-        data: { 
-          nombre: $('#nombre').val(),
-          apellido: $('#apellido').val(), },
-               
-        success: function(respuesta){ 
-                                        
-          if(respuesta=="true"){
-            $("#alerta").show();
-            $("#alerta").html("Datos registrados exitosamente");
-            document.getElementById('alerta').className="alert alert-success";
-            $("#alerta").fadeOut(4000);
-            $("#ingresar-datos")[0].reset()
-
-          }
-          else{
-
-            $("#alerta").show();
-            $("#alerta").html("No se registraron los datos");
-            document.getElementById('alerta').className="alert alert-danger";
-            $("#alerta").fadeOut(4000);
-            $("#ingresar-datos")[0].reset()
-                          } 
-      }//fin del succes function
-    }); //fin del ajax  
-  });
   </script>
   </body>
 </html>

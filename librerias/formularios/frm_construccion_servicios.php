@@ -6,17 +6,19 @@
      <hr>
         <div class="main row">
         <div class="col-lg-12">
-                    <div class="panel panel-primary">
+        <form class="form-signin"  id="ingresar-construccion">
+                 <div class="panel panel-primary">
                         <div class="panel-heading">
                           Detalles de construccion y Riesgos
                         </div>
                         <div class="panel-body">
+                        
                               <div class="col-md-3">                                      
                                         <div class="form-group">
                                             <label>Vulnerabilidad</label>
                                               <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Ninguno
+                                                    <input type="checkbox" value="" autofocus="">Ninguno
                                                 </label>
                                             </div>
                                               <div class="checkbox">
@@ -52,12 +54,12 @@
                                             <label>Material Predominante de Piso</label>
                                                <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="matpiso" id="optionsRadios1" value="option1" checked>Ceramica
+                                                    <input type="radio" name="matpiso" id="optionsRadios1" value="option1" required>Ceramica
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="matpiso" id="optionsRadios1" value="option1" checked>Ladrillo
+                                                    <input type="radio" name="matpiso" id="optionsRadios1" value="option1" >Ladrillo
                                                 </label>
                                             </div>
                                             <div class="radio">
@@ -84,7 +86,7 @@
                                             <label>Material del Techo</label>
                                                 <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="mattecho" id="optionsRadios1" value="option1" checked>Duralita
+                                                    <input type="radio" name="mattecho" id="optionsRadios1" value="option1" required>Duralita
                                                 </label>
                                             </div>
                                             <div class="radio">
@@ -120,7 +122,7 @@
                                             <label>Material Predominante de Paredes</label>
                                                <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="matparedes" id="optionsRadios1" value="option1" checked>Ladrillo/Bloque
+                                                    <input type="radio" name="matparedes" id="optionsRadios1" value="option1" required>Ladrillo/Bloque
                                                 </label>
                                                </div>
                                             <div class="radio">
@@ -144,12 +146,10 @@
                                                 </label>
                                             </div>
                             </div>
-
+                            </div>
                           </div>
                         
-                        </dvi>
                         </div>
-</div>
         <div class="main row">
         
         <div class="col-lg-12">
@@ -165,7 +165,7 @@
                                             <label>Manejo de Basura</label>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="manbasura" id="optionsRadios1" value="option1" checked>Servicio Municipal
+                                                    <input type="radio" name="manbasura" id="optionsRadios1" value="option1" required>Servicio Municipal
                                                 </label>
                                             </div>
                                             <div class="radio">
@@ -207,7 +207,7 @@
                                             <label>Abastecimiento de Agua</label>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="abastagua" id="optionsRadios1" value="option1" checked>Cañeria Intradomiciliar
+                                                    <input type="radio" name="abastagua" id="optionsRadios1" value="option1" required>Cañeria Intradomiciliar
                                                 </label>
                                             </div>
                                             <div class="radio">
@@ -245,7 +245,7 @@
                                             <label>Disposicion de Aguas Negras</label>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="aguasnegras" id="optionsRadios1" value="option1" checked>Alcantarillado por Pozo Resumidero
+                                                    <input type="radio" name="aguasnegras" id="optionsRadios1" value="option1" required>Alcantarillado por Pozo Resumidero
                                                 </label>
                                             </div>
                                             <div class="radio">
@@ -306,18 +306,18 @@
                                 </div>                          
                         </div>
                         </div>   
-                    </div>
                      <div class="container-fluid">
                             <div class="row">
                               <div class="col-md-offset-4 col-md-4 col-sm-12 col-xs-12 text-center" >
-                                 <button type="button" title="Atras"  class="btn btn-success btn-sm" onclick="cargarGenerales();"><i class="fa fa-chevron-left"></i></button>
-                                 <button type="button" title="Siguiente" class="btn btn-success btn-sm " onclick="cargarGenerales();">1</button>
-                                 <button type="button" title="Siguiente" class="btn btn-success btn-sm disabled" onclick="cargarConstruccion();">2</button>
-                                 <button type="button" title="Siguiente" class="btn btn-success btn-sm " onclick="cargarFamilia();">3</button>    
-                                 <button type="button" title="Siguiente" class="btn btn-success btn-sm" onclick="cargarFamilia();"><i class="fa fa-chevron-right"></i></button>
+                                 <button type="button" title="Atras"  class="btn btn-success btn-sm" onclick="cargarGenerales();"><i class="fa fa-chevron-left"></i>&nbsp;Anterior&nbsp;</button>
+                       
+                                 <button type="submit" title="Siguiente" class="btn btn-success btn-sm">Siguiente&nbsp;<i class="fa fa-chevron-right"></i></button>
                               </div>   
                             </div>  
-                            </div>
+                            </div>          
+        </form>
+                    
+                    
                             <br>
                             <br>
                             <br>
