@@ -53,7 +53,7 @@
 		</div>
 		<div class="visible-md visible-lg col-md-2 text-right">
 			<div class="logoe">
-				<img src="" class="img-responsive" alt="Responsive image">
+				<img src="librerias/imagenes/escudo.png" class="img-responsive" alt="Responsive image">
 			</div>	
 		</div>
 	</div>
