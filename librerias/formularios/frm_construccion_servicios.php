@@ -12,7 +12,7 @@
                         </div>
                         <div class="panel-body">
                               <div class="col-md-3">                                      
-                                        <div class="form-group">
+                              <div class="form-group">
                                             <label>Vulnerabilidad</label>
                                               <div class="checkbox">
                                                 <label>
@@ -39,16 +39,16 @@
                                                     <input type="checkbox" value="">Contaminacion por disposicion no adecuada de desechos solidos, quimicos.
                                                 </label>
                                             </div>
-                                             <div class="checkbox">
+                                            <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="">Otros Riesgos
                                                 </label>
                                             </div>
-                                        </div>
-                             </div> 
+                              </div>
+                              </div> 
                     
-                          <div class="col-md-3">
-                            <div class="form-group">
+                              <div class="col-md-3">
+                              <div class="form-group">
                                             <label>Material Predominante de Piso</label>
                                                <div class="radio">
                                                 <label>
@@ -75,12 +75,12 @@
                                                     <input type="radio" name="matpiso" id="optionsRadios3" value="option3">Otro
                                                 </label>
                                             </div>
-                            </div>
-                          </div>
+                              </div>
+                              </div>
 
                        
                                 <div class="col-md-3">
-                            <div class="form-group">
+                                <div class="form-group">
                                             <label>Material del Techo</label>
                                                 <div class="radio">
                                                 <label>
@@ -92,7 +92,7 @@
                                                     <input type="radio" name="mattecho" id="optionsRadios2" value="option2">Lamina
                                                 </label>
                                             </div>
-                                             <div class="radio">
+                                            <div class="radio">
                                                 <label>
                                                     <input type="radio" name="mattecho" id="optionsRadios2" value="option2">Teja de Barro
                                                 </label>
@@ -112,8 +112,8 @@
                                                     <input type="radio" name="mattecho" id="optionsRadios3" value="option3">Otros
                                                 </label>
                                             </div>
-                         </div>
-                         </div>
+                                </div>
+                                </div>
 
                             <div class="col-md-3">
                             <div class="form-group">
@@ -133,12 +133,12 @@
                                                     <input type="radio" name="matparedes" id="optionsRadios3" value="option3">Bahareque
                                                 </label>
                                             </div>
-                                             <div class="radio">
+                                            <div class="radio">
                                                 <label>
                                                     <input type="radio" name="matparedes" id="optionsRadios3" value="option3">Plastico
                                                 </label>
                                             </div>
-                                             <div class="radio">
+                                            <div class="radio">
                                                 <label>
                                                     <input type="radio" name="matparedes" id="optionsRadios3" value="option3">Paredes
                                                 </label>
@@ -178,7 +178,7 @@
                                                     <input type="radio" name="manbasura" id="optionsRadios3" value="option3">Se Entierra
                                                 </label>
                                             </div>
-                                               <div class="radio">
+                                            <div class="radio">
                                                 <label>
                                                     <input type="radio" name="manbasura" id="optionsRadios1" value="option1">Se Quema
                                                 </label>
@@ -188,7 +188,7 @@
                                                     <input type="radio" name="manbasura" id="optionsRadios2" value="option2">Se Tira al Rio/Quebrada
                                                 </label>
                                             </div>
-                                             <div class="radio">
+                                            <div class="radio">
                                                 <label>
                                                     <input type="radio" name="manbasura" id="optionsRadios2" value="option2">Servicio Particular
                                                 </label>
@@ -198,7 +198,7 @@
                                                     <input type="radio" name="manbasura" id="optionsRadios3" value="option3">Otra Manera
                                                 </label>
                                             </div>
-                                        </div>
+                               </div>
 
                          </div>
 
@@ -217,22 +217,22 @@
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="abastagua" id="optionsRadios2" value="option2">Cantarera
+                                                    <input type="radio" name="abastagua" id="optionsRadios3" value="option2">Cantarera
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="abastagua" id="optionsRadios2" value="option2">Pipa
+                                                    <input type="radio" name="abastagua" id="optionsRadios4" value="option2">Pipa
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="abastagua" id="optionsRadios2" value="option2">Rio
+                                                    <input type="radio" name="abastagua" id="optionsRadios5" value="option2">Rio
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="abastagua" id="optionsRadios3" value="option3">Pozo Propio
+                                                    <input type="radio" name="abastagua" id="optionsRadios6" value="option3">Pozo Propio
                                                 </label>
                                             </div>
                                         </div>

@@ -35,12 +35,17 @@
       </div>
       <div class="panel-body">
           <!-- INICIO DEL CUERPO DEL FORMULARIO-->
+
+          <form id="generales">
+            
+
+          </form>
           <div class="container-fluid">
                               <div class="row">
                               <div class="col-md-offset-8" >
                               <label>Fecha de Censado</label>
-      <input type="date">
-                               </div>
+       <input type="date">
+                              </div>
                           <br>  
           </div> 
            <div class="container-fluid">
