@@ -36,13 +36,17 @@
         <div class="panel-body">
           <!-- INICIO DEL CUERPO DEL FORMULARIO-->
           <form class="form-signin"  id="ingresar-generales">
+            
+          <div class="container-fluid">
             <div class="row">
-              <div class="col-md-offset-8" >
-                  <label>Fecha de Censado</label>
-                  <input type="date" id="fecha_censado" name="fecha_censado" required>
-              </div>
-                          <br>  
+            <div class="col-md-offset-8 col-md-4" >
+            <div class="form-group">
+            <label>Fecha de Censado</label>
+             <input class="form-control" type="date" id="fecha-censado" required>
+             </div>
+            </div>              
           </div> 
+          </div>
            <div class="container-fluid">
               <div class="row">
                   <div class="col-md-4">
@@ -262,14 +266,16 @@
                               
                             </div>  
         </div> 
+       
           </form>
           
       </div>
       </div>
+       <br>
+                            <br>
+                            <br>
       
-                            <br>
-                            <br>
-                            <br>
+                           
   
  </div>
 </div>

@@ -8,7 +8,7 @@
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li ><a href="" onClick="">Viviendas Censadas<span class="sr-only">(current)</span></a></li>
-        <li ><a href="" onClick="">Viviendas No Censadas<span class="sr-only">(current)</span></a></li>
+        <li ><a href="#" onClick="cargarNoCensada();">Viviendas No Censadas<span class="sr-only">(current)</span></a></li>
         <li ><a href="" onClick="">Consultas por vivienda<span class="sr-only">(current)</span></a></li>
         <li ><a href="" onClick="">Consultas Generales<span class="sr-only">(current)</span></a></li>
         </ul>

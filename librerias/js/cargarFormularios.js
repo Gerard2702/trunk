@@ -10,6 +10,10 @@ function cargarFamilia(){
 	$('#contenido').load('librerias/formularios/frm_datos_familia.php');
 }
 
+function cargarNoCensada(){
+	$('#contenido').load('librerias/formularios/frm_vivienda_no_censada.php');
+}
+
 /*FUNCION PARA CARGAR EL FORMULARIO DE CONTRUCCIONES GENERALES*/
 $("#ingresar-generales").submit(function(event){
 
