@@ -14,6 +14,19 @@ function cargarNoCensada(){
 	$('#contenido').load('librerias/formularios/frm_vivienda_no_censada.php');
 }
 
+function cargarBusquedaReligion(){
+	$('#contenido').load('librerias/formularios/busqueda_religion.php');
+}
+
+function cargarBusquedaTenencia(){
+	$('#contenido').load('librerias/formularios/busqueda_tenencia_vivienda.php');
+}
+
+function cargarBusquedaTipoFamilia(){
+	$('#contenido').load('librerias/formularios/busqueda_tipo_familia.php');
+}
+
+
 /*FUNCION PARA CARGAR EL FORMULARIO DE CONTRUCCIONES GENERALES*/
 $("#ingresar-generales").submit(function(event){
 

@@ -43,7 +43,7 @@
 	<div class="container-fluid">
 		<div class="visible-md visible-lg col-md-2">
 			<div class="logo">
-				<img src="" class="img-responsive img-circle" alt="Responsive image">
+				<img src="librerias/imagenes/n.png" class="img-responsive img-circle" alt="Responsive image">
 			</div>
 		</div>
   
