@@ -15,6 +15,10 @@
     $rs = mysql_query($query);
     $num = mysql_num_rows($rs);
 
+    $sqltenencia = "SELECT nombre from tenencia_vivienda";
+    $rstenencia= mysql_query($sqltenencia);
+    $numtenencia = mysql_num_rows($rstenencia);
+
     $sqlreligion = "SELECT nombre from religion order by nombre;";
     $rsreligion = mysql_query($sqlreligion);
     $numreligion = mysql_num_rows($rsreligion);
@@ -32,6 +36,7 @@
     $fecha_censo="";
     $nom_colonia= "Seleccione una Colonia";
     $pasaje ="";
+    $tenencia="Seleccione una Tenencia";
     $num_vivienda="";
     $can_familias="";
     $religion ="Seleccione una Religion";
@@ -41,7 +46,7 @@
     $perros=0;
     $gatos=0;
     $otros=0;
-    $observaciones ="Observaciones Escritas";
+    $observaciones ="";
 
     /* inicializamos variables del formulario 1 que están en la sesión, por ejemplo, si volví del formulario 2 al 1 */
     if (!empty($_SESSION['fecha_censo'])){
@@ -76,17 +81,18 @@
             
           <div class="container-fluid">
             <div class="row">
-            <div class="col-md-offset-8 col-md-4" >
+            <div class="col-md-4" >
             <div class="form-group">
             <label>Fecha de Censado</label>
              <input class="form-control datepicker" type="date" id="fecha-censado" required>
              </div>
-            </div>              
+            </div>
+                       
           </div> 
           </div>
            <div class="container-fluid">
               <div class="row">
-                  <div class="col-md-4">
+               <div class="col-md-3">
                     <div class="form-group">
                         <label>Departamento</label>
                         <select class="form-control" id="departamento" disabled="deshabilitado" required>
@@ -97,8 +103,8 @@
                           <option></option>
                         </select>
                     </div>
-                  </div>
-                <div class="col-md-4">
+                  </div> 
+            <div class="col-md-3">
                   <div class="form-group">
                       <label>Municipio</label>
                         <select class="form-control" id="municipio" disabled="deshabilitado" required>
@@ -109,9 +115,14 @@
                           <option>5</option>
                         </select>
                   </div>
-                </div>
+                </div> 
+               
+              </div>                          
+            </div>
 
-                <div class="col-md-4">
+          <div class="container-fluid">
+            <div class="row">
+             <div class="col-md-3">
                   <div class="form-group">
                     <label>Colonia/Barrio/Caserio/Residencial</label>
                     <select type="text" class="form-control" id="colonia" onchange="verificarArea();" required >
@@ -130,59 +141,31 @@
                     </div>
                   </div>
                 </div>
-              </div>                          
-            </div>
-
-          <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-2">
-                  <div class="form-group">
-                    <label>Area</label>
-                    <input class="form-control" id="area" value=""type="text" placeholder="Area" disabled required>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
+                <div class="col-md-5">
                   <div class="form-group">
                       <label>Pasaje/Poligono/Senda/Etc.</label>
                       <input class="form-control" type="text" id="pasaje" placeholder="Escriba su direccion aqui" value="<?php echo $pasaje;?>" required>
                   </div>
                 </div>
-
                 <div class="col-md-2">
                   <div class="form-group">
                     <label>Numero de Vivienda</label>
                     <input class="form-control" id="numvivienda" pattern="[0-9]{1,10}" title="Escriba un numero" type="text" placeholder="Escriba el Numero" value="<?php echo $num_vivienda;?>" required>
                 </div>
                 </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label>Area</label>
+                    <input class="form-control" id="area" value=""type="text" placeholder="Area" disabled required>
+                  </div>
+                </div>
             </div>                          
           </div>
             
-
+        <hr>
           <div class="container-fluid">
             <div class="row">
-              <div class="col-md-2">
-                <div class="form-group">
-                  <label>Cantidad de Familias</label>
-                  <input class="form-control" id="numfamilia" pattern="[0-9]{1,10}" type="text" placeholder="Escriba el Numero" value="<?php echo $can_familias;?>" required>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label>Religion</label>
-                    <select type="text" class="form-control" id="religion" required >
-                     <option <?php if($religion=="Seleccione una Religion"){ ?> value=''<?php } else { ?>value="<?php echo $religion;?>"<?php }?>><?php echo $religion;?></option>
-                        <?php 
-                            if($numreligion>0){
-                               while($filasreligion = mysql_fetch_array($rsreligion)){
-                            echo "<option value='".$filasreligion['nombre']."'>".$filasreligion['nombre']."</option>";}
-                            }else{
-                              echo "<option value='0'>No hay registros</option>";
-                            }
-                            ?>
-                    </select>
-                </div>
-              </div>
+            
               <div class="col-md-3">
                  <div class="form-group">
                   <label>Tipo de Familia</label>
@@ -199,7 +182,51 @@
                     </select>
               </div>
               </div>
+                <div class="col-md-3">
+                <div class="form-group">
+                  <label>Cantidad de Familias</label>
+                  <input class="form-control" id="numfamilia" pattern="[0-9]{1,10}" type="text" placeholder="Escriba el Numero" value="<?php echo $can_familias;?>" required>
+                </div>
+              </div>
+
               <div class="col-md-3">
+                <div class="form-group">
+                  <label>Religion</label>
+                    <select type="text" class="form-control" id="religion" required >
+                     <option <?php if($religion=="Seleccione una Religion"){ ?> value=''<?php } else { ?>value="<?php echo $religion;?>"<?php }?>><?php echo $religion;?></option>
+                        <?php 
+                            if($numreligion>0){
+                               while($filasreligion = mysql_fetch_array($rsreligion)){
+                            echo "<option value='".$filasreligion['nombre']."'>".$filasreligion['nombre']."</option>";}
+                            }else{
+                              echo "<option value='0'>No hay registros</option>";
+                            }
+                            ?>
+                    </select>
+                </div>
+              </div>
+          
+            </div>
+          </div>  
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-3">
+                  <div class="form-group">
+                    <label>Tenencia</label>
+                    <select type="text" class="form-control" id="tenencia" onchange="verificarArea();" required >
+                     <option <?php if($tenencia=="Seleccione una Tenencia"){ ?> value=''<?php } else { ?>value='<?php echo $tenencia;?>'<?php }?>><?php echo $tenencia;?></option>
+                        <?php 
+                            if($numtenencia>0){
+                               while($filastenencia = mysql_fetch_array($rstenencia)){
+                            echo "<option value='".$filastenencia['nombre']."'>".$filastenencia['nombre']."</option>";}
+                            }else{
+                              echo "<option value='0'>No hay registros</option>";
+                            }
+                            ?>
+                    </select>
+                </div>
+                </div>
+                <div class="col-md-3">
                 <div class="form-group">
                   <label>Seguridad</label>
                   <select type="text" class="form-control" id="seguridad" required >
@@ -215,12 +242,13 @@
                     </select>
               </div>
               </div>
-            </div>
-          </div>  
 
+            </div>
+          </div>
+<hr>
                  <div class="container-fluid">
                     <div class="row">
-                    <div class="col-md-3">  
+                    <div class="col-md-3"> 
                         <div class="form-group has-feedback">
                               <label>Vectores y Mascotas</label>
                                               <div class="checkbox">
@@ -266,8 +294,12 @@
                                   <option>8</option>
                                   <option>9</option>
                                   <option>10</option>
-                          </select>
-                          <label>Gatos</label>
+                          </select>    
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>Gatos</label>
                           <select class="form-control" type="text" id="gatos" required>
                                   <option>0</option>
                                   <option>1</option>
@@ -280,7 +312,11 @@
                                   <option>9</option>
                                   <option>10</option>
                           </select>
-                          <label>Otras Mascotas</label>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>Otras Mascotas</label>
                           <select class="form-control" type="text" id="otras_mascotas" required>
                                   <option>0</option>
                                   <option>1</option>
@@ -293,23 +329,23 @@
                                   <option>9</option>
                                   <option>10</option>
                           </select>
-                          
-                          
+                      </div>
                     </div>
+                      
                     </div>
-                    <div class="col-md-6">
+                
+                      </div> 
+                      <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-md-12">
                                 <div class="form-group">
                                    <label>Observaciones de Vivienda</label>
                                    <textarea class="form-control" rows="6" id="observaciones" type="text"><?php echo $observaciones;?></textarea>
                                 </div>
 
-                    </div>  
                     </div>
-                 
-                          <br>
-                          <br>
-                          <br>
-                            </div>                                       
+                        </div>
+                      </div>                                      
                         <div class="container-fluid">
                             <div class="row">
                               <div class="col-md-offset-4 col-md-4 col-sm-12 col-xs-12 text-center" >
@@ -318,17 +354,12 @@
                               
                             </div>  
         </div> 
-       
-          </form>
-          
+          </form>   
       </div>
       </div>
        <br>
                             <br>
                             <br>
-      
-                           
-  
  </div>
 </div>
 
