@@ -1,0 +1,7 @@
+agregar aguas grises
+agregar sit laboral (Modal)
+Modificar discapaci
+Modificar causas
+Modificar enfermedades
+agregar tipo de letrina en detallles de construccion
+agregar numero de familia

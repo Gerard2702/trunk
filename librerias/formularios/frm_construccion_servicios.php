@@ -18,70 +18,121 @@
                                             <label>Vulnerabilidad</label>
                                               <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="" autofocus="">Ninguno
+                                                    <input type="checkbox" value="Ninguno" autofocus="">Ninguno
                                                 </label>
                                             </div>
                                               <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Deslave
+                                                    <input type="checkbox" value="Deslave">Deslave
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Inundaciones
+                                                    <input type="checkbox" value="Inundaciones">Inundaciones
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Incendio por Cocina de Leña Interna
+                                                    <input type="checkbox" value="Incendio por cocina de leña">Incendio por Cocina de Leña Interna
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Contaminacion por disposicion no adecuada de desechos solidos, quimicos.
+                                                    <input type="checkbox" value="Contaminacion por deseños solidos o liquidos">Contaminacion por disposicion no adecuada de desechos solidos, quimicos.
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Otros Riesgos
+                                                    <input type="checkbox" value="Otros riesgos">Otros Riesgos
+                                                </label>
+                                            </div>
+                              </div>
+                              </div>
+
+                              <div class="col-md-2">
+                              <div class="form-group">
+                                            <label>Material Predominante de Paredes</label>
+                                               <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="matparedes" id="matparedes" value="Ladrillo/Bloque" required>Ladrillo/Bloque 
+                                                </label>
+                                               </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="matparedes" id="matparedes" value="Adobe">Adobe
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="matparedes" id="matparedes" value="Bahareque">Bahareque
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="matparedes" id="matparedes" value="Plastico">Plastico
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="matparedes" id="matparedes" value="Lamina">Lamina
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="matparedes" id="matparedes" value="Madera">Madera
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="matparedes" id="matparedes" value="Tabla Roca">Tabla Roca
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="matparedes" id="optionsRadios3" value="Otros">Otros
                                                 </label>
                                             </div>
                               </div>
                               </div> 
                     
-                              <div class="col-md-3">
+                              <div class="col-md-2">
                               <div class="form-group">
                                             <label>Material Predominante de Piso</label>
                                                <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="matpiso" id="optionsRadios1" value="option1" required>Ceramica
+                                                    <input type="radio" name="matpiso" id="matpiso" value="Ceramica" required>Ceramica
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="matpiso" id="optionsRadios1" value="option1" >Ladrillo
+                                                    <input type="radio" name="matpiso" id="matpiso" value="Cemento" >Cemento
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="matpiso" id="optionsRadios2" value="option2">Tierra
+                                                    <input type="radio" name="matpiso" id="matpiso" value="Ladrillo">Ladrillo
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="matpiso" id="optionsRadios2" value="option2">Cemento
+                                                    <input type="radio" name="matpiso" id="matpiso" value="Madera">Madera
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="matpiso" id="optionsRadios3" value="option3">Otro
+                                                    <input type="radio" name="matpiso" id="matpiso" value="Tierra">Tierra
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="matpiso" id="matpiso" value="Otros">Otros
                                                 </label>
                                             </div>
                               </div>
                               </div>
 
                        
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                 <div class="form-group">
                                             <label>Material del Techo</label>
                                                 <div class="radio">
@@ -116,52 +167,43 @@
                                             </div>
                                 </div>
                                 </div>
+                           
 
-                            <div class="col-md-3">
-                            <div class="form-group">
-                                            <label>Material Predominante de Paredes</label>
-                                               <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="matparedes" id="optionsRadios1" value="option1" required>Ladrillo/Bloque
-                                                </label>
-                                               </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="matparedes" id="optionsRadios2" value="option2">Adobe
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="matparedes" id="optionsRadios3" value="option3">Bahareque
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="matparedes" id="optionsRadios3" value="option3">Plastico
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="matparedes" id="optionsRadios3" value="option3">Lamina
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="matparedes" id="optionsRadios3" value="option3">Madera
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="matparedes" id="optionsRadios3" value="option3">Tabla Roca
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="matparedes" id="optionsRadios3" value="option3">Otros
-                                                </label>
-                                            </div>
-                            </div>
-                            </div>
+	                            <div class="col-md-3">
+	                            <div class="form-group">
+	                                            <label>Tipo de Letrina</label>
+	                                               <div class="radio">
+	                                                <label>
+	                                                    <input type="radio" name="tipoletrina" id="tipoletrina" value="De Lavar Conectado a fosa Septica" required>De Lavar Conectado a fosa Septica
+	                                                </label>
+	                                               </div>
+	                                            <div class="radio">
+	                                                <label>
+	                                                    <input type="radio" name="tipoletrina" id="tipoletrina" value="De Lavar Conectado a Alcantarillado">De Lavar Conectado a Alcantarillado
+	                                                </label>
+	                                            </div>
+	                                            <div class="radio">
+	                                                <label>
+	                                                    <input type="radio" name="tipoletrina" id="tipoletrina" value="Letrina de Hoyo Seco">Letrina de Hoyo Seco
+	                                                </label>
+	                                            </div>
+	                                            <div class="radio">
+	                                                <label>
+	                                                    <input type="radio" name="tipoletrina" id="tipoletrina" value="Letrina Abonera">Letrina Abonera
+	                                                </label>
+	                                            </div>
+	                                            <div class="radio">
+	                                                <label>
+	                                                    <input type="radio" name="tipoletrina" id="tipoletrina" value="Otro Tipo">Otro Tipo 
+	                                                </label>
+	                                            </div>
+	                                            <div class="radio">
+	                                                <label>
+	                                                    <input type="radio" name="tipoletrina" id="tipoletrina" value="No Aplica">No Aplica
+	                                                </label>
+	                                            </div>
+	                                          </div>                       
+	                                          </div>
                           </div>
                         
                         </div>
