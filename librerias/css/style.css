@@ -17,19 +17,19 @@ h4{
 }
 .logo {
   width: 75px;
-  margin-top:10px;
-  margin-bottom: 10px;
+  margin-top:5px;
+  margin-bottom: 5px;
 }
 
 .logoe {
   width: 75px;
-  margin-top:10px;
-  margin-bottom: 10px;
+  margin-top:5px;
+  margin-bottom: 5px;
   float: right;
 }
 
 .titulo1{
-	margin-top: 10px;
+	margin-top: 5px;
 	text-transform: uppercase;
 }
 .titulo2 {
@@ -69,9 +69,23 @@ h4{
 
 .navbar-nav > li > a {
     border-right: 1px solid !important;   
-    border-right-color: #e7e7e7 !important; 
+    border-right-color: #E7E7E7 !important; 
 }
 
 .multiselect-container>li>a>label {
   padding: 4px 20px 3px 20px;
+}
+
+
+.navbar-inverse {
+    background-image: linear-gradient(to bottom, #DDDDDD 0%, #222 100%) !important;
+    background-repeat: repeat-x;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #E7E7E7;
+}
+
+.navbar {
+    border-radius: 0px !important;
 }

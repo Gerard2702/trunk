@@ -26,16 +26,11 @@
   <!-- Bootstrap Multiselec -->
   <script type="text/javascript" src="librerias/js/bootstrap-multiselect.js"></script>
   <script type="text/javascript" src="librerias/js/bootstrap-multiselect-collapsible-groups.js"></script>
- 
   <link rel="stylesheet" href="librerias/css/bootstrap-multiselect.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <!-- Datepciker -->
-  <script type="text/javascript" src="librerias/js/zebra_datepicker.js"></script>
-  <script type="text/javascript" src="librerias/js/zebra_datepicker.src.js"></script>
-  <link rel="stylesheet" href="librerias/css/default.css" type="text/css">
-  <script type="text/javascript" src="librerias/js/funcionesDatepicker.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+  <!-- Datepicker for Bootstrap -->
+  <link rel="stylesheet" href="librerias/css/datepicker.css">
+  <script type="text/javascript" src="librerias/js/bootstrap-multiselect.js"></script>
 </head>
 <body onload="cargarPagina(<?php echo $_SESSION['tipo_rol']?>)">
 	<!-- HEADER DEL SISTEMA -->
@@ -59,7 +54,7 @@
 	</div>
 </header>
   <!-- NAVBAR DEL SISTEMA-->
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
