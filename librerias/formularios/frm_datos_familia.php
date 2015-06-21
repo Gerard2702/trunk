@@ -4,8 +4,7 @@
 <div class="container">
     <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
-     <h3>INGRESO DE DATOS</h3>
-    <hr>  
+     <h3>INGRESO DE DATOS</h3> 
         <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane active">
@@ -140,6 +139,11 @@
                                                     <input type="checkbox" value="">Ganado Vacuno
                                                 </label>
                                             </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Ganado Porcino
+                                                </label>
+                                            </div>
                                               <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="">Negocio Propio
@@ -147,7 +151,7 @@
                                             </div>
                                              <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Bono
+                                                    <input type="checkbox" value="">Otros
                                                 </label>
                                             </div>
 

@@ -11,15 +11,15 @@
     include_once("../php/conexion.php");
 
     /*Sentencias para recuperar los datos para los select*/
-    $query = "SELECT id_area,nombre from colonia";
+    $query = "SELECT id_area,nombre from colonia order by nombre;";
     $rs = mysql_query($query);
     $num = mysql_num_rows($rs);
 
-    $sqlreligion = "SELECT nombre from religion";
+    $sqlreligion = "SELECT nombre from religion order by nombre;";
     $rsreligion = mysql_query($sqlreligion);
     $numreligion = mysql_num_rows($rsreligion);
 
-    $sqltipofamilia = "SELECT nombre from tipo_familia";
+    $sqltipofamilia = "SELECT nombre from tipo_familia order by nombre;";
     $rstipofamilia = mysql_query($sqltipofamilia);
     $numtipofamilia = mysql_num_rows($rstipofamilia);
 
@@ -58,7 +58,7 @@
     $gatos = $_SESSION['gatos'];
     $otros = $_SESSION['otros'];
     $observaciones = $_SESSION['observaciones'];
-    } ;
+    };
 ?>
 
 <!--INICIO DEL CUERPO DEL FORMULARIO -->
@@ -79,7 +79,7 @@
             <div class="col-md-offset-8 col-md-4" >
             <div class="form-group">
             <label>Fecha de Censado</label>
-             <input class="form-control datepicker" type="text" id="fecha-censado" required>
+             <input class="form-control datepicker" type="date" id="fecha-censado" required>
              </div>
             </div>              
           </div> 
@@ -243,6 +243,11 @@
                                                     <input type="checkbox" name="vector[]" value="cucacachas">Cucarachas
                                                 </label>
                                             </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="vector[]" value="Roedores">Roedores
+                                                </label>
+                                            </div>
                                           </div>
                     </div>
 
@@ -294,7 +299,7 @@
                     </div>
                     <div class="col-md-6">
                                 <div class="form-group">
-                                   <label>Observaciones</label>
+                                   <label>Observaciones de Vivienda</label>
                                    <textarea class="form-control" rows="6" id="observaciones" type="text"><?php echo $observaciones;?></textarea>
                                 </div>
 

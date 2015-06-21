@@ -142,7 +142,22 @@
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="matparedes" id="optionsRadios3" value="option3">Paredes
+                                                    <input type="radio" name="matparedes" id="optionsRadios3" value="option3">Lamina
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="matparedes" id="optionsRadios3" value="option3">Madera
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="matparedes" id="optionsRadios3" value="option3">Tabla Roca
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="matparedes" id="optionsRadios3" value="option3">Otros
                                                 </label>
                                             </div>
                             </div>
@@ -234,6 +249,11 @@
                                                 <label>
                                                     <input type="radio" name="abastagua" id="optionsRadios6" value="option3">Pozo Propio
                                                 </label>
+                                                <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="abastagua" id="optionsRadios6" value="option3">Otros
+                                                </label>
+                                            </div>
                                             </div>
                                         </div>
                          </div>

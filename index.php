@@ -30,7 +30,7 @@
 			<div id="box" class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
 				<div class="row" id="header-login">
 					<div class="text-center col-md-12" >
-						<h2 >Sistema de Control Poblacional</h2>
+						<h2 >SISTEMA DE REGISTRO DE POBLACION Y VIVIENDAS</h2>
 						<h3 >Alcaldia de Nuevo Cuscatlan</h3>
 					</div>
 				</div>
