@@ -34,6 +34,7 @@
 
     /*Inicializa las variables en caso que no esten declaradas*/
     $fecha_censo="";
+    $area = "Area";
     $nom_colonia= "Seleccione una Colonia";
     $pasaje ="";
     $tenencia="Seleccione una Tenencia";
@@ -42,28 +43,33 @@
     $religion ="Seleccione una Religion";
     $tipo_familia="Seleccione una Familia";
     $seguridad ="Seleccione una Seguridad";
-    $vectores ="";
     $perros=0;
     $gatos=0;
     $otros=0;
     $observaciones ="";
-
+ 
+    
     /* inicializamos variables del formulario 1 que están en la sesión, por ejemplo, si volví del formulario 2 al 1 */
-    if (!empty($_SESSION['fecha_censo'])){
-    $fecha_censo = $_SESSION['fecha_censo'];
-    $nom_colonia = $_SESSION['nom_colonia'];
+    if (!empty($_SESSION['fecha_censado'])){
+    $fecha_censo = $_SESSION['fecha_censado'];
+    $area = $_SESSION['Area'];
+    $nom_colonia = $_SESSION['colonia'];
     $pasaje = $_SESSION['pasaje'];
     $num_vivienda = $_SESSION['num_vivienda'];
-    $can_familias = $_SESSION['can_familias'];
+    $can_familias = $_SESSION['can_familia'];
     $religion = $_SESSION['religion'];
     $tipo_familia = $_SESSION['tipo_familia'];
     $seguridad = $_SESSION['seguridad'];
-    $vectores = $_SESSION['vectores'];
+    $tenencia = $_SESSION['tenencia'];
     $perros = $_SESSION['perros'];
     $gatos = $_SESSION['gatos'];
-    $otros = $_SESSION['otros'];
+    $otros = $_SESSION['otras_mascotas'];
     $observaciones = $_SESSION['observaciones'];
     };
+
+
+
+
 ?>
 
 <!--INICIO DEL CUERPO DEL FORMULARIO -->
@@ -84,7 +90,7 @@
             <div class="col-md-4" >
             <div class="form-group">
             <label>Fecha de Censado</label>
-             <input class="form-control datepicker" type="date" id="fecha-censado" required>
+             <input class="form-control datepicker" type="date" id="fecha_censado" value="<?php echo $fecha_censo ?>"required>
              </div>
             </div>
                        
@@ -156,7 +162,7 @@
                 <div class="col-md-2">
                   <div class="form-group">
                     <label>Area</label>
-                    <input class="form-control" id="area" value=""type="text" placeholder="Area" disabled required>
+                    <input class="form-control" id="area" value="<?php echo $area ?>" type="text" placeholder="Area" disabled required>
                   </div>
                 </div>
             </div>                          
@@ -185,7 +191,7 @@
                 <div class="col-md-3">
                 <div class="form-group">
                   <label>Cantidad de Familias</label>
-                  <input class="form-control" id="numfamilia" pattern="[0-9]{1,10}" type="text" placeholder="Escriba el Numero" value="<?php echo $can_familias;?>" required>
+                  <input class="form-control" id="can_familia" pattern="[0-9]{1,10}" type="text" placeholder="Escriba el Numero" value="<?php echo $can_familias;?>" required>
                 </div>
               </div>
 
@@ -253,27 +259,27 @@
                               <label>Vectores y Mascotas</label>
                                               <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vector[]" value="zancudos">Zancudos
+                                                    <input type="checkbox" name="vectores[]" value="1">Zancudos
                                                 </label>
                                             </div>
                                               <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vector[]" value="moscas">Moscas
+                                                    <input type="checkbox" name="vectores[]" value="2">Moscas
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vector[]" value="chinches">Chinches Picudas
+                                                    <input type="checkbox" name="vectores[]" value="3">Chinches Picudas
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vector[]" value="cucacachas">Cucarachas
+                                                    <input type="checkbox" name="vectores[]" value="4">Cucarachas
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vector[]" value="Roedores">Roedores
+                                                    <input type="checkbox" name="vectores[]" value="5">Roedores
                                                 </label>
                                             </div>
                                           </div>
@@ -283,28 +289,33 @@
                     <div class="form-group">
 
                           <label>Perros</label>
-                          <select class="form-control" type="text" id="perros" required>
+                          <select class="form-control" type="text" id="perros" required><?php if($perros!=0) { ?>
+                                  <option value="<?php echo $perros ?>"><?php echo $perros ?></option> <?php }?>
                                   <option>0</option>
                                   <option>1</option>
                                   <option>2</option>
-                                  <option>5</option>
+                                  <option>3</option>
+                                  <option>4</option>
                                   <option>5</option>
                                   <option>6</option>
                                   <option>7</option>
                                   <option>8</option>
                                   <option>9</option>
                                   <option>10</option>
+                            
                           </select>    
                     </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>Gatos</label>
-                          <select class="form-control" type="text" id="gatos" required>
+                          <select class="form-control" type="text" id="gatos" required><?php if($gatos!=0) { ?>
+                                  <option value="<?php echo $gatos ?>"><?php echo $gatos ?></option> <?php }?>
                                   <option>0</option>
                                   <option>1</option>
                                   <option>2</option>
-                                  <option>5</option>
+                                  <option>3</option>
+                                  <option>4</option>
                                   <option>5</option>
                                   <option>6</option>
                                   <option>7</option>
@@ -317,11 +328,13 @@
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>Otras Mascotas</label>
-                          <select class="form-control" type="text" id="otras_mascotas" required>
+                          <select class="form-control" type="text" id="otras_mascotas" required><?php if($otros!=0) { ?>
+                                  <option value="<?php echo $otros ?>"><?php echo $otros ?></option> <?php }?>
                                   <option>0</option>
                                   <option>1</option>
                                   <option>2</option>
-                                  <option>5</option>
+                                  <option>3</option>
+                                  <option>4</option>
                                   <option>5</option>
                                   <option>6</option>
                                   <option>7</option>
