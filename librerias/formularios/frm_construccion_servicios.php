@@ -259,7 +259,7 @@
 
                          </div>
 
-                         <div class="col-md-3">
+                         <div class="col-md-2">
                                <div class="form-group">
                                             <label>Abastecimiento de Agua</label>
                                             <div class="radio">
@@ -300,6 +300,42 @@
                                         </div>
                          </div>
 
+                         <div class="col-md-2">
+                               <div class="form-group">
+                                            <label>Disposicion de Aguas Grises</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="aguagris" id="aguagris" value="A la Calle" required>A la Calle
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="aguagris" id="aguagris" value="Cielo Abierto">Cielo Abierto
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="aguagris" id="aguagris" value="Eliminacion por Alcantarillado">Eliminacion por Alcantarillado
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="aguagris" id="aguagris" value="Sistema de Pozo Resumidero">Sistema de Pozo Resumidero
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="aguagris" id="aguagris" value="Rio">Rio
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="aguagris" id="aguagris" value="Otros">Otros
+                                                </label>
+                                            </div>
+                                        </div>
+                         </div>
+
                            
                          <div class="col-md-3">
                             
@@ -329,7 +365,7 @@
 
                          </div>
 
-                          <div class="col-md-3">
+                          <div class="col-md-2">
                                         
                                         <div class="form-group">
                                             <label>Otros</label>
