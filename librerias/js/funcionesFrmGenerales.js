@@ -29,3 +29,22 @@ function verificarArea()//valida que se haya seleccionado una colonia y busca el
 
  	  	 	}
 }
+
+function reiniciarFormulario(){
+
+if(confirm('Esta seguro que desea reinicar el formulario?')){
+                  $.ajax({
+ 	  	 	  	     type: "POST",
+ 	  	 	  	     url : "librerias/php/guardarVariables.php",
+ 	  	 	 	     data: { 
+ 	  	 	 	     	    
+ 	  	 	 	     	    funcion:"reiniciarVariable",
+ 	  	 	 	     	    }, 
+ 	  	 	 	     success: function(respuesta){ 
+
+ 	  	 	 	     	  $('#contenido').load('librerias/formularios/frm_datos_generales.php');     	 	 	     	      
+ 	  	 	 	   
+ 	  	 	 	     	 }//fin del succes function
+                    }); //fin del ajax 
+              }
+}

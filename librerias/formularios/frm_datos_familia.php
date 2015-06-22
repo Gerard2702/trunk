@@ -1,5 +1,6 @@
 <script type="text/javascript" src="librerias/js/cargarFormularios.js"></script>
 <script type="text/javascript" src="../js/funcionesDatepicker.js"></script>
+<<<<<<< HEAD
 <script src="librerias/js/cargarFormularios.js"></script>
 <script src="librerias/js/funcionesFrmgenerales.js"></script>
 
@@ -56,6 +57,16 @@
 
     
     ?>
+=======
+<script>
+     $("#fecha_nacimiento").datepicker({
+    changeMonth: true,
+    changeYear: true,
+    yearRange: '1900:2020',
+    dateFormat: 'dd/mm/yy'
+  });
+    </script>
+>>>>>>> origin/master
 
 <div class="container">
     <div class="row">
@@ -281,12 +292,12 @@
             
             </div>
             <div class="col-md-4">
-                 
                   <div class="form-group has-feedback">
                     <label class="control-label">Fecha de Nacimiento <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
-                    <input type="date" class="form-control" id="fecha-nacimiento" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" placeholder="Fecha de Nacimiento" required/>
+                    <input type="date" class="form-control datepicker" id="fecha_nacimiento"  placeholder="Fecha de Nacimiento" required/>
                 
                   </div>
+                  
                 
             </div>
            </div>
@@ -535,5 +546,6 @@
   </div>
  </div>
 </div>
+
 
 
