@@ -76,7 +76,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
-     <h3>INGRESO DE DATOS</h3>
+     <h3>INGRESO DE DATOS<input class="btn btn-danger"type="button" onclick="reiniciarFormulario();"style="float:right;" value="LIMPIAR FORMULARIO"></h3>
+
       <div class="panel panel-primary">
         <div class="panel-heading">
           Datos Generales
@@ -87,10 +88,10 @@
             
           <div class="container-fluid">
             <div class="row">
-            <div class="col-md-4" >
+            <div class="col-md-3" >
             <div class="form-group">
             <label>Fecha de Censado</label>
-             <input class="form-control datepicker" type="date" id="fecha_censado" value="<?php echo $fecha_censo ?>"required>
+             <input class="form-control datepicker" type="text" id="fecha_censado" value="<?php echo $fecha_censo ?>" placeholder="Ingrese un Fecha"required>
              </div>
             </div>
                        
@@ -380,3 +381,11 @@
   /*ocultas el div con el id alerta*/
   $("#alerta").hide(); 
   </script>
+    <script>
+     $( "#fecha_censado" ).datepicker({
+    changeMonth: true,
+    changeYear: true,
+    yearRange: '2010:2020',
+    dateFormat: 'dd/mm/yy'
+  });
+    </script>

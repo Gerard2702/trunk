@@ -8,6 +8,9 @@ switch ($_POST['funcion']) {
 	case 'formulario1':
 	echo variables_form1();		
 	break;
+	case 'reiniciarVariable':
+	echo reiniciar_variable();
+	break;
 	default:
     { echo 'parametros incorrectos';}
     break;
@@ -31,8 +34,12 @@ function variables_form1(){
 	$_SESSION['gatos'] = $_POST['gatos'];
 	$_SESSION['otras_mascotas'] = $_POST['otras_mascotas'] ;
 	$_SESSION['observaciones'] = $_POST['observaciones'];
-    $_SESSION['vectores']= $_POST['vectores'];
 
+}
+
+function reiniciar_variable(){
+	session_start();
+	$_SESSION['fecha_censado']=array();
 }
 
 

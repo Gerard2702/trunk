@@ -31,8 +31,8 @@
   <link rel="stylesheet" href="librerias/css/bootstrap-multiselect.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <!-- Datepicker for Bootstrap -->
-  <link rel="stylesheet" href="librerias/css/datepicker.css">
-  <script type="text/javascript" src="librerias/js/bootstrap-multiselect.js"></script>
+  <link href="librerias/css/jquery-ui.min.css" rel="stylesheet">
+
 </head>
 <body onload="cargarPagina(<?php echo $_SESSION['tipo_rol']?>)">
 	<!-- HEADER DEL SISTEMA -->
@@ -90,9 +90,11 @@
   <script src="librerias/js/jquery-migrate-1.2.1.min.js"></script>
   <script src="librerias/js/bootstrap.js"></script>
   <script src="librerias/js/cargarPrincipal.js"></script>
+  <script src="librerias/js/jquery-ui.min.js"></script>
   <script type="text/javascript">
   $("#alerta").hide();
   </script>
+
   </body>
 </html>
 
