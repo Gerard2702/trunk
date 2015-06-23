@@ -1,6 +1,5 @@
 <script type="text/javascript" src="librerias/js/cargarFormularios.js"></script>
 <script type="text/javascript" src="../js/funcionesDatepicker.js"></script>
-<<<<<<< HEAD
 <script src="librerias/js/cargarFormularios.js"></script>
 <script src="librerias/js/funcionesFrmgenerales.js"></script>
 
@@ -53,20 +52,51 @@
 
     /*Inicializa las variables en caso que no esten declaradas*/
     $nombres="";
+    $apellidos="";
+    $fecha_nacimiento="";
+    $genero="Seleccione un Genero";
+    $nacionalidad="Seleccione una Nacionalidad";
+    $parentesco="Seleccione un Parentesco";
+    $numero_familia="";
+    $nivel_educativo="Seleccione un Nivel";
+    $ocupacion="Seleccione una Ocupacion";
+    $situacion_laboral="Seleccione una Situacion";
+    $ingreso_economico="Seleccione una Opcion";
+    $discapacidad="Seleccione una Opcion";
+    $causa_disca="Seleccione una Opcion";
+    $enfermedad="Seleccione una Opcion";
 
+    if (!empty($_SESSION['fecha_nacimiento'])){
+    $fecha_nacimiento = $_SESSION['fecha_nacimiento'];
+    $nombres = $_SESSION['nombres'];
+    $apellidos = $_SESSION['apellidos'];
+    $genero = $_SESSION['genero'];
+    $nacionalidad = $_SESSION['nacionalidad'];
+    $parentesco = $_SESSION['parentesco'];
+    $numero_familia = $_SESSION['numfamilia'];
+    $nivel_educativo = $_SESSION['niveleducativo'];
+    $ocupacion= $_SESSION['ocupacion'];
+    $situacion_laboral = $_SESSION['sitlaboral'];
+    $ingreso_economico = $_SESSION['ingreso'];
+    $discapacidad = $_SESSION['discapacidad'];
+    $causa_disca = $_SESSION['causa'];
+    $enfermedad = $_SESSION['enfermedad'];
+    };
 
     
     ?>
 =======
+
 <script>
-     $("#fecha_nacimiento").datepicker({
+     $( "#fecha_nacimiento" ).datepicker({
     changeMonth: true,
     changeYear: true,
     yearRange: '1900:2020',
     dateFormat: 'dd/mm/yy'
   });
     </script>
->>>>>>> origin/master
+
+
 
 
     <div class="row">
@@ -290,7 +320,7 @@
              
                   <div class="form-group has-feedback">
                     <label class="control-label">Nombres <span class="glyphicon glyphicon-user" aria-hidden="true"></span></label>
-                    <input type="text" class="form-control" id="nombre" required placeholder="Nombres" value"<?php echo $nombres;?>"/>
+                    <input type="text" class="form-control" id="nombres" required placeholder="Nombres" value"<?php echo $nombres;?>"/>
                     
                   </div>
             
@@ -299,14 +329,14 @@
              
                   <div class="form-group has-feedback">
                     <label class="control-label">Apellidos <span class="glyphicon glyphicon-user" aria-hidden="true"></span></label>
-                    <input type="text" class="form-control" placeholder="Apellidos" id="apellidos" required />
+                    <input type="text" class="form-control" placeholder="Apellidos" id="apellidos" value"<?php echo $apellidos;?>" required />
                   </div>
             
             </div>
             <div class="col-md-4">
                   <div class="form-group has-feedback">
                     <label class="control-label">Fecha de Nacimiento <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
-                    <input type="date" class="form-control datepicker" id="fecha_nacimiento"  placeholder="Fecha de Nacimiento" required/>
+                    <input class="form-control datepicker" type="date" id="fecha_nacimiento" value="<?php echo $fecha_nacimiento ?>" placeholder="Ingrese un Fecha"required>
                 
                   </div>
                   
@@ -363,7 +393,7 @@
                         <div class="col-md-3">
                          <div class="form-group  ">
                           <label class="control-label">Numero de Familia <span class="glyphicon glyphicon-user" aria-hidden="true"></span></label>
-                          <input type="text" class="form-control" placeholder="numfamilia" id="numfamilia" required />
+                          <input type="text" class="form-control" placeholder="numfamilia" id="numfamilia" value"<?php echo $numero_familia;?>" required />
                         </div>
             
                        </div>
@@ -385,7 +415,7 @@
                   <div class="form-group has-feedback">
                     <label>Nivel Educativo <span class="glyphicon glyphicon-education" aria-hidden="true"></span></label>
                       <select type="text" class="form-control" id="niveleducativo" required >
-                         <option <?php if($niveleducativo=="Seleccione un Nivel Educativo"){ ?> value=''<?php } else { ?>value='<?php echo $niveleducativo;?>'<?php }?>><?php echo $niveleducativo;?></option>
+                         <option <?php if($nivel_educativo=="Seleccione un Nivel Educativo"){ ?> value=''<?php } else { ?>value='<?php echo $nivel_educativo;?>'<?php }?>><?php echo $nivel_educativo;?></option>
                             <?php 
                               if($numniveleducativo>0){
                                 while($filasniveleducativo = mysql_fetch_array($rsniveleducativo)){
@@ -408,7 +438,7 @@
                     <label class="control-label">Ocupacion <span class="fa fa-briefcase" aria-hidden="true"></span></label>
                         
                             <select type="text" class="form-control" id="ocupacion" required >
-                              <option <?php if($seguridad=="Seleccione una Ocupacion"){ ?> value=''<?php } else { ?>value="<?php echo $ocupacion;?>"<?php }?>><?php echo $ocupacion;?></option>
+                              <option <?php if($ocupacion=="Seleccione una Ocupacion"){ ?> value=''<?php } else { ?>value="<?php echo $ocupacion;?>"<?php }?>><?php echo $ocupacion;?></option>
                               <?php 
                               if($numocupacion>0){
                                while($filasocupacion = mysql_fetch_array($rsocupacion)){
@@ -429,7 +459,7 @@
                     <label class="control-label">Situacion Laboral <span class="fa fa-briefcase" aria-hidden="true"></span></label>
                              
                     <select type="text" class="form-control" id="sitlaboral" required >
-                              <option <?php if($seguridad=="Seleccione una Ocupacion"){ ?> value=''<?php } else { ?>value="<?php echo $ocupacion;?>"<?php }?>><?php echo $ocupacion;?></option>
+                              <option <?php if($situacion_laboral=="Seleccione una Ocupacion"){ ?> value=''<?php } else { ?>value="<?php echo $situacion_laboral?>"<?php }?>><?php echo $situacion_laboral;?></option>
                               <?php 
                               if($numocupacion>0){
                                while($filassitlaboral = mysql_fetch_array($rssitlaboral)){
@@ -449,7 +479,7 @@
                   <div class="form-group has-feedback">
                     <label class="control-label">Ingresos Economicos <span class="fa fa-usd" aria-hidden="true"></span></label>
                     <select type="text" class="form-control" id="ingreso" required >
-                              <option <?php if($seguridad=="Seleccione un Ingreso Economico"){ ?> value=''<?php } else { ?>value="<?php echo $ingreso;?>"<?php }?>><?php echo $ingreso;?></option>
+                              <option <?php if($ingreso_economico=="Seleccione un Ingreso Economico"){ ?> value=''<?php } else { ?>value="<?php echo $ingreso_economico;?>"<?php }?>><?php echo $ingreso_economico;?></option>
                               <?php 
                               if($numingreso>0){
                                while($filasingreso = mysql_fetch_array($rsingreso)){
@@ -504,7 +534,7 @@
                                            <label>Causa de la Discapacidad <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>   </label>
                     
                     <select type="text" class="form-control" id="causa" required >
-                    <option <?php if($causa=="Seleccione una Causa"){ ?> value=''<?php } else { ?>value="<?php echo $causa;?>"<?php }?>><?php echo $causa;?></option>
+                    <option <?php if($causa_disca=="Seleccione una Causa"){ ?> value=''<?php } else { ?>value="<?php echo $causa_disca;?>"<?php }?>><?php echo $causa_disca;?></option>
                               <?php 
                               if($numcausa>0){
                                while($filascausa = mysql_fetch_array($rscausa)){
