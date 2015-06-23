@@ -6,10 +6,8 @@
     if(!isset($usuario)){
         header("Location: index.php");
     }
-
     /*se incluye la conexion con la base de datos*/
     include_once("../php/conexion.php");
-
     /*Sentencias para recuperar los datos para los select*/
     $query = "SELECT id_area,nombre from colonia order by nombre;";
     $rs = mysql_query($query);
@@ -47,6 +45,7 @@
     $gatos=0;
     $otros=0;
     $observaciones ="";
+    $vectores=array();
  
     
     /* inicializamos variables del formulario 1 que están en la sesión, por ejemplo, si volví del formulario 2 al 1 */
@@ -67,17 +66,28 @@
     $observaciones = $_SESSION['observaciones'];
     };
 
-
-
-
+    if (isset($_SESSION['vectores'])){
+         $vectores=$_SESSION['vectores'];
+      }
 ?>
 
 <!--INICIO DEL CUERPO DEL FORMULARIO -->
-<div class="container">
+
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
-     <h3>INGRESO DE DATOS<input class="btn btn-danger"type="button" onclick="reiniciarFormulario();"style="float:right;" value="LIMPIAR FORMULARIO"></h3>
-
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <img class="img-responsive" alt="Responsive image" src="librerias/imagenes/step1new.png" alt="">
+    </div>  
+    </div>
+    <div class="row">
+      <h3 class="col-md-5 col-sm-6 col-xs-6">INGRESO DE DATOS </h3>
+      <div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-4 text-right">
+        <input class="btn btn-danger btn-sm" type="button" onclick="reiniciarFormulario();" value="LIMPIAR FORMULARIO">
+      </div>
+      
+    </div>
+     
       <div class="panel panel-primary">
         <div class="panel-heading">
           Datos Generales
@@ -91,7 +101,8 @@
             <div class="col-md-3" >
             <div class="form-group">
             <label>Fecha de Censado</label>
-             <input class="form-control datepicker" type="text" id="fecha_censado" value="<?php echo $fecha_censo ?>" placeholder="Ingrese un Fecha"required>
+
+             <input class="form-control datepicker"  type="text" id="fecha_censado" value="<?php echo $fecha_censo ?>" placeholder="Ingrese un Fecha"required>
              </div>
             </div>
                        
@@ -102,7 +113,7 @@
                <div class="col-md-3">
                     <div class="form-group">
                         <label>Departamento</label>
-                        <select class="form-control" id="departamento" disabled="deshabilitado" required>
+                        <select class="form-control" autofocus="" id="departamento" disabled="deshabilitado" required>
                           <option>La Libertad</option>
                           <option></option>
                           <option></option>
@@ -260,27 +271,27 @@
                               <label>Vectores y Mascotas</label>
                                               <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vectores[]" value="1">Zancudos
+                                                    <input type="checkbox" name="vectores[]" value="1" <?php if(in_array('1',$vectores)){ echo 'checked="checked"';}?>>Zancudos
                                                 </label>
                                             </div>
                                               <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vectores[]" value="2">Moscas
+                                                    <input type="checkbox" name="vectores[]" value="2" <?php if(in_array('2',$vectores)){ echo 'checked="checked"';}?>>Moscas
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vectores[]" value="3">Chinches Picudas
+                                                    <input type="checkbox" name="vectores[]" value="3" <?php if(in_array('3',$vectores)){ echo 'checked="checked"';}?>>Chinches Picudas
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vectores[]" value="4">Cucarachas
+                                                    <input type="checkbox" name="vectores[]" value="4" <?php if(in_array('4',$vectores)){ echo 'checked="checked"';}?>>Cucarachas
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vectores[]" value="5">Roedores
+                                                    <input type="checkbox" name="vectores[]" value="5" <?php if(in_array('5',$vectores)){ echo 'checked="checked"';}?>>Roedores
                                                 </label>
                                             </div>
                                           </div>
@@ -359,11 +370,12 @@
 
                     </div>
                         </div>
-                      </div>                                      
+                      </div> 
+                      <hr>                                     
                         <div class="container-fluid">
                             <div class="row">
                               <div class="col-md-offset-4 col-md-4 col-sm-12 col-xs-12 text-center" >
-                                 <button type="submit" title="Siguiente" class="btn btn-success btn-sm" >Siguiente&nbsp;<i class="fa fa-chevron-right"></i></button>
+                                 <button type="submit" title="Siguiente" class="btn btn-success btn-md" >Siguiente&nbsp;<i class="fa fa-chevron-right"></i></button>
                               </div>
                               
                             </div>  
@@ -371,17 +383,15 @@
           </form>   
       </div>
       </div>
-       <br>
-                            <br>
-                            <br>
+                 <br>           
  </div>
 </div>
-
 <script type="text/javascript">
   /*ocultas el div con el id alerta*/
   $("#alerta").hide(); 
   </script>
     <script>
+
      $( "#fecha_censado" ).datepicker({
     changeMonth: true,
     changeYear: true,
@@ -389,3 +399,4 @@
     dateFormat: 'dd/mm/yy'
   });
     </script>
+

@@ -35,6 +35,7 @@
 
 </head>
 <body onload="cargarPagina(<?php echo $_SESSION['tipo_rol']?>)">
+<a name="inicio"></a> 
 	<!-- HEADER DEL SISTEMA -->
 <header>
 	<div class="container-fluid">
@@ -57,7 +58,7 @@
 </header>
   <!-- NAVBAR DEL SISTEMA-->
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -74,14 +75,15 @@
   </div><!-- /.container-fluid -->
 </nav>
 <!-- CONTENIDO DEL SISTEMA -->
-<div class="container-fluid" id="contenido" >
+<div class="container" id="contenido" >
   
 </div>
 <!-- FOOTER DEL SISTEMA-->
 <footer>
 	<div class="container">
 		<div class="col-md-12 col-xs-12 visible-sm visible-md visible-lg ">
-			<h5 class="text-center">Footer</h5>
+			<h5 class="text-center">Desarrollado por: Depto. Desarrollo Informático </h5>
+      <h5 class="text-center"><strong>Copyright © 2015</strong></h5>
 		</div>
   </div>	
 </footer>

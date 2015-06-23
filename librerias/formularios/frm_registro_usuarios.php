@@ -123,9 +123,9 @@ includeSelectAllOption: true
                 </div>
             </div>
            
-            <br>
+            <hr>
             <div class="form-group">
-                <div class="col-xs-offset-3 col-xs-9">
+                <div class="col-xs-offset-3 col-xs-9 text-right">
                     <input type="submit" class="btn btn-primary" value="Registrar">
                     <input type="reset" class="btn btn-default" value="Limpiar">
                 </div>

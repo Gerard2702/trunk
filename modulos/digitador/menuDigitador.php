@@ -5,6 +5,7 @@
         header("Location: index.php");
     }   
 ?>
+<script src="librerias/js/cargarFormularios.js"></script>
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       <li class="dropdown">

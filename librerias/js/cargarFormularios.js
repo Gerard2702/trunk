@@ -1,13 +1,16 @@
 function cargarConstruccion(){
 	$('#contenido').load('librerias/formularios/frm_construccion_servicios.php');
+  window.parent.window.location = '#inicio';
 }
 
 function cargarGenerales(){
 	$('#contenido').load('librerias/formularios/frm_datos_generales.php');
+  window.parent.window.location = '#inicio';
 }
 
 function cargarFamilia(){
 	$('#contenido').load('librerias/formularios/frm_datos_familia.php');
+  window.parent.window.location = '#inicio';
 }
 
 function cargarCensada(){
@@ -34,7 +37,9 @@ function cargarBusquedaTipoFamilia(){
 $("#ingresar-generales").submit(function(event){
 
     event.preventDefault(); /*evitamos que se recarge la página*/
-    
+    var listaValoresCheckboxes = $("input[name='vectores[]']:checked").map(function (){
+    return this.value;
+    }).get();
     /*CARGA EL SIGUIENTE FORMULARIO $('#contenido').load('librerias/formularios/frm_construccion_servicios.php');*/
     $.ajax({
 
@@ -58,11 +63,13 @@ $("#ingresar-generales").submit(function(event){
           gatos: $('#gatos').val(),
           otras_mascotas: $('#otras_mascotas').val(),
           observaciones: $('#observaciones').val(),
+          vectores: listaValoresCheckboxes, 
          
         },
                
         success: function(respuesta){ 
-              $('#contenido').load('librerias/formularios/frm_construccion_servicios.php');                          
+              $('#contenido').load('librerias/formularios/frm_construccion_servicios.php');
+              window.parent.window.location = '#inicio';                          
           /*if(respuesta=="true"){
             $("#alerta").show();
             $("#alerta").html("Datos registrados exitosamente");
@@ -88,6 +95,7 @@ $("#ingresar-construccion").submit(function(event){
 
    event.preventDefault(); /*evitamos que se recarge la página*/
    $('#contenido').load('librerias/formularios/frm_datos_familia.php');
+   window.parent.window.location = '#inicio';
  });
 
 /*Ingreso de datos personales*/
@@ -96,5 +104,6 @@ $("#ingresar-construccion").submit(function(event){
     event.preventDefault(); /*evitamos que se recarge la página*/
     $('#exampleModal').modal('hide');/*Oculta la modal*/
     $("#datos-personales")[0].reset()
+    window.parent.window.location = '#inicio';
  
  });

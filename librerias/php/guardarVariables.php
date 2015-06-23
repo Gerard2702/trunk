@@ -18,6 +18,13 @@ switch ($_POST['funcion']) {
 
 function variables_form1(){
     session_start();
+    if (isset($_POST['vectores'])){
+		foreach ($_POST['vectores'] as $valor) {
+	     $arraydeVectores[] = $valor;	
+	    }
+	}
+	
+    $_SESSION['vectores']=$arraydeVectores;
     $_SESSION['fecha_censado'] = $_POST['fecha_censado'];
 	$_SESSION['departamento'] = $_POST['departamento'];
 	$_SESSION['municipio'] = $_POST['municipio'];

@@ -68,11 +68,20 @@
     </script>
 >>>>>>> origin/master
 
-<div class="container">
+
     <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
-     <h3>INGRESO DE DATOS</h3> 
-        <!-- Tab panes -->
+     <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <img class="img-responsive" alt="Responsive image" src="librerias/imagenes/step3new.png" alt="">
+    </div>  
+    </div>
+    <div class="row">
+      <h3 class="col-md-5 col-sm-6 col-xs-6">INGRESO DE DATOS </h3>
+      <div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-4 text-right">
+        <input class="btn btn-danger" type="button" onclick="reiniciarFormulario();" value="LIMPIAR FORMULARIO">
+        </div>
+      </div>
         <div class="tab-content">
             <div class="tab-pane active">
                 <div class="panel panel-primary">
@@ -253,6 +262,9 @@
                               
                             </div>  
                             </div>
+                            </div>
+                            </div>
+                        
                              
 <div class="container">
         <div class="row">
@@ -545,7 +557,7 @@
 </div>
   </div>
  </div>
-</div>
+
 
 
 

@@ -6,15 +6,20 @@ header{
 }
 
 footer{
-	position: fixed;
+	position: relative;
 	width: 100%;
 	bottom:0;
-	background: #BFBFC9;
-	color: white;
+	background: #FFFFFF;
+	color: black;
 }
-h4{
+
+body{
+	background: #ECF0F5;
+}
+h4,h3{
 	margin-top: 0px;
 }
+
 .logo {
   width: 75px;
   margin-top:5px;
@@ -78,7 +83,7 @@ h4{
 
 
 .navbar-inverse {
-    background-image: linear-gradient(to bottom, #DDDDDD 0%, #222 100%) !important;
+    background-image: linear-gradient(to bottom, #222D32 0%, #222 100%) !important;
     background-repeat: repeat-x;
 }
 
