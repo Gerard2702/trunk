@@ -374,7 +374,7 @@
                         <div class="container-fluid">
                             <div class="row">
                               <div class="col-md-offset-4 col-md-4 col-sm-12 col-xs-12 text-center" >
-                                 <button type="submit" title="Siguiente" class="btn btn-success btn-md" >Siguiente&nbsp;<i class="fa fa-chevron-right"></i></button>
+                                 <button type="submit" title="Siguiente" class="btn btn-success btn-sm" >Siguiente&nbsp;<i class="fa fa-chevron-right"></i></button>
                               </div>
                               
                             </div>  

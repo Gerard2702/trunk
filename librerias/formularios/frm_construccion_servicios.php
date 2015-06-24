@@ -55,7 +55,7 @@
     <div class="row">
       <h3 class="col-md-5 col-sm-6 col-xs-6">INGRESO DE DATOS </h3>
       <div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-4 text-right">
-        <input class="btn btn-danger" type="button" onclick="reiniciarFormulario();" value="LIMPIAR FORMULARIO">
+        <input class="btn btn-danger btn-sm" type="button" onclick="reiniciarFormulario();" value="LIMPIAR FORMULARIO">
       </div>
       
     </div>
