@@ -33,7 +33,7 @@ function cargarBusquedaTipoFamilia(){
 }
 
 
-/*FUNCION PARA CARGAR EL FORMULARIO DE CONTRUCCIONES GENERALES*/
+/*Sumit del formulario de datos generales y Carga el siguiente form de datos de construccion*/
 $("#ingresar-generales").submit(function(event){
 
     event.preventDefault(); /*evitamos que se recarge la página*/
@@ -70,27 +70,11 @@ $("#ingresar-generales").submit(function(event){
         success: function(respuesta){ 
               $('#contenido').load('librerias/formularios/frm_construccion_servicios.php');
               window.parent.window.location = '#inicio';                          
-          /*if(respuesta=="true"){
-            $("#alerta").show();
-            $("#alerta").html("Datos registrados exitosamente");
-            document.getElementById('alerta').className="alert alert-success";
-            $("#alerta").fadeOut(4000);
-            $("#ingresar-datos")[0].reset()
-
-          }
-          else{
-
-            $("#alerta").show();
-            $("#alerta").html("No se registraron los datos");
-            document.getElementById('alerta').className="alert alert-danger";
-            $("#alerta").fadeOut(4000);
-            $("#ingresar-datos")[0].reset()
-                          } */
       }//fin del succes function
     }); //fin del ajax */ 
  });
 
-/*Carga de datos familiares*/
+/*Sumit del formulario de construccion y Carga el siguiente form de datos familiares*/
 $("#ingresar-construccion").submit(function(event){
 
    event.preventDefault(); /*evitamos que se recarge la página*/
@@ -122,22 +106,6 @@ $("#ingresar-construccion").submit(function(event){
         success: function(respuesta){ 
               $('#contenido').load('librerias/formularios/frm_datos_familia.php');
               window.parent.window.location = '#inicio';                          
-          /*if(respuesta=="true"){
-            $("#alerta").show();
-            $("#alerta").html("Datos registrados exitosamente");
-            document.getElementById('alerta').className="alert alert-success";
-            $("#alerta").fadeOut(4000);
-            $("#ingresar-datos")[0].reset()
-
-          }
-          else{
-
-            $("#alerta").show();
-            $("#alerta").html("No se registraron los datos");
-            document.getElementById('alerta').className="alert alert-danger";
-            $("#alerta").fadeOut(4000);
-            $("#ingresar-datos")[0].reset()
-                          } */
       }//fin del succes function
     }); //fin del ajax */ 
  });
