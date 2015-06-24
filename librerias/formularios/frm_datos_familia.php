@@ -51,37 +51,7 @@
     $numenfermedad = mysql_num_rows($rsenfermedad);
 
     /*Inicializa las variables en caso que no esten declaradas*/
-    $nombres="";
-    $apellidos="";
-    $fecha_nacimiento="";
-    $genero="Seleccione un Genero";
-    $nacionalidad="Seleccione una Nacionalidad";
-    $parentesco="Seleccione un Parentesco";
-    $numero_familia="";
-    $nivel_educativo="Seleccione un Nivel";
-    $ocupacion="Seleccione una Ocupacion";
-    $situacion_laboral="Seleccione una Situacion";
-    $ingreso_economico="Seleccione una Opcion";
-    $discapacidad="Seleccione una Opcion";
-    $causa_disca="Seleccione una Opcion";
-    $enfermedad="Seleccione una Opcion";
-
-    if (!empty($_SESSION['fecha_nacimiento'])){
-    $fecha_nacimiento = $_SESSION['fecha_nacimiento'];
-    $nombres = $_SESSION['nombres'];
-    $apellidos = $_SESSION['apellidos'];
-    $genero = $_SESSION['genero'];
-    $nacionalidad = $_SESSION['nacionalidad'];
-    $parentesco = $_SESSION['parentesco'];
-    $numero_familia = $_SESSION['numfamilia'];
-    $nivel_educativo = $_SESSION['niveleducativo'];
-    $ocupacion= $_SESSION['ocupacion'];
-    $situacion_laboral = $_SESSION['sitlaboral'];
-    $ingreso_economico = $_SESSION['ingreso'];
-    $discapacidad = $_SESSION['discapacidad'];
-    $causa_disca = $_SESSION['causa'];
-    $enfermedad = $_SESSION['enfermedad'];
-    };
+    
 
     
     ?>

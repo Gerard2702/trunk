@@ -47,7 +47,6 @@
     $observaciones ="";
     $vectores=array();
  
-    
     /* inicializamos variables del formulario 1 que están en la sesión, por ejemplo, si volví del formulario 2 al 1 */
     if (!empty($_SESSION['fecha_censado'])){
     $fecha_censo = $_SESSION['fecha_censado'];
@@ -399,4 +398,3 @@
     dateFormat: 'dd/mm/yy'
   });
     </script>
-

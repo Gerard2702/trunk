@@ -1,15 +1,15 @@
 function cargarConstruccion(){
-	$('#contenido').load('librerias/formularios/frm_construccion_servicios.php');
+  $('#contenido').load('librerias/formularios/frm_construccion_servicios.php');
   window.parent.window.location = '#inicio';
 }
 
 function cargarGenerales(){
-	$('#contenido').load('librerias/formularios/frm_datos_generales.php');
+  $('#contenido').load('librerias/formularios/frm_datos_generales.php');
   window.parent.window.location = '#inicio';
 }
 
 function cargarFamilia(){
-	$('#contenido').load('librerias/formularios/frm_datos_familia.php');
+  $('#contenido').load('librerias/formularios/frm_datos_familia.php');
   window.parent.window.location = '#inicio';
 }
 
@@ -17,19 +17,19 @@ function cargarCensada(){
   $('#contenido').load('librerias/formularios/frm_datos_generales.php');
 }
 function cargarNoCensada(){
-	$('#contenido').load('librerias/formularios/frm_vivienda_no_censada.php');
+  $('#contenido').load('librerias/formularios/frm_vivienda_no_censada.php');
 }
 
 function cargarBusquedaReligion(){
-	$('#contenido').load('librerias/formularios/busqueda_religion.php');
+  $('#contenido').load('librerias/formularios/busqueda_religion.php');
 }
 
 function cargarBusquedaTenencia(){
-	$('#contenido').load('librerias/formularios/busqueda_tenencia_vivienda.php');
+  $('#contenido').load('librerias/formularios/busqueda_tenencia_vivienda.php');
 }
 
 function cargarBusquedaTipoFamilia(){
-	$('#contenido').load('librerias/formularios/busqueda_tipo_familia.php');
+  $('#contenido').load('librerias/formularios/busqueda_tipo_familia.php');
 }
 
 
@@ -94,8 +94,52 @@ $("#ingresar-generales").submit(function(event){
 $("#ingresar-construccion").submit(function(event){
 
    event.preventDefault(); /*evitamos que se recarge la página*/
-   $('#contenido').load('librerias/formularios/frm_datos_familia.php');
-   window.parent.window.location = '#inicio';
+    var listaVulnerabilidad = $("input[name='vulnerabilidad[]']:checked").map(function (){
+    return this.value;
+    }).get();
+    var listaOtrosServicios = $("input[name='otros[]']:checked").map(function (){
+    return this.value;
+    }).get();
+    
+    $.ajax({
+
+        type: "POST",
+        url: "librerias/php/guardarVariables.php",
+        data: { 
+          funcion: "formulario2",
+          matparedes: $("#matparedes:checked").val(),
+          matpiso: $("#matpiso:checked").val(),
+          mattecho: $("#mattecho:checked").val(),
+          tipoletrina: $("#tipoletrina:checked").val(),
+          manbasura: $("#manbasura:checked").val(),
+          abastagua: $("#abastagua:checked").val(),
+          aguagris: $("#aguagris:checked").val(),
+          aguasnegras: $("#aguasnegras:checked").val(),
+          vulnerabilidad: listaVulnerabilidad, 
+          otros_servicios: listaOtrosServicios, 
+        },
+               
+        success: function(respuesta){ 
+              $('#contenido').load('librerias/formularios/frm_datos_familia.php');
+              window.parent.window.location = '#inicio';                          
+          /*if(respuesta=="true"){
+            $("#alerta").show();
+            $("#alerta").html("Datos registrados exitosamente");
+            document.getElementById('alerta').className="alert alert-success";
+            $("#alerta").fadeOut(4000);
+            $("#ingresar-datos")[0].reset()
+
+          }
+          else{
+
+            $("#alerta").show();
+            $("#alerta").html("No se registraron los datos");
+            document.getElementById('alerta').className="alert alert-danger";
+            $("#alerta").fadeOut(4000);
+            $("#ingresar-datos")[0].reset()
+                          } */
+      }//fin del succes function
+    }); //fin del ajax */ 
  });
 
 /*Ingreso de datos personales*/
