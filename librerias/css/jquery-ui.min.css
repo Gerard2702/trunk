@@ -30,3 +30,7 @@
 {
     font-size:13px;
 }
+/*MUestra el datepicker en modal*/
+.clsDatePicker {
+    z-index: 100000;
+}
