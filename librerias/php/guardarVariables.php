@@ -8,8 +8,8 @@ switch ($_POST['funcion']) {
 	case 'formulario1':
 	echo variables_form1();		
 	break;
-	case 'formulario3':
-	echo variables_form3();		
+	case 'formulario2':
+	echo variables_form2();
 	break;
 	case 'reiniciarVariable':
 	echo reiniciar_variable();
@@ -34,7 +34,7 @@ function variables_form1(){
 	$_SESSION['colonia'] = $_POST['colonia'];
 	$_SESSION['pasaje'] = $_POST['pasaje'];
 	$_SESSION['num_vivienda'] = $_POST['num_vivienda'] ;
-	$_SESSION['Area'] = $_POST['Area'];
+	$_SESSION['Area'] = $_POST['Areaa'];
 	$_SESSION['tipo_familia'] = $_POST['tipo_familia'] ;
 	$_SESSION['can_familia'] = $_POST['cantidad_familia'];
 	$_SESSION['religion'] = $_POST['religion'];
@@ -47,6 +47,36 @@ function variables_form1(){
 
 }
 
+function variables_form2(){
+    
+
+    if (isset($_POST['vulnerabilidad'])){
+		foreach ($_POST['vulnerabilidad'] as $valorVulnerabilidad) {
+	     $arraydeVulnerabilidad[] = $valorVulnerabilidad;	
+	    }
+	    
+	}
+
+	if (isset($_POST['otros_servicios'])){
+		foreach ($_POST['otros_servicios'] as $valorOtros) {
+	     $arraydeOtros[] = $valorOtros;	
+	    }
+	}
+	
+    $_SESSION['vulnerabilidad']=$arraydeVulnerabilidad;
+    $_SESSION['matparedes'] = $_POST['matparedes'];
+    $_SESSION['matpiso'] = $_POST['matpiso'];
+    $_SESSION['mattecho'] = $_POST['mattecho'];
+    $_SESSION['tipoletrina'] = $_POST['tipoletrina'];
+    $_SESSION['manbasura'] = $_POST['manbasura'];
+    $_SESSION['abastagua'] = $_POST['abastagua'];
+    $_SESSION['aguasgris'] = $_POST['aguagris'];
+    $_SESSION['aguasnegras'] = $_POST['aguasnegras'];
+    $_SESSION['otros']=$arraydeOtros;
+
+}
+
+
 function reiniciar_variable(){
 	session_start();
 	$_SESSION['fecha_censado']=array();
@@ -54,23 +84,6 @@ function reiniciar_variable(){
 
 
 
-function variables_form3(){
-    session_start();
-    $_SESSION['fecha_nacimiento'] = $_POST['fecha_nacimiento'];
-	$_SESSION['nombres'] = $_POST['nombres'];
-	$_SESSION['apellidos'] = $_POST['apellidos'];
-	$_SESSION['genero'] = $_POST['genero'];
-	$_SESSION['nacionalidad'] = $_POST['nacionalidad'];
-	$_SESSION['parentesco'] = $_POST['parentesco'] ;
-	$_SESSION['numfamilia'] = $_POST['numfamilia'];
-	$_SESSION['niveleducativo'] = $_POST['niveleducativo'] ;
-	$_SESSION['can_familia'] = $_POST['cantidad_familia'];
-	$_SESSION['ocupacion'] = $_POST['ocupacion'];
-	$_SESSION['sitlaboral'] = $_POST['sitlaboral'];
-	$_SESSION['ingreso'] = $_POST['ingreso'];
-	$_SESSION['discapacidad'] = $_POST['discapacidad'];
-	$_SESSION['causa'] = $_POST['causa'];
-	$_SESSION['enfermedad'] = $_POST['enfermedad'] ;
-	}
+
 
 ?>
