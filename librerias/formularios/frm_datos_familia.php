@@ -49,9 +49,29 @@
     $rsenfermedad = mysql_query($sqlenfermedad);
     $numenfermedad = mysql_num_rows($rsenfermedad);
 
-    /*Inicializa las variables en caso que no esten declaradas*/
-    
+    $sqlpersonas = "SELECT nombre from persona order by nombre;";
+    $rspersonas = mysql_query($sqlpersonas);
+    $numpersonas = mysql_num_rows($rspersonas);
 
+    /*Inicializa las variables en caso que no esten declaradas*/
+    $ingresosEconomicos=array();
+    $observacionesFamilia="";
+    $patrimonioFamiliar=array();
+ 
+    /* inicializamos variables del formulario 1 que están en la sesión, por ejemplo, si volví del formulario 2 al 1 */
+
+    /*SE verifica que las variables de sesion contengan datos en el array en caso de haber seleccioando un checkbox*/
+    if (isset($_SESSION['ingresosEconomicos'])){
+         $ingresosEconomicos=$_SESSION['ingresosEconomicos'];
+      }
+
+    if (isset($_SESSION['patrimonioFamiliar'])){
+         $patrimonioFamiliar=$_SESSION['otros'];
+      }
+
+    if (isset($_SESSION['observacionesFamilia'])){
+         $otros_servicios=$_SESSION['observacionesFamilia'];
+      }
     
     ?>
 <script>
@@ -73,7 +93,7 @@
     <div class="row">
       <h3 class="col-md-5 col-sm-6 col-xs-6">INGRESO DE DATOS </h3>
       <div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-4 text-right">
-        <input class="btn btn-danger" type="button" onclick="reiniciarFormulario();" value="LIMPIAR FORMULARIO">
+        <input class="btn btn-danger btn-sm" type="button" onclick="reiniciarFormulario();" value="LIMPIAR FORMULARIO">
         </div>
       </div>
         <div class="tab-content">
@@ -91,9 +111,11 @@
                      <div class="table-responsive ">
                 
                     <table class="table table-hover">
+                    <?php if($numenfermedad>0){?>
                             <thead>
                                 <tr>
-                                    <th>Numero</th>
+                                    <th>#</th>
+                                    <th># Familia</th>
                                     <th>Nombre</th>
                                     <th>Apellido</th>
                                     <th>Nivel Academico</th>
@@ -102,52 +124,35 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                    <?php   
+
+                                        while($modulo = mysql_fetch_array($rsenfermedad, MYSQL_ASSOC)){  
+                                    ?>
                                 <tr>
-                                    <td>0998877</td>
-                                    <td>Manolo</td>
-                                    <td>Aguirre</td>
-                                    <td>Universitario</td>
-                                    <td>Profesor de Computacion</td>
-                                    <td>
-                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-edit"></span> Ver y Editar</a>
-                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
-                                    </td>
-                                </tr>
+                                    <td>VALORES</td>
+                                    <td>VALORES</td>
+                                    <td>VALORES</td>
+                                    <td>VALORES</td>
+                                    <td>VALORES</td>
+                                    <td>VALORES</td>
+                                    <td>VALORES</td>
+                                </tr>   
+                                    <?php  }//fin del mientras que recorre resultados
+
+                                ?>
+                                <?php }//fin del if que verifica resultados de consulta
+                          else{ ?>                          
+                              <thead>
                                 <tr>
-                                    <td>0998877</td>
-                                    <td>Manolo</td>
-                                    <td>Aguirre</td>
-                                    <td>Universitario</td>
-                                    <td>Profesor de Computacion</td>
-                                    <td>
-                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-edit"></span> Ver y Editar</a>
-                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>0998877</td>
-                                    <td>Manolo</td>
-                                    <td>Aguirre</td>
-                                    <td>Universitario</td>
-                                    <td>Profesor de Computacion</td>
-                                    <td>
-                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-edit"></span> Ver y Editar</a>
-                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>0998877</td>
-                                    <td>Manolo</td>
-                                    <td>Aguirre</td>
-                                    <td>Universitario</td>
-                                    <td>Profesor de Computacion</td>
-                                    <td>
-                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-edit"></span> Ver y Editar</a>
-                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
-                                    </td>
-                                </tr>
+                                     <th >NO SE HAN INGRESADO PERSONAS!</th>
+                                </tr> 
+                            </thead>                          
+
+                    <?php      }
+                    ?>
                             </tbody>
                     </table>
+                    
                     
                 </div> 
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><span class="glyphicon glyphicon-plus"></span> Agregar Persona</button>
@@ -160,29 +165,32 @@
                                             
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Salarios
+                                                    <input type="checkbox" name="ingresos[]" value="1" <?php if(in_array('1',$ingresosEconomicos)){ echo 'checked="checked"';}?>>Remesas Extranjero
                                                 </label>
                                             </div>
-
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Remesas Extranjero
+                                                    <input type="checkbox" name="ingresos[]" value="2" <?php if(in_array('2',$ingresosEconomicos)){ echo 'checked="checked"';}?>>Bonos
                                                 </label>
                                             </div>
-
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Pensiones
+                                                    <input type="checkbox" name="ingresos[]" value="3" <?php if(in_array('3',$ingresosEconomicos)){ echo 'checked="checked"';}?>>Pensiones
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="ingresos[]" value="4" <?php if(in_array('4',$ingresosEconomicos)){ echo 'checked="checked"';}?>>Salarios
                                                 </label>
                                             </div>
                                               <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Negocio Propio
+                                                    <input type="checkbox" name="ingresos[]" value="5" <?php if(in_array('5',$ingresosEconomicos)){ echo 'checked="checked"';}?>>Negocio Propio
                                                 </label>
                                             </div>
                                              <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Otros
+                                                    <input type="checkbox" name="ingresos[]" value="6" <?php if(in_array('6',$ingresosEconomicos)){ echo 'checked="checked"';}?>>Otros
                                                 </label>
                                             </div>
 
@@ -194,34 +202,34 @@
                                             
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Cultivo Agricola Propio
+                                                    <input type="checkbox" name="patrimonio[]" value="1" <?php if(in_array('1',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Cultivo Agricola Propio
                                                 </label>
                                             </div>
 
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Aves de Corral
+                                                    <input type="checkbox" name="patrimonio[]" value="2" <?php if(in_array('2',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Aves de Corral
                                                 </label>
                                             </div>
 
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Ganado Vacuno
+                                                    <input type="checkbox" name="patrimonio[]" value="3" <?php if(in_array('3',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Ganado Vacuno
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Ganado Porcino
+                                                    <input type="checkbox" name="patrimonio[]" value="4" <?php if(in_array('4',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Ganado Porcino
                                                 </label>
                                             </div>
                                               <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Negocio Propio
+                                                    <input type="checkbox" name="patrimonio[]" value="5" <?php if(in_array('5',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Negocio Propio
                                                 </label>
                                             </div>
                                              <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Otros
+                                                    <input type="checkbox" name="patrimonio[]" value="6" <?php if(in_array('6',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Otros
                                                 </label>
                                             </div>
 
@@ -231,7 +239,7 @@
                         <div class="col-md-6">
                                 <div class="form-group">
                                             <label>Observaciones</label>
-                                            <textarea class="form-control" rows="6"></textarea>
+                                            <textarea class="form-control" rows="6"><?php echo $observacionesFamilia;?></textarea>
                                          
                                 </div>
                             
@@ -300,7 +308,7 @@
             <div class="col-md-4">
                   <div class="form-group has-feedback">
                     <label class="control-label">Fecha de Nacimiento <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
-                    <input class="form-control clsDatePicker" type="text" id="fecha_nacimiento"  placeholder="Ingrese un Fecha" required>
+                    <input class="form-control" type="text" id="fecha_nacimiento"  placeholder="Ingrese un Fecha" required>
                   </div> 
             </div>
            </div>
@@ -548,7 +556,3 @@
 </div>
   </div>
  </div>
-
-
-
-
