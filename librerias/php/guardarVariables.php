@@ -26,7 +26,70 @@ function variables_form1(){
 	     $arraydeVectores[] = $valor;	
 	    }
 	}
-	
+
+	/*bloque para recuperar el ultimo id de vivienda ingresado y generar uno nuevo*/
+    $sql_ultimo_vivienda = "SELECT id_vivienda FROM vivienda WHERE id_vivienda=(SELECT MAX(id_vivienda) FROM vivienda);";
+    $resultado_ultimo_id = mysql_query($sql_ultimo_vivienda); 
+    $numvivienda= mysql_num_rows($resultado_ultimo_id);
+
+    if($numvivienda>0){
+        
+          /*tomamos el ultimo id de vivienda y aumentamos el correlativo*/
+          $dato_ultimo_id = mysql_fetch_array($resultado_ultimo_id, MYSQL_ASSOC);
+          $dato_ultimovivienda = $dato_ultimo_id['id_vivienda'];
+   		  $nuevo_idvivienda = $dato_ultimovivienda + 1; 
+   		  $_SESSION['id_vivienda']=$nuevo_idvivienda;
+        }else{
+
+            /*en caso de que no exista ningun id_vivienda creado, lo iniciamos*/
+        $nuevo_idvivienda = 1;
+        $_SESSION['id_vivienda']=$nuevo_idvivienda;
+        }
+
+
+    mysql_query("SET AUTOCOMMIT=0");
+    mysql_query("START TRANSACTION");
+
+
+     $colonia=$_POST['colonia'];
+     $sql_id_colonia = "SELECT id_colonia FROM colonia WHERE nombre='$colonia';";
+     $rscolonia=mysql_query($sql_id_colonia);
+     $datos_colonia = mysql_fetch_array($rscolonia,MYSQL_ASSOC);
+     $id_colonia = $datos_colonia['id_colonia'];
+
+     $tipofamilia = $_POST['tipo_familia']; 
+     $sql_id_tipofamilia = "SELECT id_tipofamilia FROM tipo_familia WHERE nombre='$tipofamilia';";
+     $rstipofamilia=mysql_query($sql_id_tipofamilia);
+     $datos_tipofamilia = mysql_fetch_array($rstipofamilia,MYSQL_ASSOC);
+     $id_tipofamilia = $datos_tipofamilia['id_tipofamilia'];
+
+     $religion=$_POST['religion'];
+     $sql_id_religion = "SELECT id_religion FROM religion WHERE nombre='$religion';";
+     $rsreligion=mysql_query($sql_id_religion);
+     $datos_religion = mysql_fetch_array($rsreligion,MYSQL_ASSOC);
+     $id_religion = $datos_religion['id_religion'];
+
+     $tenencia=$_POST['tenencia'];
+     $sql_id_tenencia = "SELECT id_tenencia FROM tenencia_vivienda WHERE nombre='$tenencia';";
+     $rstenencia=mysql_query($sql_id_tenencia);
+     $datos_tenencia = mysql_fetch_array($rstenencia,MYSQL_ASSOC);
+     $id_tenencia = $datos_tenencia['id_tenencia'];
+
+     $seguridad=$_POST['seguridad'];
+     $sql_id_seguridad = "SELECT id_seguridad FROM seguridad WHERE nombre='$seguridad';";
+     $rsseguridad=mysql_query($sql_id_seguridad);
+     $datos_seguridad = mysql_fetch_array($rsseguridad,MYSQL_ASSOC);
+     $id_seguridad = $datos_seguridad['id_seguridad'];
+
+     $fecha_censado=$_POST['fecha_censado'];
+     $pasaje=$_POST['pasaje'];
+     $numvivienda=$_POST['num_vivienda'];
+     
+    $sql="INSERT INTO vivienda (id_vivienda,fecha_ingredatos,id_colonia,direccion,numero,id_tipofamilia,cant_familia,id_religion,id_tenencia,id_seguridad) VALUES 
+    ('$nuevo_idvivienda','2015-06-08','$id_colonia','$pasaje','$numvivienda','$id_tipofamilia',1,'$id_religion','$id_tenencia','$id_seguridad');";
+    $sqlquery=mysql_query($sql);
+    
+
     $_SESSION['vectores']=$arraydeVectores;
     $_SESSION['fecha_censado'] = $_POST['fecha_censado'];
 	$_SESSION['departamento'] = $_POST['departamento'];

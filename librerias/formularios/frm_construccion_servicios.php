@@ -43,6 +43,7 @@
     if (isset($_SESSION['otros'])){
          $otros_servicios=$_SESSION['otros'];
       }
+      echo $_SESSION['id_vivienda'];
 ?>
 
   <div class="row">
@@ -155,7 +156,7 @@
                                             <label>Material Predominante de Piso</label>
                                                <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="matpiso" id="matpiso" value="1" required <?php if($matpiso==8){ echo 'checked="checked"';}?>>Ceramica
+                                                    <input type="radio" name="matpiso" id="matpiso" value="1" required <?php if($matpiso==1){ echo 'checked="checked"';}?>>Ceramica
                                                 </label>
                                             </div>
                                             <div class="radio">

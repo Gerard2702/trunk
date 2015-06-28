@@ -13,6 +13,8 @@
     include_once("../php/conexion.php");
 
     /*Sentencias para recuperar los datos para los select*/
+    $id_vivienda=$_SESSION['id_vivienda'];
+    
     $query = "SELECT nombre from nacionalidad order by nombre;";
     $rsnacionalidad = mysql_query($query);
     $numnacionalidad = mysql_num_rows($rsnacionalidad);
@@ -49,7 +51,7 @@
     $rsenfermedad = mysql_query($sqlenfermedad);
     $numenfermedad = mysql_num_rows($rsenfermedad);
 
-    $sqlpersonas = "SELECT nombre from persona order by nombre;";
+    $sqlpersonas = "SELECT nombre from persona where id_vivienda=''order by nombre;";
     $rspersonas = mysql_query($sqlpersonas);
     $numpersonas = mysql_num_rows($rspersonas);
 
@@ -111,7 +113,7 @@
                      <div class="table-responsive ">
                 
                     <table class="table table-hover">
-                    <?php if($numenfermedad>0){?>
+                    <?php if($numpersonas>0){?>
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -126,7 +128,7 @@
                             <tbody>
                                     <?php   
 
-                                        while($modulo = mysql_fetch_array($rsenfermedad, MYSQL_ASSOC)){  
+                                        while($modulo = mysql_fetch_array($rspersonas, MYSQL_ASSOC)){  
                                     ?>
                                 <tr>
                                     <td>VALORES</td>
