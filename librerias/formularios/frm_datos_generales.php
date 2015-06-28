@@ -202,7 +202,7 @@
                 <div class="col-md-3">
                 <div class="form-group">
                   <label>Cantidad de Familias</label>
-                  <input class="form-control" id="can_familia" pattern="[0-9]{1,10}" type="text" placeholder="Escriba el Numero" value="<?php echo $can_familias;?>" required>
+                  <input class="form-control" id="can_familia" pattern="[0-9]{1,10}" type="text" placeholder="Escriba el Numero" value="1" required disabled="">
                 </div>
               </div>
 
