@@ -13,8 +13,8 @@
     include_once("../php/conexion.php");
 
     /*Sentencias para recuperar los datos para los select*/
-    $id_vivienda=$_SESSION['id_vivienda'];
     
+    echo $contar=count($_SESSION['cantidad']);
     $query = "SELECT nombre from nacionalidad order by nombre;";
     $rsnacionalidad = mysql_query($query);
     $numnacionalidad = mysql_num_rows($rsnacionalidad);
@@ -51,9 +51,22 @@
     $rsenfermedad = mysql_query($sqlenfermedad);
     $numenfermedad = mysql_num_rows($rsenfermedad);
 
-    $sqlpersonas = "SELECT nombre from persona where id_vivienda=''order by nombre;";
+    mysql_query("CREATE TEMPORARY TABLE temporal_personas like persona");
+    $sqlinsert="INSERT INTO temporal_personas values (13,'dsdsd','sdsd','2015-02-04','F',1,1,1,1,1,1,1,null,1,1);";
+    mysql_query($sqlinsert);
+    $sqlpersonas = "SELECT nombre FROM temporal_personas";
     $rspersonas = mysql_query($sqlpersonas);
+
+    while($modulo = mysql_fetch_array($rspersonas,MYSQL_ASSOC)){
+
+      echo $modulo['nombre'];
+    }
+    
+    
     $numpersonas = mysql_num_rows($rspersonas);
+
+    
+
 
     /*Inicializa las variables en caso que no esten declaradas*/
     $ingresosEconomicos=array();
@@ -113,11 +126,9 @@
                      <div class="table-responsive ">
                 
                     <table class="table table-hover">
-                    <?php if($numpersonas>0){?>
+                    <?php if($numpersonas>0){ ?>
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th># Familia</th>
                                     <th>Nombre</th>
                                     <th>Apellido</th>
                                     <th>Nivel Academico</th>
@@ -128,16 +139,17 @@
                             <tbody>
                                     <?php   
 
-                                        while($modulo = mysql_fetch_array($rspersonas, MYSQL_ASSOC)){  
+                                         while($modulo = mysql_fetch_array($rspersonas,MYSQL_ASSOC)){
+                                          
+
                                     ?>
                                 <tr>
-                                    <td>VALORES</td>
-                                    <td>VALORES</td>
-                                    <td>VALORES</td>
-                                    <td>VALORES</td>
-                                    <td>VALORES</td>
-                                    <td>VALORES</td>
-                                    <td>VALORES</td>
+                                    <td><?php echo $modulo['nombre'];?></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>TIPO DE ACCION</td>
                                 </tr>   
                                     <?php  }//fin del mientras que recorre resultados
 

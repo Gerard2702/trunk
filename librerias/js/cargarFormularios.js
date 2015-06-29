@@ -114,10 +114,8 @@ $("#ingresar-construccion").submit(function(event){
  $("#datos-personales").submit(function(event){
 
     event.preventDefault(); /*evitamos que se recarge la página*/
-    $('#exampleModal').modal('hide');/*Oculta la modal*/
-    $("#datos-personales")[0].reset()
-    window.parent.window.location = '#inicio';
-
+    $('#exampleModal').modal('hide'); 
+    
     $.ajax({
 
         type: "POST",
@@ -126,7 +124,7 @@ $("#ingresar-construccion").submit(function(event){
           funcion: "registrarPersonas",
           nombres: $("#nombres").val(), 
           apellidos: $("#apellidos").val(),
-          apellidos: $("#fecha_nacimiento").val(),
+          fecha_nacimiento: $("#fecha_nacimiento").val(),
           genero: $("#genero").val(),
           nacionalidad: $("#nacionalidad").val(),
           parentesco: $("#parentesco").val(),
@@ -141,9 +139,10 @@ $("#ingresar-construccion").submit(function(event){
         },
                
         success: function(respuesta){ 
-              $('#contenido').load('librerias/formularios/frm_datos_familia.php');
-              window.parent.window.location = '#inicio';                          
+          $('#contenido').load('librerias/formularios/frm_datos_familia.php');
+                                     
       }//fin del succes function
     }); //fin del ajax */ 
- 
+    
+   
  });

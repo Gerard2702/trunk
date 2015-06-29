@@ -49,7 +49,7 @@ function variables_form1(){
         $_SESSION['id_vivienda']=$nuevo_idvivienda;
         }
 
-   /*
+   
     mysql_query("SET AUTOCOMMIT=0");
     mysql_query("START TRANSACTION");
 
@@ -90,7 +90,7 @@ function variables_form1(){
      
     $sql="INSERT INTO vivienda (id_vivienda,fecha_ingredatos,id_colonia,direccion,numero,id_tipofamilia,cant_familia,id_religion,id_tenencia,id_seguridad) VALUES 
     ('$nuevo_idvivienda','2015-06-08','$id_colonia','$pasaje','$numvivienda','$id_tipofamilia',1,'$id_religion','$id_tenencia','$id_seguridad');";
-    $sqlquery=mysql_query($sql);*/
+    //$sqlquery=mysql_query($sql);
     
 
     $_SESSION['vectores']=$arraydeVectores;
@@ -149,14 +149,103 @@ function reiniciar_variable(){
 }
 
 function registrar_personas(){
-    
-    $datos= array();
-    
+
+
+
+/*if (isset($_SESSION['cantidad'])){
+         
+$cantidadReg=count($_SESSION['cantidad']);
+
+
+if($cantidadReg>0){
+    $d=$cantidadReg+1;
+}
+      }
+else {
+$d=0;
 }
 
+$nombres=$_POST['nombres']; 
+$apellidos=$_POST['apellidos'];
+$fecha_nacimiento=$_POST['fecha_nacimiento'];
+$genero=$_POST['genero'];
+$nacionalidad=$_POST['nacionalidad'];
+$parentesco=$_POST['parentesco'];
+$numfamilia=$_POST['numfamilia'];
+$niveleducativo=$_POST['niveleducativo'];
+$ocupacion=$_POST['ocupacion'];
+$sitlaboral=$_POST['sitlaboral'];
+$ingreso=$_POST['ingreso'];
+$discapacidad=$_POST['discapacidad'];
+$causa=$_POST['causa'];
+$enfermedad=$_POST['enfermedad'];
+
+$datosPerosanles[$d]= array("nombre" =>$nombres,"apellido" =>$apellidos,"fecha_nacimiento" =>$fecha_nacimiento,"genero" =>$genero,"nacionalidad" =>$nacionalidad,"parentesco" =>$parentesco,"numfamilia" =>$numfamilia,"niveleducativo" =>$niveleducativo,"ocupacion" =>$ocupacion,"sitlaboral" =>$sitlaboral,"ingreso" =>$ingreso,"discapacidad" =>$discapacidad,"causa" =>$causa,"enfermedad" =>$enfermedad);
+$_SESSION['cantidad']= $datosPerosanles;*/
+mysql_query("CREATE TEMPORARY TABLE temporal_personas like persona");
 
 
+$nombres=$_POST['nombres']; 
+$apellidos=$_POST['apellidos'];
+$fecha_nacimiento=$_POST['fecha_nacimiento'];
+$genero=$_POST['genero'];
+$nacionalidad=$_POST['nacionalidad'];
+$parentesco=$_POST['parentesco'];
+$numfamilia=$_POST['numfamilia'];
+$niveleducativo=$_POST['niveleducativo'];
+$ocupacion=$_POST['ocupacion'];
+$sitlaboral=$_POST['sitlaboral'];
+$ingreso=$_POST['ingreso'];
+$discapacidad=$_POST['discapacidad'];
+$causa=$_POST['causa'];
+$enfermedad=$_POST['enfermedad'];
 
 
+$sql_id_nacionalidad = "SELECT id_nacionalidad FROM nacionalidad WHERE nombre='$nacionalidad';";
+$rsnacionalidad=mysql_query($sql_id_nacionalidad);
+$datos_nacionalidad = mysql_fetch_array($rsnacionalidad,MYSQL_ASSOC);
+$id_nacionalidad = $datos_nacionalidad['id_nacionalidad'];
+
+$sql_id_niveledu = "SELECT id_niveleducativo FROM nivel_educativo WHERE nombre='$niveleducativo';";
+$rsniveleducativo=mysql_query($sql_id_niveledu);
+$datos_niveledu = mysql_fetch_array($rsniveleducativo,MYSQL_ASSOC);
+$id_niveledu = $datos_niveledu['id_niveleducativo'];
+
+$sql_id_discapacidad = "SELECT id_disca FROM discapacidad WHERE nombre='$discapacidad';";
+$rsdiscapacidad=mysql_query($sql_id_discapacidad);
+$datos_discapacidad = mysql_fetch_array($rsdiscapacidad,MYSQL_ASSOC);
+$id_discapacidad = $datos_discapacidad['id_disca'];
+
+$sql_id_ocupacion= "SELECT id_ocupacion FROM ocupacion WHERE nombre='$ocupacion';";
+$rsocupacion=mysql_query($sql_id_ocupacion);
+$datos_ocupacion = mysql_fetch_array($rsocupacion,MYSQL_ASSOC);
+$id_ocupacion = $datos_ocupacion['id_ocupacion'];
+
+$sql_id_parentesco= "SELECT id_parentesco FROM parentesco WHERE nombre='$parentesco';";
+$rsparentesco=mysql_query($sql_id_parentesco);
+$datos_parentesco = mysql_fetch_array($rsparentesco,MYSQL_ASSOC);
+$id_parentesco = $datos_parentesco['id_parentesco'];
+
+$sql_id_sitlaboral= "SELECT id_sitlaboral FROM situacion_laboral WHERE nombre='$sitlaboral';";
+$rssitlaboral=mysql_query($sql_id_sitlaboral);
+$datos_sitlaboral = mysql_fetch_array($rssitlaboral,MYSQL_ASSOC);
+$id_sitlaboral = $datos_sitlaboral['id_sitlaboral'];
+
+$sql_id_enfermedad= "SELECT id_enfermedad FROM enfermedad WHERE nombre='$enfermedad';";
+$rsenfermedad=mysql_query($sql_id_enfermedad);
+$datos_enfermedad = mysql_fetch_array($rsenfermedad,MYSQL_ASSOC);
+$id_enfermedad = $datos_enfermedad['id_enfermedad'];
+
+$sql_id_ingreso= "SELECT id_ingreso FROM ingreso_economico WHERE nombre='$ingreso';";
+$rsingreso=mysql_query($sql_id_ingreso);
+$datos_ingreso = mysql_fetch_array($rsingreso,MYSQL_ASSOC);
+$id_ingreso = $datos_ingreso['id_ingreso'];
+
+
+$sqlpersonas="INSERT INTO temporal_personas values (2,'$nombres','$apellidos','2015-01-02','$genero','$id_nacionalidad','$id_niveledu','$id_discapacidad','$id_ocupacion','$id_parentesco','$id_sitlaboral','$id_enfermedad',null,'$id_ingreso',1);";
+mysql_query($sqlpersonas);
+
+
+}
 
 ?>
