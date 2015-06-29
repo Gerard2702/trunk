@@ -184,7 +184,7 @@ $datosPerosanles[$d]= array("nombre" =>$nombres,"apellido" =>$apellidos,"fecha_n
 $_SESSION['cantidad']= $datosPerosanles;*/
 mysql_query("CREATE TEMPORARY TABLE temporal_personas like persona");
 
-
+/*prueba*/
 $nombres=$_POST['nombres']; 
 $apellidos=$_POST['apellidos'];
 $fecha_nacimiento=$_POST['fecha_nacimiento'];
