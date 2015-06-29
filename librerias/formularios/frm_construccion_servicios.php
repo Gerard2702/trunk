@@ -43,7 +43,7 @@
     if (isset($_SESSION['otros'])){
          $otros_servicios=$_SESSION['otros'];
       }
-      echo $_SESSION['id_vivienda'];
+      
 ?>
 
   <div class="row">
