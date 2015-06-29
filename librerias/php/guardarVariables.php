@@ -14,6 +14,9 @@ switch ($_POST['funcion']) {
 	case 'reiniciarVariable':
 	echo reiniciar_variable();
 	break;
+    case 'registrarPersonas':
+    echo registrar_personas();
+    break;
 	default:
     { echo 'parametros incorrectos';}
     break;
@@ -46,7 +49,7 @@ function variables_form1(){
         $_SESSION['id_vivienda']=$nuevo_idvivienda;
         }
 
-
+   /*
     mysql_query("SET AUTOCOMMIT=0");
     mysql_query("START TRANSACTION");
 
@@ -87,7 +90,7 @@ function variables_form1(){
      
     $sql="INSERT INTO vivienda (id_vivienda,fecha_ingredatos,id_colonia,direccion,numero,id_tipofamilia,cant_familia,id_religion,id_tenencia,id_seguridad) VALUES 
     ('$nuevo_idvivienda','2015-06-08','$id_colonia','$pasaje','$numvivienda','$id_tipofamilia',1,'$id_religion','$id_tenencia','$id_seguridad');";
-    $sqlquery=mysql_query($sql);
+    $sqlquery=mysql_query($sql);*/
     
 
     $_SESSION['vectores']=$arraydeVectores;
@@ -144,6 +147,13 @@ function reiniciar_variable(){
 	session_start();
 	$_SESSION['fecha_censado']=array();
 }
+
+function registrar_personas(){
+    
+    $datos= array();
+    
+}
+
 
 
 

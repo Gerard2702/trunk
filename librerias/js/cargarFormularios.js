@@ -117,5 +117,33 @@ $("#ingresar-construccion").submit(function(event){
     $('#exampleModal').modal('hide');/*Oculta la modal*/
     $("#datos-personales")[0].reset()
     window.parent.window.location = '#inicio';
+
+    $.ajax({
+
+        type: "POST",
+        url: "librerias/php/guardarVariables.php",
+        data: { 
+          funcion: "registrarPersonas",
+          nombres: $("#nombres").val(), 
+          apellidos: $("#apellidos").val(),
+          apellidos: $("#fecha_nacimiento").val(),
+          genero: $("#genero").val(),
+          nacionalidad: $("#nacionalidad").val(),
+          parentesco: $("#parentesco").val(),
+          numfamilia: $("#numfamilia").val(),
+          niveleducativo: $("#niveleducativo").val(),
+          ocupacion: $("#ocupacion").val(),
+          sitlaboral: $("#sitlaboral").val(),
+          ingreso: $("#ingreso").val(),
+          discapacidad: $("#discapacidad").val(),
+          causa: $("#causa").val(),
+          enfermedad: $("#enfermedad").val(),
+        },
+               
+        success: function(respuesta){ 
+              $('#contenido').load('librerias/formularios/frm_datos_familia.php');
+              window.parent.window.location = '#inicio';                          
+      }//fin del succes function
+    }); //fin del ajax */ 
  
  });

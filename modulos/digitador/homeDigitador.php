@@ -9,6 +9,6 @@ $usuario = $_SESSION['usuario'];
 
  <div class="row">
  	<div class="col-md-12 col-sm-12 col-xs-12">
- 	<img class="img-responsive" alt="Responsive image" src="librerias/imagenes/canvas.png" alt="">
+ 	<img class="img-responsive" alt="Responsive image" src="librerias/imagenes/nuevo.jpg" alt="">
  	</div>
  </div>
