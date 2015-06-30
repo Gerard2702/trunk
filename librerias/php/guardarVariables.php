@@ -240,8 +240,18 @@ function finalizar_censo(){
     $datos_tenencia = mysql_fetch_array($rstenencia,MYSQL_ASSOC);
     $id_tenencia = $datos_tenencia['id_tenencia'];
 
-    $sqlvivienda="INSERT INTO vivienda (numero,cant_familia,fecha_ingredatos,direccion,observaciones,id_mattecho,id_matpiso,id_matparedes,id_colonia,id_tipoletrina,id_tenencia,id_aguanegra,id_aguagris,id_abastagua,id_seguridad,id_manejobasura,id_religion,id_tipofamilia)values
-     ('$num_vivienda','$can_familias','$fecha_censo','$pasaje','$observaciones','$mattecho','$matpiso','$matparedes',' $id_colonia','$tipoletrina','$id_tenencia','$aguasnegras','$aguasgris','$abastagua','$id_seguridad','$manbasura','$id_religion','$id_tipofamilia');";
+    $sqlvivienda="INSERT INTO vivienda (numero,cant_familia,fecha_ingredatos,
+                              direccion,observaciones,id_mattecho,
+                              id_matpiso,id_matparedes,id_colonia,
+                              id_tipoletrina,id_tenencia,id_aguanegra,
+                              id_aguagris,id_abastagua,id_seguridad,
+                              id_manejobasura,id_religion,id_tipofamilia)values
+                              ('$num_vivienda','$can_familias','$fecha_censo',
+                              '$pasaje','$observaciones','$mattecho',
+                              '$matpiso','$matparedes',' $id_colonia',
+                              '$tipoletrina','$id_tenencia','$aguasnegras',
+                              '$aguasgris','$abastagua','$id_seguridad',
+                              '$manbasura','$id_religion','$id_tipofamilia');";
     mysql_query($sqlvivienda);
 
     $id_vivienda=mysql_insert_id();
