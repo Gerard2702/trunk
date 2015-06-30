@@ -11,6 +11,7 @@ function cargarGenerales(){
 function cargarFamilia(){
   $('#contenido').load('librerias/formularios/frm_datos_familia.php');
   window.parent.window.location = '#inicio';
+  $('#exampleModal').modal('hide');
 }
 
 function cargarCensada(){
@@ -32,6 +33,62 @@ function cargarBusquedaTipoFamilia(){
   $('#contenido').load('librerias/formularios/busqueda_tipo_familia.php');
 }
 
+function cargarFrmPersonas(){
+  $('#contenido').load('librerias/formularios/frm_registro_personas.php');
+   window.parent.window.location = '#inicio';
+}
+
+function finalizarCenso(){
+  var listaIngresos = $("input[name='ingresos[]']:checked").map(function (){
+    return this.value;
+    }).get();
+  var listaPatrimonio = $("input[name='patrimonio[]']:checked").map(function (){
+    return this.value;
+    }).get();
+
+  $.ajax({
+        type: "POST",
+        url: "librerias/php/guardarVariables.php",
+        data: { 
+          funcion: "finalizarCenso",
+          ingresos: listaIngresos, 
+          patrimonio: listaPatrimonio, 
+        },
+               
+        success: function(respuesta){ 
+              $('#contenido').load('librerias/formularios/frm_datos_generales.php');
+              window.parent.window.location = '#inicio';                          
+      }//fin del succes function
+    }); //fin del ajax */ 
+}
+
+
+
+function cargarConstrucciondatos(){
+
+  var listaIngresos = $("input[name='ingresos[]']:checked").map(function (){
+    return this.value;
+    }).get();
+  var listaPatrimonio = $("input[name='patrimonio[]']:checked").map(function (){
+    return this.value;
+    }).get();
+
+  $.ajax({
+
+        type: "POST",
+        url: "librerias/php/guardarVariables.php",
+        data: { 
+          funcion: "formulario3",
+          ingresos: listaIngresos, 
+          patrimonio: listaPatrimonio,
+        },
+               
+        success: function(respuesta){ 
+              $('#contenido').load('librerias/formularios/frm_construccion_servicios.php');
+              window.parent.window.location = '#inicio';                          
+      }//fin del succes function
+    }); //fin del ajax */ 
+}
 
 /*Sumit del formulario de datos generales y Carga el siguiente form de datos de construccion*/
 $("#ingresar-generales").submit(function(event){
@@ -64,7 +121,6 @@ $("#ingresar-generales").submit(function(event){
           otras_mascotas: $('#otras_mascotas').val(),
           observaciones: $('#observaciones').val(),
           vectores: listaValoresCheckboxes, 
-         
         },
                
         success: function(respuesta){ 
@@ -114,7 +170,7 @@ $("#ingresar-construccion").submit(function(event){
  $("#datos-personales").submit(function(event){
 
     event.preventDefault(); /*evitamos que se recarge la página*/
-    $('#exampleModal').modal('hide'); 
+    
     
     $.ajax({
 
@@ -139,10 +195,10 @@ $("#ingresar-construccion").submit(function(event){
         },
                
         success: function(respuesta){ 
-          $('#contenido').load('librerias/formularios/frm_datos_familia.php');
-                                     
+         $('#exampleModal').modal('hide');/*Oculta la modal*/
+         $("#datos-personales")[0].reset()
+         window.parent.window.location = '#inicio'; 
+cargarFamilia();
       }//fin del succes function
     }); //fin del ajax */ 
-    
-   
  });

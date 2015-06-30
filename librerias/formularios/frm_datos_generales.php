@@ -395,6 +395,7 @@
     changeMonth: true,
     changeYear: true,
     yearRange: '2010:2020',
-    dateFormat: 'dd/mm/yy'
+    dateFormat: 'yy-mm-dd',
+    maxDate: "0D"
   });
     </script>
