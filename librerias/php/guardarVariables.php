@@ -119,6 +119,7 @@ function reiniciar_variable(){
 function registrar_personas(){
 $usuario = $_SESSION['usuario'];
 /*Se recuperan las variables por POST del ajax*/
+/*Necesita revision*/
 $nombres=$_POST['nombres']; 
 $apellidos=$_POST['apellidos'];
 $fecha_nacimiento=$_POST['fecha_nacimiento'];
@@ -175,8 +176,13 @@ $rsingreso=mysql_query($sql_id_ingreso);
 $datos_ingreso = mysql_fetch_array($rsingreso,MYSQL_ASSOC);
 $id_ingreso = $datos_ingreso['id_ingreso'];
 
+$sql_id_causa= "SELECT id_causa FROM causa_disca WHERE descripcion='$causa';";
+$rscausa=mysql_query($sql_id_causa);
+$datos_causa = mysql_fetch_array($rscausa,MYSQL_ASSOC);
+$id_causa = $datos_causa['id_causa'];
+
 /*consulta insert*/
-$sqlpersonastemporal="INSERT INTO $usuario (nombre,apellido,fecha_nac,genero,id_nacionalidad,id_niveleducativo,id_tipodisca,id_ocupacion,id_parentesco,id_sitlaboral,id_enfermedad,id_vivienda,id_ingreso,num_familia)values ('$nombres','$apellidos','$fecha_nacimiento','$genero','$id_nacionalidad','$id_niveledu','$id_discapacidad','$id_ocupacion','$id_parentesco','$id_sitlaboral','$id_enfermedad',null,'$id_ingreso',1);";
+$sqlpersonastemporal="INSERT INTO $usuario (nombre,apellido,fecha_nac,genero,id_nacionalidad,id_niveleducativo,id_discapacidad,id_causadisca,id_ocupacion,id_parentesco,id_sitlaboral,id_enfermedad,id_vivienda,id_ingreso,num_familia)values ('$nombres','$apellidos','$fecha_nacimiento','$genero','$id_nacionalidad','$id_niveledu','$id_discapacidad','$id_causa','$id_ocupacion','$id_parentesco','$id_sitlaboral','$id_enfermedad',null,'$id_ingreso',1);";
 mysql_query($sqlpersonastemporal);
 
 
@@ -293,7 +299,7 @@ function finalizar_censo(){
 
     $usuario = $_SESSION['usuario'];
 
-    $sqlcnpersonas = "SELECT nombre,apellido,fecha_nac,genero,id_nacionalidad,id_niveleducativo,id_tipodisca,id_ocupacion,id_parentesco,id_sitlaboral,id_enfermedad,id_ingreso,num_familia FROM  $usuario;";
+    $sqlcnpersonas = "SELECT nombre,apellido,fecha_nac,genero,id_nacionalidad,id_niveleducativo,id_discapacidad,id_causadisca,id_ocupacion,id_parentesco,id_sitlaboral,id_enfermedad,id_ingreso,num_familia FROM  $usuario;";
     $rscnpersonas = mysql_query($sqlcnpersonas);
     $numcnpersonas=mysql_num_rows($rscnpersonas);
 
@@ -305,16 +311,17 @@ function finalizar_censo(){
     $generoP=$modulo1['genero'];
     $nacionalidadP=$modulo1['id_nacionalidad'];
     $niveleducativoP=$modulo1['id_niveleducativo'];
-    $tipodiscaP=$modulo1['id_tipodisca'];
+    $discapacidadP=$modulo1['id_discapacidad'];
+    $causadiscaP=$modulo1['id_causadisca'];
     $ocupacionP=$modulo1['id_ocupacion'];
     $parentescoP=$modulo1['id_parentesco'];
     $sitlaboralP=$modulo1['id_sitlaboral'];
     $enfermedadP=$modulo1['id_enfermedad'];
     $ingresoP=$modulo1['id_ingreso'];
 
-    
-    $sqlIngresoPersonas="INSERT INTO persona (nombre,apellido,fecha_nac,genero,id_nacionalidad,id_niveleducativo,id_tipodisca,id_ocupacion,id_parentesco,id_sitlaboral,id_enfermedad,id_vivienda,id_ingreso,num_familia)values 
-    ('$nombreP','$apellidoP','$fechaP','$generoP','$nacionalidadP','$niveleducativoP','$tipodiscaP','$ocupacionP','$parentescoP','$sitlaboralP','$enfermedadP','$id_vivienda','$ingresoP',1);";
+
+    $sqlIngresoPersonas="INSERT INTO persona (nombre,apellido,fecha_nac,genero,id_nacionalidad,id_niveleducativo,id_discapacidad,id_causadisca,id_ocupacion,id_parentesco,id_sitlaboral,id_enfermedad,id_vivienda,id_ingreso,num_familia)values 
+    ('$nombreP','$apellidoP','$fechaP','$generoP','$nacionalidadP','$niveleducativoP','$discapacidadP','$causadiscaP','$ocupacionP','$parentescoP','$sitlaboralP','$enfermedadP','$id_vivienda','$ingresoP',1);";
     mysql_query($sqlIngresoPersonas);
     
     }

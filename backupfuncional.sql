@@ -149,49 +149,6 @@ INSERT INTO `colonia` (`id_colonia`, `nombre`, `descripcion`, `id_area`) VALUES
 /*!40000 ALTER TABLE `colonia` ENABLE KEYS */;
 
 
--- Volcando estructura para tabla censo_nc.digitador
-CREATE TABLE IF NOT EXISTS `digitador` (
-  `id_persona` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  `apellido` varchar(45) NOT NULL,
-  `fecha_nac` date NOT NULL,
-  `genero` varchar(45) NOT NULL,
-  `id_nacionalidad` int(11) NOT NULL,
-  `id_niveleducativo` int(11) NOT NULL,
-  `id_tipodisca` int(11) NOT NULL,
-  `id_ocupacion` int(11) NOT NULL,
-  `id_parentesco` int(11) NOT NULL,
-  `id_sitlaboral` int(11) NOT NULL,
-  `id_enfermedad` int(11) NOT NULL,
-  `id_vivienda` int(11) DEFAULT NULL,
-  `id_ingreso` int(11) NOT NULL,
-  `num_familia` int(11) NOT NULL,
-  PRIMARY KEY (`id_persona`),
-  KEY `fk_persona_Nacionalidad1_idx1` (`id_nacionalidad`),
-  KEY `fk_persona_nivel_educativo1_idx1` (`id_niveleducativo`),
-  KEY `fk_persona_tipo_discapacidad1_idx1` (`id_tipodisca`),
-  KEY `fk_persona_ocupacion1_idx1` (`id_ocupacion`),
-  KEY `fk_persona_parentesco1_idx1` (`id_parentesco`),
-  KEY `fk_persona_situacion_laboral1_idx1` (`id_sitlaboral`),
-  KEY `fk_persona_enfermedad1_idx1` (`id_enfermedad`),
-  KEY `fk_persona_vivienda1_idx1` (`id_vivienda`),
-  KEY `fk_persona_ingreso_economico1_idx1` (`id_ingreso`),
-  CONSTRAINT `fk_persona_Nacionalidad11` FOREIGN KEY (`id_nacionalidad`) REFERENCES `nacionalidad` (`id_nacionalidad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_persona_enfermedad11` FOREIGN KEY (`id_enfermedad`) REFERENCES `enfermedad` (`id_enfermedad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_persona_ingreso_economico11` FOREIGN KEY (`id_ingreso`) REFERENCES `ingreso_economico` (`id_ingreso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_persona_nivel_educativo11` FOREIGN KEY (`id_niveleducativo`) REFERENCES `nivel_educativo` (`id_niveleducativo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_persona_ocupacion11` FOREIGN KEY (`id_ocupacion`) REFERENCES `ocupacion` (`id_ocupacion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_persona_parentesco11` FOREIGN KEY (`id_parentesco`) REFERENCES `parentesco` (`id_parentesco`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_persona_situacion_laboral11` FOREIGN KEY (`id_sitlaboral`) REFERENCES `situacion_laboral` (`id_sitlaboral`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_persona_tipo_discapacidad11` FOREIGN KEY (`id_tipodisca`) REFERENCES `tipo_discapacidad` (`id_tipodisca`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_persona_vivienda11` FOREIGN KEY (`id_vivienda`) REFERENCES `vivienda` (`id_vivienda`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
--- Volcando datos para la tabla censo_nc.digitador: ~0 rows (aproximadamente)
-/*!40000 ALTER TABLE `digitador` DISABLE KEYS */;
-/*!40000 ALTER TABLE `digitador` ENABLE KEYS */;
-
-
 -- Volcando estructura para tabla censo_nc.discapacidad
 CREATE TABLE IF NOT EXISTS `discapacidad` (
   `id_disca` int(11) NOT NULL AUTO_INCREMENT,
@@ -296,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `mascota` (
   `id_mascota` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   PRIMARY KEY (`id_mascota`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla censo_nc.mascota: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `mascota` DISABLE KEYS */;
@@ -514,7 +471,8 @@ CREATE TABLE IF NOT EXISTS `persona` (
   `genero` varchar(45) NOT NULL,
   `id_nacionalidad` int(11) NOT NULL,
   `id_niveleducativo` int(11) NOT NULL,
-  `id_tipodisca` int(11) NOT NULL,
+  `id_discapacidad` int(11) NOT NULL,
+  `id_causadisca` int(11) NOT NULL,
   `id_ocupacion` int(11) NOT NULL,
   `id_parentesco` int(11) NOT NULL,
   `id_sitlaboral` int(11) NOT NULL,
@@ -525,23 +483,25 @@ CREATE TABLE IF NOT EXISTS `persona` (
   PRIMARY KEY (`id_persona`),
   KEY `fk_persona_Nacionalidad1_idx` (`id_nacionalidad`),
   KEY `fk_persona_nivel_educativo1_idx` (`id_niveleducativo`),
-  KEY `fk_persona_tipo_discapacidad1_idx` (`id_tipodisca`),
+  KEY `fk_persona_tipo_discapacidad1_idx` (`id_discapacidad`),
   KEY `fk_persona_ocupacion1_idx` (`id_ocupacion`),
   KEY `fk_persona_parentesco1_idx` (`id_parentesco`),
   KEY `fk_persona_situacion_laboral1_idx` (`id_sitlaboral`),
   KEY `fk_persona_enfermedad1_idx` (`id_enfermedad`),
   KEY `fk_persona_vivienda1_idx` (`id_vivienda`),
   KEY `fk_persona_ingreso_economico1_idx` (`id_ingreso`),
+  KEY `fk_persona_causa_discapacidad1` (`id_causadisca`),
   CONSTRAINT `fk_persona_Nacionalidad1` FOREIGN KEY (`id_nacionalidad`) REFERENCES `nacionalidad` (`id_nacionalidad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_persona_causa_discapacidad1` FOREIGN KEY (`id_causadisca`) REFERENCES `causa_disca` (`id_causa`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_persona_enfermedad1` FOREIGN KEY (`id_enfermedad`) REFERENCES `enfermedad` (`id_enfermedad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_persona_ingreso_economico1` FOREIGN KEY (`id_ingreso`) REFERENCES `ingreso_economico` (`id_ingreso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_persona_nivel_educativo1` FOREIGN KEY (`id_niveleducativo`) REFERENCES `nivel_educativo` (`id_niveleducativo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_persona_ocupacion1` FOREIGN KEY (`id_ocupacion`) REFERENCES `ocupacion` (`id_ocupacion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_persona_parentesco1` FOREIGN KEY (`id_parentesco`) REFERENCES `parentesco` (`id_parentesco`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_persona_situacion_laboral1` FOREIGN KEY (`id_sitlaboral`) REFERENCES `situacion_laboral` (`id_sitlaboral`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_persona_tipo_discapacidad1` FOREIGN KEY (`id_tipodisca`) REFERENCES `tipo_discapacidad` (`id_tipodisca`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_persona_tipo_discapacidad1` FOREIGN KEY (`id_discapacidad`) REFERENCES `discapacidad` (`id_disca`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_persona_vivienda1` FOREIGN KEY (`id_vivienda`) REFERENCES `vivienda` (`id_vivienda`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla censo_nc.persona: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
@@ -885,7 +845,7 @@ CREATE TABLE IF NOT EXISTS `vivienda` (
   CONSTRAINT `fk_vivienda_tenencia_vivienda1` FOREIGN KEY (`id_tenencia`) REFERENCES `tenencia_vivienda` (`id_tenencia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_vivienda_tipo_familia1` FOREIGN KEY (`id_tipofamilia`) REFERENCES `tipo_familia` (`id_tipofamilia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_vivienda_tipo_letrina1` FOREIGN KEY (`id_tipoletrina`) REFERENCES `tipo_letrina` (`id_tipoletrina`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla censo_nc.vivienda: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `vivienda` DISABLE KEYS */;
