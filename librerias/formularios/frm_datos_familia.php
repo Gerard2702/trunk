@@ -50,11 +50,54 @@
     $rsenfermedad = mysql_query($sqlenfermedad);
     $numenfermedad = mysql_num_rows($rsenfermedad);
 
+  mysql_query("CREATE TABLE IF NOT EXISTS `$usuario` (
+  `id_$usuario` INT(11) NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  `apellido` VARCHAR(45) NOT NULL,
+  `fecha_nac` DATE NOT NULL,
+  `genero` VARCHAR(45) NOT NULL,
+  `id_nacionalidad` INT(11) NOT NULL,
+  `id_niveleducativo` INT(11) NOT NULL,
+  `id_discapacidad` INT(11) NOT NULL,
+  `id_causadisca` INT(11) NOT NULL,
+  `id_ocupacion` INT(11) NOT NULL,
+  `id_parentesco` INT(11) NOT NULL,
+  `id_sitlaboral` INT(11) NOT NULL,
+  `id_enfermedad` INT(11) NOT NULL,
+  `id_vivienda` INT(11) NULL DEFAULT NULL,
+  `id_ingreso` INT(11) NOT NULL,
+  `num_familia` INT(11) NOT NULL,
+  PRIMARY KEY (`id_$usuario`),
+  INDEX `fk_persona_Nacionalidad1_idx$usuario` (`id_nacionalidad`),
+  INDEX `fk_persona_nivel_educativo1_idx$usuario` (`id_niveleducativo`),
+  INDEX `fk_persona_tipo_discapacidad1_idx$usuario` (`id_discapacidad`),
+  INDEX `fk_persona_ocupacion1_idx$usuario` (`id_ocupacion`),
+  INDEX `fk_persona_parentesco1_idx$usuario` (`id_parentesco`),
+  INDEX `fk_persona_situacion_laboral1_idx$usuario` (`id_sitlaboral`),
+  INDEX `fk_persona_enfermedad1_idx$usuario` (`id_enfermedad`),
+  INDEX `fk_persona_vivienda1_idx$usuario` (`id_vivienda`),
+  INDEX `fk_persona_ingreso_economico1_idx$usuario` (`id_ingreso`),
+  INDEX `fk_persona_causa_discapacidad1$usuario` (`id_causadisca`),
+  CONSTRAINT `fk_persona_Nacionalidad1$usuario` FOREIGN KEY (`id_nacionalidad`) REFERENCES `nacionalidad` (`id_nacionalidad`) ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT `fk_persona_causa_discapacidad1$usuario` FOREIGN KEY (`id_causadisca`) REFERENCES `causa_disca` (`id_causa`) ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT `fk_persona_enfermedad1$usuario` FOREIGN KEY (`id_enfermedad`) REFERENCES `enfermedad` (`id_enfermedad`) ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT `fk_persona_ingreso_economico1$usuario` FOREIGN KEY (`id_ingreso`) REFERENCES `ingreso_economico` (`id_ingreso`) ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT `fk_persona_nivel_educativo1$usuario` FOREIGN KEY (`id_niveleducativo`) REFERENCES `nivel_educativo` (`id_niveleducativo`) ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT `fk_persona_ocupacion1$usuario` FOREIGN KEY (`id_ocupacion`) REFERENCES `ocupacion` (`id_ocupacion`) ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT `fk_persona_parentesco1$usuario` FOREIGN KEY (`id_parentesco`) REFERENCES `parentesco` (`id_parentesco`) ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT `fk_persona_situacion_laboral1$usuario` FOREIGN KEY (`id_sitlaboral`) REFERENCES `situacion_laboral` (`id_sitlaboral`) ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT `fk_persona_tipo_discapacidad1$usuario` FOREIGN KEY (`id_discapacidad`) REFERENCES `discapacidad` (`id_disca`) ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT `fk_persona_vivienda1$usuario` FOREIGN KEY (`id_vivienda`) REFERENCES `vivienda` (`id_vivienda`) ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;");
+
     
 
-    $sqlpersonas = "SELECT di.nombre as nombre_personas,di.apellido,di.fecha_nac,ocu.nombre as ocupacion FROM $usuario di inner join ocupacion ocu on di.id_ocupacion=ocu.id_ocupacion;";
-    $rspersonas = mysql_query($sqlpersonas);
-    $numpersonas = mysql_num_rows($rspersonas);
+    $sqlpersonastemporal = "SELECT $usuario.nombre as nombre_personas,$usuario.apellido,$usuario.fecha_nac,ocupacion.nombre as ocupacion FROM $usuario  inner join ocupacion on $usuario.id_ocupacion=ocupacion.id_ocupacion;";
+    $rspersonastemporal = mysql_query($sqlpersonastemporal);
+    $numpersonastemporal = mysql_num_rows($rspersonastemporal);
 
 
     /*Inicializa las variables en caso que no esten declaradas*/
@@ -113,7 +156,7 @@
                      <div class="table-responsive ">
                 
                     <table class="table table-hover">
-                    <?php if($numpersonas>0){ ?>
+                    <?php if($numpersonastemporal>0){ ?>
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
@@ -127,7 +170,7 @@
                             <tbody>
                                     <?php   
 
-                                         while($modulo = mysql_fetch_array($rspersonas,MYSQL_ASSOC)){
+                                         while($modulo = mysql_fetch_array($rspersonastemporal,MYSQL_ASSOC)){
                                           
 
                                     ?>
@@ -250,7 +293,7 @@
                             <div class="row">
                               <div class="col-md-offset-4 col-md-4 col-sm-12 col-xs-12 text-center" >
                                  <button type="button" title="Atras"  class="btn btn-success btn-sm" onclick="cargarConstrucciondatos();"><i class="fa fa-chevron-left"></i>&nbsp;Anterior&nbsp;</button>
-                                 <?php if($numpersonas>0){ ?>
+                                 <?php if($numpersonastemporal>0){ ?>
                                  <button type="button" title="Finalizar" class="btn btn-primary btn-sm" onclick="finalizarCenso();">Finalizar&nbsp;<i class="glyphicon glyphicon-floppy-save"></i></button>
                                  <?php } else {?>
                                  <button type="button" title="Finalizar" class="btn btn-danger btn-sm" disabled="">Finalizar&nbsp;<i class="glyphicon glyphicon-floppy-save"></i></button>

@@ -53,7 +53,8 @@
     changeMonth: true,
     changeYear: true,
     yearRange: '1900:2020',
-    dateFormat: 'yy-mm-dd'
+    dateFormat: 'yy-mm-dd',
+    maxDate: "0D"
   });
     </script>
 <div class="row">

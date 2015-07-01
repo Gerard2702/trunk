@@ -355,9 +355,6 @@ function finalizar_censo(){
     }
 
 
-
-   
-
 }
 
 ?>

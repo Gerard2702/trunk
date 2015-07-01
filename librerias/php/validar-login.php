@@ -64,8 +64,6 @@ $filas = mysql_num_rows($resultado);
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;");
-
-
         echo "true";        
         
      }    
