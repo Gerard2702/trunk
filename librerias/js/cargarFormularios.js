@@ -4,14 +4,44 @@ function cargarConstruccion(){
 }
 
 function cargarGenerales(){
-  $('#contenido').load('librerias/formularios/frm_datos_generales.php');
-  window.parent.window.location = '#inicio';
+
+  var listaVulnerabilidad = $("input[name='vulnerabilidad[]']:checked").map(function (){
+    return this.value;
+    }).get();
+    var listaOtrosServicios = $("input[name='otros[]']:checked").map(function (){
+    return this.value;
+    }).get();
+    
+    $.ajax({
+
+        type: "POST",
+        url: "librerias/php/guardarVariables.php",
+        data: { 
+          funcion: "formulario2",
+          matparedes: $("#matparedes:checked").val(),
+          matpiso: $("#matpiso:checked").val(),
+          mattecho: $("#mattecho:checked").val(),
+          tipoletrina: $("#tipoletrina:checked").val(),
+          manbasura: $("#manbasura:checked").val(),
+          abastagua: $("#abastagua:checked").val(),
+          aguagris: $("#aguagris:checked").val(),
+          aguasnegras: $("#aguasnegras:checked").val(),
+          vulnerabilidad: listaVulnerabilidad, 
+          otros_servicios: listaOtrosServicios, 
+        },
+               
+        success: function(respuesta){ 
+              $('#contenido').load('librerias/formularios/frm_datos_generales.php');
+  window.parent.window.location = '#inicio';                         
+      }//fin del succes function
+    }); //fin del ajax */ 
+
+  
 }
 
 function cargarFamilia(){
   $('#contenido').load('librerias/formularios/frm_datos_familia.php');
   window.parent.window.location = '#inicio';
-  $('#exampleModal').modal('hide');
 }
 
 function cargarCensada(){
@@ -33,9 +63,64 @@ function cargarBusquedaTipoFamilia(){
   $('#contenido').load('librerias/formularios/busqueda_tipo_familia.php');
 }
 
+
 function cargarFrmPersonas(){
-  $('#contenido').load('librerias/formularios/frm_registro_personas.php');
-   window.parent.window.location = '#inicio';
+  var listaIngresos = $("input[name='ingresos[]']:checked").map(function (){
+    return this.value;
+    }).get();
+  var listaPatrimonio = $("input[name='patrimonio[]']:checked").map(function (){
+    return this.value;
+    }).get();
+
+  $.ajax({
+
+        type: "POST",
+        url: "librerias/php/guardarVariables.php",
+        data: { 
+          funcion: "formulario3",
+          ingresos: listaIngresos, 
+          patrimonio: listaPatrimonio,
+        },
+               
+        success: function(respuesta){ 
+              $('#contenido').load('librerias/formularios/frm_registro_personas.php');
+   window.parent.window.location = '#inicio';                          
+      }//fin del succes function
+    }); //fin del ajax */
+  
+}
+
+function editarPersona(id_persona){
+  $.ajax({          
+  type:"POST",
+  url:"librerias/formularios/frm_editar_personas.php",
+  dataType:"text",
+  data:{
+    idpersona: id_persona,
+  },
+  success: function(respuesta){
+    window.parent.window.location = '#inicio';
+      $("#contenido").html(respuesta)
+    }
+});
+}
+
+function eliminarPersona(id_persona){
+  if(confirm('Esta seguro que desea Eliminar a la Persona?')){
+  $.ajax({          
+  type:"POST",
+  url:"librerias/php/guardarVariables.php",
+  dataType:"text",
+  data:{
+    funcion:"eliminarPersona",
+    idpersona: id_persona,
+  },
+  success: function(respuesta){
+    cargarFamilia();
+    window.parent.window.location = '#inicio'; 
+    }
+});
+}
 }
 
 function finalizarCenso(){
@@ -202,3 +287,37 @@ cargarFamilia();
       }//fin del succes function
     }); //fin del ajax */ 
  });
+
+
+
+
+ function guardarModificacion(idpersona){
+    $.ajax({
+        type: "POST",
+        url: "librerias/php/guardarVariables.php",
+        data: { 
+          funcion: "ActualizarPersonas",
+          idpersona:idpersona,
+          nombres: $("#nombres").val(), 
+          apellidos: $("#apellidos").val(),
+          fecha_nacimiento: $("#fecha_nacimiento").val(),
+          genero: $("#genero").val(),
+          nacionalidad: $("#nacionalidad").val(),
+          parentesco: $("#parentesco").val(),
+          numfamilia: $("#numfamilia").val(),
+          niveleducativo: $("#niveleducativo").val(),
+          ocupacion: $("#ocupacion").val(),
+          sitlaboral: $("#sitlaboral").val(),
+          ingreso: $("#ingreso").val(),
+          discapacidad: $("#discapacidad").val(),
+          causa: $("#causa").val(),
+          enfermedad: $("#enfermedad").val(),
+        },      
+        success: function(respuesta){ 
+         $("#datos-personales-editar")[0].reset()
+         cargarFamilia();
+         window.parent.window.location = '#inicio'; 
+          
+      }//fin del succes function
+    }); //fin del ajax 
+}

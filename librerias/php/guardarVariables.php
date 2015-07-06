@@ -24,6 +24,12 @@ switch ($_POST['funcion']) {
     case 'registrarPersonas':
     echo registrar_personas();
     break;
+    case 'ActualizarPersonas':
+    echo ActualizarPersonas();
+    break;
+    case 'eliminarPersona':
+    echo eliminarPersona();
+    break;
     case 'finalizarCenso':
     echo finalizar_censo();
     break;
@@ -113,7 +119,41 @@ function variables_form3(){
 
 function reiniciar_variable(){
 	session_start();
-	$_SESSION['fecha_censado']=array();
+	$usuario = $_SESSION['usuario'];
+    mysql_query("DELETE FROM $usuario");
+
+    
+    $_SESSION['ultimoid']=$id_vivienda;
+    $_SESSION['fecha_censado']=array();
+    $_SESSION['matparedes']=array();
+    $_SESSION['matpiso']=array();
+    $_SESSION['mattecho']=array();
+    $_SESSION['tipoletrina']=array();
+    $_SESSION['manbasura']=array();
+    $_SESSION['abastagua']=array();
+    $_SESSION['aguasgris']=array();
+    $_SESSION['aguasnegras']=array();
+
+    if (isset($_SESSION['vectores'])){
+         $_SESSION['vectores']=array();
+      }
+
+
+    if (isset($_SESSION['vulnerabilidad'])){
+        $_SESSION['vulnerabilidad']=array();
+      }
+
+    if (isset($_SESSION['otros'])){
+        $_SESSION['otros']=array();
+      }
+    
+    if (isset($_SESSION['ingresosEconomicos'])){
+        $_SESSION['ingresosEconomicos']=array();
+    }
+
+    if (isset($_SESSION['patrimonioFamiliar'])){
+        $_SESSION['patrimonioFamiliar']=array();
+    }
 }
 
 function registrar_personas(){
@@ -188,6 +228,87 @@ mysql_query($sqlpersonastemporal);
 
 }
 
+function ActualizarPersonas(){
+$usuario = $_SESSION['usuario'];
+/*Se recuperan las variables por POST del ajax*/
+/*Necesita revision*/
+$id_persona=$_POST['idpersona'];
+$nombres=$_POST['nombres']; 
+$apellidos=$_POST['apellidos'];
+$fecha_nacimiento=$_POST['fecha_nacimiento'];
+$genero=$_POST['genero'];
+$nacionalidad=$_POST['nacionalidad'];
+$parentesco=$_POST['parentesco'];
+$numfamilia=$_POST['numfamilia'];
+$niveleducativo=$_POST['niveleducativo'];
+$ocupacion=$_POST['ocupacion'];
+$sitlaboral=$_POST['sitlaboral'];
+$ingreso=$_POST['ingreso'];
+$discapacidad=$_POST['discapacidad'];
+$causa=$_POST['causa'];
+$enfermedad=$_POST['enfermedad'];
+
+/*SE RECUPERA EL ID DEPENDIENDO DE LO QUE SELECCIONO*/
+$sql_id_nacionalidad = "SELECT id_nacionalidad FROM nacionalidad WHERE nombre='$nacionalidad';";
+$rsnacionalidad=mysql_query($sql_id_nacionalidad);
+$datos_nacionalidad = mysql_fetch_array($rsnacionalidad,MYSQL_ASSOC);
+$id_nacionalidad = $datos_nacionalidad['id_nacionalidad'];
+
+$sql_id_niveledu = "SELECT id_niveleducativo FROM nivel_educativo WHERE nombre='$niveleducativo';";
+$rsniveleducativo=mysql_query($sql_id_niveledu);
+$datos_niveledu = mysql_fetch_array($rsniveleducativo,MYSQL_ASSOC);
+$id_niveledu = $datos_niveledu['id_niveleducativo'];
+
+$sql_id_discapacidad = "SELECT id_disca FROM discapacidad WHERE nombre='$discapacidad';";
+$rsdiscapacidad=mysql_query($sql_id_discapacidad);
+$datos_discapacidad = mysql_fetch_array($rsdiscapacidad,MYSQL_ASSOC);
+$id_discapacidad = $datos_discapacidad['id_disca'];
+
+$sql_id_ocupacion= "SELECT id_ocupacion FROM ocupacion WHERE nombre='$ocupacion';";
+$rsocupacion=mysql_query($sql_id_ocupacion);
+$datos_ocupacion = mysql_fetch_array($rsocupacion,MYSQL_ASSOC);
+$id_ocupacion = $datos_ocupacion['id_ocupacion'];
+
+$sql_id_parentesco= "SELECT id_parentesco FROM parentesco WHERE nombre='$parentesco';";
+$rsparentesco=mysql_query($sql_id_parentesco);
+$datos_parentesco = mysql_fetch_array($rsparentesco,MYSQL_ASSOC);
+$id_parentesco = $datos_parentesco['id_parentesco'];
+
+$sql_id_sitlaboral= "SELECT id_sitlaboral FROM situacion_laboral WHERE nombre='$sitlaboral';";
+$rssitlaboral=mysql_query($sql_id_sitlaboral);
+$datos_sitlaboral = mysql_fetch_array($rssitlaboral,MYSQL_ASSOC);
+$id_sitlaboral = $datos_sitlaboral['id_sitlaboral'];
+
+$sql_id_enfermedad= "SELECT id_enfermedad FROM enfermedad WHERE nombre='$enfermedad';";
+$rsenfermedad=mysql_query($sql_id_enfermedad);
+$datos_enfermedad = mysql_fetch_array($rsenfermedad,MYSQL_ASSOC);
+$id_enfermedad = $datos_enfermedad['id_enfermedad'];
+
+$sql_id_ingreso= "SELECT id_ingreso FROM ingreso_economico WHERE nombre='$ingreso';";
+$rsingreso=mysql_query($sql_id_ingreso);
+$datos_ingreso = mysql_fetch_array($rsingreso,MYSQL_ASSOC);
+$id_ingreso = $datos_ingreso['id_ingreso'];
+
+$sql_id_causa= "SELECT id_causa FROM causa_disca WHERE descripcion='$causa';";
+$rscausa=mysql_query($sql_id_causa);
+$datos_causa = mysql_fetch_array($rscausa,MYSQL_ASSOC);
+$id_causa = $datos_causa['id_causa'];
+
+/*consulta insert*/
+
+$sqlupdate="UPDATE $usuario SET nombre='$nombres',apellido='$apellidos',fecha_nac='$fecha_nacimiento',genero='$genero',id_nacionalidad='$id_nacionalidad',id_niveleducativo='$id_niveledu',id_discapacidad='$id_discapacidad',id_causadisca='$id_causa',id_ocupacion='$id_ocupacion',id_parentesco='$id_parentesco',id_sitlaboral='$id_sitlaboral',id_enfermedad='$id_enfermedad',id_ingreso='$id_ingreso' WHERE id_$usuario='$id_persona';";
+mysql_query($sqlupdate);
+
+
+}
+
+function eliminarPersona(){
+    $usuario = $_SESSION['usuario'];
+    $id_persona=$_POST['idpersona'];
+
+    $sqldelete="DELETE from $usuario where id_$usuario='$id_persona';";
+    mysql_query($sqldelete);
+}
 
 function finalizar_censo(){
 
@@ -332,6 +453,13 @@ function finalizar_censo(){
     $_SESSION['ultimoid']=$id_vivienda;
     $_SESSION['fecha_censado']=array();
     $_SESSION['matparedes']=array();
+    $_SESSION['matpiso']=array();
+    $_SESSION['mattecho']=array();
+    $_SESSION['tipoletrina']=array();
+    $_SESSION['manbasura']=array();
+    $_SESSION['abastagua']=array();
+    $_SESSION['aguasgris']=array();
+    $_SESSION['aguasnegras']=array();
 
     if (isset($_SESSION['vectores'])){
          $_SESSION['vectores']=array();
@@ -347,14 +475,11 @@ function finalizar_censo(){
       }
     
     if (isset($_POST['ingresos'])){
-        $_SESSION['ingresos']=array();
+        $_SESSION['ingresosEconomicos']=array();
     }
 
     if (isset($_POST['patrimonio'])){
-        $_SESSION['patrimonio']=array();
+        $_SESSION['patrimonioFamiliar']=array();
     }
-
-
 }
-
 ?>

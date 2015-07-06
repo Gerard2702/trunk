@@ -95,7 +95,7 @@ ENGINE=InnoDB
 
     
 
-    $sqlpersonastemporal = "SELECT $usuario.nombre as nombre_personas,$usuario.apellido,$usuario.fecha_nac,ocupacion.nombre as ocupacion FROM $usuario  inner join ocupacion on $usuario.id_ocupacion=ocupacion.id_ocupacion;";
+    $sqlpersonastemporal = "SELECT $usuario.id_$usuario as id_persona,$usuario.nombre as nombre_personas,$usuario.apellido,$usuario.fecha_nac,ocupacion.nombre as ocupacion FROM $usuario  inner join ocupacion on $usuario.id_ocupacion=ocupacion.id_ocupacion;";
     $rspersonastemporal = mysql_query($sqlpersonastemporal);
     $numpersonastemporal = mysql_num_rows($rspersonastemporal);
 
@@ -180,7 +180,7 @@ ENGINE=InnoDB
                                     <td><?php echo $modulo['fecha_nac'];?></td>
                                     <td><?php echo $modulo['ocupacion'];?></td>
                                     
-                                    <td><button type="button" title="Finalizar" class="btn btn-primary btn-sm" disabled=""><i class="glyphicon glyphicon-cog"></i>&nbsp;Editar</button>&nbsp;<button type="button" title="Finalizar" class="btn btn-danger btn-sm" disabled=""><i class="glyphicon glyphicon-remove"></i>&nbsp;Eliminar</button></td>
+                                    <td><button type="button" title="Editar" class="btn btn-primary btn-sm" onclick="editarPersona('<?php echo $modulo['id_persona'];?>')"><i class="glyphicon glyphicon-cog"></i>&nbsp;Editar</button>&nbsp;<button type="button" title="Finalizar" class="btn btn-danger btn-sm" onclick="eliminarPersona('<?php echo $modulo['id_persona'];?>')"><i class="glyphicon glyphicon-remove"></i>&nbsp;Eliminar</button></td>
 
                                 </tr>   
                                     <?php  }//fin del mientras que recorre resultados
@@ -216,7 +216,7 @@ ENGINE=InnoDB
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="ingresos[]" value="2" <?php if(in_array('2',$ingresosEconomicos)){ echo 'checked="checked"';}?>>Bonos
+                                                    <input type="checkbox" name="ingresos[]" value="2" <?php if(in_array('2',$ingresosEconomicos)){ echo 'checked="checked"';}?>>Bonos (35)
                                                 </label>
                                             </div>
                                             <div class="checkbox">
@@ -248,29 +248,29 @@ ENGINE=InnoDB
                                             
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="patrimonio[]" value="1" <?php if(in_array('1',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Cultivo Agricola Propio
+                                                    <input type="checkbox" name="patrimonio[]" value="1" <?php if(in_array('1',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Cultivo Agricola Propio (30)
                                                 </label>
                                             </div>
 
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="patrimonio[]" value="2" <?php if(in_array('2',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Aves de Corral
+                                                    <input type="checkbox" name="patrimonio[]" value="2" <?php if(in_array('2',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Aves de Corral (31)
                                                 </label>
                                             </div>
 
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="patrimonio[]" value="3" <?php if(in_array('3',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Ganado Vacuno
+                                                    <input type="checkbox" name="patrimonio[]" value="3" <?php if(in_array('3',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Ganado Vacuno (32)
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="patrimonio[]" value="4" <?php if(in_array('4',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Ganado Porcino
+                                                    <input type="checkbox" name="patrimonio[]" value="4" <?php if(in_array('4',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Ganado Porcino (33)
                                                 </label>
                                             </div>
                                               <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="patrimonio[]" value="5" <?php if(in_array('5',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Negocio Propio
+                                                    <input type="checkbox" name="patrimonio[]" value="5" <?php if(in_array('5',$patrimonioFamiliar)){ echo 'checked="checked"';}?>>Negocio Propio (34)
                                                 </label>
                                             </div>
                                              <div class="checkbox">
@@ -390,7 +390,7 @@ ENGINE=InnoDB
                        
                         <div class="col-md-4">
                           <div class="form-group">
-                                            <label>Parentesco con Jefe de Familia <span class="fa fa-users" aria-hidden="true"></span></label>
+                                            <label>Parentesco con Jefe de Familia (42) <span class="fa fa-users" aria-hidden="true"></span></label>
                                             
                                             <select type="text" class="form-control" id="parentesco" required >
                                             <option value="">Seleccione un Parentesco</option>
@@ -428,7 +428,7 @@ ENGINE=InnoDB
             <div class="col-md-3">
             
                   <div class="form-group has-feedback">
-                    <label>Nivel Educativo <span class="glyphicon glyphicon-education" aria-hidden="true"></span></label>
+                    <label>Nivel Educativo (44)<span class="glyphicon glyphicon-education" aria-hidden="true"></span></label>
                       <select type="text" class="form-control" id="niveleducativo" required >
                          <option value="">Seleccione un Nivel</option>
                             <?php 
@@ -450,7 +450,7 @@ ENGINE=InnoDB
             <div class="col-md-3">
              
                   <div class="form-group has-feedback">
-                    <label class="control-label">Ocupacion <span class="fa fa-briefcase" aria-hidden="true"></span></label>
+                    <label class="control-label">Ocupacion (50) <span class="fa fa-briefcase" aria-hidden="true"></span></label>
                         
                             <select type="text" class="form-control" id="ocupacion" required >
                               <option value="">Seleccione una Ocupacion</option>
@@ -471,7 +471,7 @@ ENGINE=InnoDB
             <div class="col-md-3">
                  
                   <div class="form-group has-feedback">
-                    <label class="control-label">Situacion Laboral <span class="fa fa-briefcase" aria-hidden="true"></span></label>
+                    <label class="control-label">Situacion Laboral (45)<span class="fa fa-briefcase" aria-hidden="true"></span></label>
                              
                     <select type="text" class="form-control" id="sitlaboral" required >
                               <option value="">Seleccione una Ocupacion</option>
@@ -492,7 +492,7 @@ ENGINE=InnoDB
             <div class="col-md-3">
                  
                   <div class="form-group has-feedback">
-                    <label class="control-label">Ingresos Economicos <span class="fa fa-usd" aria-hidden="true"></span></label>
+                    <label class="control-label">Ingresos Economicos (46)<span class="fa fa-usd" aria-hidden="true"></span></label>
                     <select type="text" class="form-control" id="ingreso" required >
                               <option value="">Seleccione un tipo de Ingreso</option>
                               <?php 
@@ -525,7 +525,7 @@ ENGINE=InnoDB
             <div class="col-md-3">
             
                   <div class="form-group">
-                    <label>Discapacidad <span class="glyphicon glyphicon-alert" aria-hidden="true"></span></label>
+                    <label>Discapacidad (47)<span class="glyphicon glyphicon-alert" aria-hidden="true"></span></label>
                                        
                     <select type="text" class="form-control" id="discapacidad" required >
                               <option value="">Seleccione una Discapacidad</option>
@@ -546,7 +546,7 @@ ENGINE=InnoDB
                 <div class="col-md-4">
             
                   <div class="form-group has-feedback">
-                                           <label>Causa de la Discapacidad <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>   </label>
+                                           <label>Causa de la Discapacidad (48)<span class="glyphicon glyphicon-alert" aria-hidden="true"></span>   </label>
                     
                     <select type="text" class="form-control" id="causa" required >
                     <option value="">Seleccione una Causa</option>
@@ -567,7 +567,7 @@ ENGINE=InnoDB
             <div class="col-md-4">
                 
                   <div class="form-group has-feedback">
-                              <label>Enfermedad Cronica <span class="glyphicon glyphicon-alert" aria-hidden="true"></span></label>
+                              <label>Enfermedad Cronica (49)<span class="glyphicon glyphicon-alert" aria-hidden="true"></span></label>
                          
                         <select type="text" class="form-control" id="enfermedad" required >
                               <option value="">Seleccione una Enfermedad</option>

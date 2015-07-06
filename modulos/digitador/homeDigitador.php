@@ -12,3 +12,5 @@ $usuario = $_SESSION['usuario'];
  	<img class="img-responsive" alt="Responsive image" src="librerias/imagenes/nuevo.jpg" alt="">
  	</div>
  </div>
+ <br>
+ 

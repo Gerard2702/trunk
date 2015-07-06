@@ -99,7 +99,7 @@
             <div class="row">
             <div class="col-md-3" >
             <div class="form-group">
-            <label>Fecha de Censado</label>
+            <label>Fecha de Censado (2)</label>
 
              <input class="form-control datepicker"  type="text" id="fecha_censado" value="<?php echo $fecha_censo ?>" placeholder="Ingrese un Fecha"required>
              </div>
@@ -141,7 +141,7 @@
             <div class="row">
              <div class="col-md-3">
                   <div class="form-group">
-                    <label>Colonia/Barrio/Caserio/Residencial</label>
+                    <label>Colonia/Residencial (4)</label>
                     <select type="text" class="form-control" id="colonia" onchange="verificarArea();" required >
                      <option <?php if($nom_colonia=="Seleccione una Colonia"){ ?> value=''<?php } else { ?>value='<?php echo $nom_colonia;?>'<?php }?>><?php echo $nom_colonia;?></option>
                         <?php 
@@ -167,7 +167,7 @@
                 <div class="col-md-2">
                   <div class="form-group">
                     <label>Numero de Vivienda</label>
-                    <input class="form-control" id="numvivienda" pattern="[0-9]{1,10}" title="Escriba un numero" type="text" placeholder="Escriba el Numero" value="<?php echo $num_vivienda;?>" required>
+                    <input class="form-control" id="numvivienda"  title="Escriba un numero" type="text" placeholder="Escriba el Numero" value="<?php echo $num_vivienda;?>" required>
                 </div>
                 </div>
                 <div class="col-md-2">
@@ -185,7 +185,7 @@
             
               <div class="col-md-3">
                  <div class="form-group">
-                  <label>Tipo de Familia</label>
+                  <label>Tipo de Familia (7)</label>
                   <select type="text" class="form-control" id="tipo_familia" required >
                      <option <?php if($tipo_familia=="Seleccione una Familia"){ ?> value=''<?php } else { ?>value="<?php echo $tipo_familia;?>"<?php }?>><?php echo $tipo_familia;?></option>
                         <?php 
@@ -208,7 +208,7 @@
 
               <div class="col-md-3">
                 <div class="form-group">
-                  <label>Religion</label>
+                  <label>Religion (6)</label>
                     <select type="text" class="form-control" id="religion" required >
                      <option <?php if($religion=="Seleccione una Religion"){ ?> value=''<?php } else { ?>value="<?php echo $religion;?>"<?php }?>><?php echo $religion;?></option>
                         <?php 
@@ -229,7 +229,7 @@
             <div class="row">
               <div class="col-md-3">
                   <div class="form-group">
-                    <label>Tenencia</label>
+                    <label>Tenencia (8)</label>
                     <select type="text" class="form-control" id="tenencia" onchange="verificarArea();" required >
                      <option <?php if($tenencia=="Seleccione una Tenencia"){ ?> value=''<?php } else { ?>value='<?php echo $tenencia;?>'<?php }?>><?php echo $tenencia;?></option>
                         <?php 
@@ -245,7 +245,7 @@
                 </div>
                 <div class="col-md-3">
                 <div class="form-group">
-                  <label>Seguridad</label>
+                  <label>Seguridad (Item 51)</label>
                   <select type="text" class="form-control" id="seguridad" required >
                      <option <?php if($seguridad=="Seleccione una Seguridad"){ ?> value=''<?php } else { ?>value="<?php echo $seguridad;?>"<?php }?>><?php echo $seguridad;?></option>
                         <?php 
@@ -267,30 +267,30 @@
                     <div class="row">
                     <div class="col-md-3"> 
                         <div class="form-group has-feedback">
-                              <label>Vectores y Mascotas</label>
+                              <label>Vectores</label>
                                               <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vectores[]" value="1" <?php if(in_array('1',$vectores)){ echo 'checked="checked"';}?>>Zancudos
+                                                    <input type="checkbox" name="vectores[]" value="1" <?php if(in_array('1',$vectores)){ echo 'checked="checked"';}?>>Zancudos (22)
                                                 </label>
                                             </div>
                                               <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vectores[]" value="2" <?php if(in_array('2',$vectores)){ echo 'checked="checked"';}?>>Moscas
+                                                    <input type="checkbox" name="vectores[]" value="2" <?php if(in_array('2',$vectores)){ echo 'checked="checked"';}?>>Moscas (23)
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vectores[]" value="3" <?php if(in_array('3',$vectores)){ echo 'checked="checked"';}?>>Chinches Picudas
+                                                    <input type="checkbox" name="vectores[]" value="3" <?php if(in_array('3',$vectores)){ echo 'checked="checked"';}?>>Chinches Picudas (24)
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vectores[]" value="4" <?php if(in_array('4',$vectores)){ echo 'checked="checked"';}?>>Cucarachas
+                                                    <input type="checkbox" name="vectores[]" value="4" <?php if(in_array('4',$vectores)){ echo 'checked="checked"';}?>>Cucarachas (25)
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" name="vectores[]" value="5" <?php if(in_array('5',$vectores)){ echo 'checked="checked"';}?>>Roedores
+                                                    <input type="checkbox" name="vectores[]" value="5" <?php if(in_array('5',$vectores)){ echo 'checked="checked"';}?>>Roedores (26)
                                                 </label>
                                             </div>
                                           </div>
@@ -299,7 +299,7 @@
                     <div class="col-md-3">
                     <div class="form-group">
 
-                          <label>Perros</label>
+                          <label>Perros (27)</label>
                           <select class="form-control" type="text" id="perros" required><?php if($perros!=0) { ?>
                                   <option value="<?php echo $perros ?>"><?php echo $perros ?></option> <?php }?>
                                   <option>0</option>
@@ -319,7 +319,7 @@
                     </div>
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>Gatos</label>
+                        <label>Gatos (28)</label>
                           <select class="form-control" type="text" id="gatos" required><?php if($gatos!=0) { ?>
                                   <option value="<?php echo $gatos ?>"><?php echo $gatos ?></option> <?php }?>
                                   <option>0</option>
@@ -338,7 +338,7 @@
                     </div>
                     <div class="col-md-3">
                       <div class="form-group">
-                        <label>Otras Mascotas</label>
+                        <label>Otras Mascotas (29)</label>
                           <select class="form-control" type="text" id="otras_mascotas" required><?php if($otros!=0) { ?>
                                   <option value="<?php echo $otros ?>"><?php echo $otros ?></option> <?php }?>
                                   <option>0</option>
