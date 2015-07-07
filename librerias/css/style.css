@@ -1,5 +1,5 @@
 header{
-	background: #34495E;
+	background: #0086b3;
 	color: white;
 	box-shadow: 0 0 5px #595959;
 	border-bottom: 1px solid #273748;
@@ -69,18 +69,18 @@ h4,h3{
 
 /*ESTILOS DE BOOTSTRAP MODIFICADOS*/
 .panel-primary > .panel-heading {
-    background-color: #34495E!important;
+    background-color: #0086b3!important;
     border-color: #2C3F51!important;
     color: #fff !important;
 }
 
 .panel-primary > .panel-heading {
-    background-image: linear-gradient(to bottom, #34495E 0%, #2C3F51 100%);
+    background-image: linear-gradient(to bottom, #0086b3 0%, #0081AC 100%);
     background-repeat: repeat-x;
 }
 
 .panel-primary {
-    border-color: #34495E !important;
+    border-color: #0086b3 !important;
 }
 
 .btn-miestilo {
