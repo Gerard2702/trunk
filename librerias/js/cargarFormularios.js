@@ -1,4 +1,6 @@
 function cargarConstruccion(){
+  $("#contenido").hide();
+  $("#contenido").fadeIn(500);
   $('#contenido').load('librerias/formularios/frm_construccion_servicios.php');
   window.parent.window.location = '#inicio';
 }
@@ -31,6 +33,8 @@ function cargarGenerales(){
         },
                
         success: function(respuesta){ 
+          $("#contenido").hide();
+          $("#contenido").fadeIn(500);
               $('#contenido').load('librerias/formularios/frm_datos_generales.php');
   window.parent.window.location = '#inicio';                         
       }//fin del succes function
@@ -40,11 +44,15 @@ function cargarGenerales(){
 }
 
 function cargarFamilia(){
+  $("#contenido").hide();
+  $("#contenido").fadeIn(500);
   $('#contenido').load('librerias/formularios/frm_datos_familia.php');
   window.parent.window.location = '#inicio';
 }
 
 function cargarCensada(){
+  $("#contenido").hide();
+  $("#contenido").fadeIn(500);
   $('#contenido').load('librerias/formularios/frm_datos_generales.php');
 }
 function cargarNoCensada(){
@@ -83,6 +91,8 @@ function cargarFrmPersonas(){
         },
                
         success: function(respuesta){ 
+          $("#contenido").hide();
+          $("#contenido").fadeIn(500);
               $('#contenido').load('librerias/formularios/frm_registro_personas.php');
    window.parent.window.location = '#inicio';                          
       }//fin del succes function
@@ -99,6 +109,8 @@ function editarPersona(id_persona){
     idpersona: id_persona,
   },
   success: function(respuesta){
+    $("#contenido").hide();
+    $("#contenido").fadeIn(500);
     window.parent.window.location = '#inicio';
       $("#contenido").html(respuesta)
     }
@@ -140,7 +152,10 @@ function finalizarCenso(){
           patrimonio: listaPatrimonio, 
         },
                
-        success: function(respuesta){ 
+        success: function(respuesta){
+        alert("CENSO INGRESADO EXITOSAMENTE"); 
+          $("#contenido").hide();
+          $("#contenido").fadeIn(500);
               $('#contenido').load('librerias/formularios/frm_datos_generales.php');
               window.parent.window.location = '#inicio';                          
       }//fin del succes function
@@ -169,6 +184,8 @@ function cargarConstrucciondatos(){
         },
                
         success: function(respuesta){ 
+          $("#contenido").hide();
+          $("#contenido").fadeIn(500);
               $('#contenido').load('librerias/formularios/frm_construccion_servicios.php');
               window.parent.window.location = '#inicio';                          
       }//fin del succes function
@@ -209,6 +226,8 @@ $("#ingresar-generales").submit(function(event){
         },
                
         success: function(respuesta){ 
+          $("#contenido").hide();
+          $("#contenido").fadeIn(500);
               $('#contenido').load('librerias/formularios/frm_construccion_servicios.php');
               window.parent.window.location = '#inicio';                          
       }//fin del succes function
@@ -245,6 +264,8 @@ $("#ingresar-construccion").submit(function(event){
         },
                
         success: function(respuesta){ 
+          $("#contenido").hide();
+          $("#contenido").fadeIn(500);
               $('#contenido').load('librerias/formularios/frm_datos_familia.php');
               window.parent.window.location = '#inicio';                          
       }//fin del succes function
@@ -280,10 +301,11 @@ $("#ingresar-construccion").submit(function(event){
         },
                
         success: function(respuesta){ 
-         $('#exampleModal').modal('hide');/*Oculta la modal*/
+          $("#contenido").hide();
+          $("#contenido").fadeIn(500);
+          $('#contenido').load('librerias/formularios/frm_datos_familia.php');
+          window.parent.window.location = '#inicio'; 
          $("#datos-personales")[0].reset()
-         window.parent.window.location = '#inicio'; 
-cargarFamilia();
       }//fin del succes function
     }); //fin del ajax */ 
  });
@@ -314,9 +336,12 @@ cargarFamilia();
           enfermedad: $("#enfermedad").val(),
         },      
         success: function(respuesta){ 
-         $("#datos-personales-editar")[0].reset()
+          
+         
          cargarFamilia();
-         window.parent.window.location = '#inicio'; 
+         window.parent.window.location = '#inicio';
+         $("#datos-personales-editar")[0].reset()
+          
           
       }//fin del succes function
     }); //fin del ajax 

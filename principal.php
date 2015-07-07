@@ -82,8 +82,8 @@
 <footer>
 	<div class="container">
 		<div class="col-md-12 col-xs-12 visible-sm visible-md visible-lg ">
-			<h5 class="text-center">Desarrollado por: Depto. Desarrollo Informático </h5>
-      <h5 class="text-center"><strong>Copyright © 2015</strong></h5>
+			<h5 class="text-center">Desarrollado por: Depto. Desarrollo Informático&nbsp;<strong>Copyright © 2015</strong></h5>
+      
 		</div>
   </div>	
 </footer>

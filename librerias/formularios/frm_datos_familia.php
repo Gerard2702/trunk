@@ -136,7 +136,7 @@ ENGINE=InnoDB
     </div>  
     </div>
     <div class="row">
-      <h3 class="col-md-5 col-sm-6 col-xs-6">INGRESO DE DATOS </h3>
+      <h3 class="col-md-5 col-sm-6 col-xs-6">INGRESO DE DATOS<small>&nbsp;&nbsp;Paso 3</small></h3>
       <div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-4 text-right">
         <input class="btn btn-danger btn-sm" type="button" onclick="reiniciarFormulario();" value="LIMPIAR FORMULARIO">
         </div>
@@ -190,7 +190,7 @@ ENGINE=InnoDB
                           else{ ?>                          
                               <thead>
                                 <tr>
-                                     <th >NO SE HAN INGRESADO PERSONAS!</th>
+                                <div class="alert alert-danger" role="alert"><strong>¡No se han Agregado Personas!</strong>&nbsp;Agregue al menos una persona para finalizar el Censo.</div>
                                 </tr> 
                             </thead>                          
 
@@ -201,7 +201,7 @@ ENGINE=InnoDB
                     
                     
                 </div> 
-                <button type="button" class="btn btn-primary" onclick="cargarFrmPersonas();"><span class="glyphicon glyphicon-plus"></span> Agregar Persona</button>
+                <button type="button" class="btn btn-primary btn-sm" onclick="cargarFrmPersonas();"><span class="glyphicon glyphicon-plus"></span> Agregar Persona</button>
                 </div>
                   </div>
                         <div class="row">
@@ -296,7 +296,7 @@ ENGINE=InnoDB
                                  <?php if($numpersonastemporal>0){ ?>
                                  <button type="button" title="Finalizar" class="btn btn-primary btn-sm" onclick="finalizarCenso();">Finalizar&nbsp;<i class="glyphicon glyphicon-floppy-save"></i></button>
                                  <?php } else {?>
-                                 <button type="button" title="Finalizar" class="btn btn-danger btn-sm" disabled="">Finalizar&nbsp;<i class="glyphicon glyphicon-floppy-save"></i></button>
+                                 <button type="button" title="Finalizar" class="btn btn-primary btn-sm" disabled="">Finalizar&nbsp;<i class="glyphicon glyphicon-floppy-save"></i></button>
                                  <?php }?>
                                  <br>
                                  <br>

@@ -1,5 +1,5 @@
 header{
-	background: #286090;
+	background: #34495E;
 	color: white;
 	box-shadow: 0 0 5px #595959;
 	border-bottom: 1px solid #273748;
@@ -68,6 +68,27 @@ h4,h3{
 }
 
 /*ESTILOS DE BOOTSTRAP MODIFICADOS*/
+.panel-primary > .panel-heading {
+    background-color: #34495E!important;
+    border-color: #2C3F51!important;
+    color: #fff !important;
+}
+
+.panel-primary > .panel-heading {
+    background-image: linear-gradient(to bottom, #34495E 0%, #2C3F51 100%);
+    background-repeat: repeat-x;
+}
+
+.panel-primary {
+    border-color: #34495E !important;
+}
+
+.btn-miestilo {
+    background-color: #34495E;
+    border-color: #2e6da4;
+    color: #fff;
+}
+
 .navbar-default{
 	border-radius: 0px !important;
 }
