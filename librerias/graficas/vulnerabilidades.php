@@ -1,22 +1,14 @@
 <?php
     include_once("../php/conexion.php");
 ?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Highcharts Example</title>
 
-        <?php
-            $sql=mysql_query("SELECT nombre, COUNT(*) AS cantidad
-            FROM vivienda INNER JOIN religion 
-            ON vivienda.id_religion=religion.id_religion
-            GROUP BY nombre
-            ORDER BY cantidad asc");
-            while($res=mysql_fetch_array($sql)){
-            ?>
-
-		<script type="text/javascript" src="../js/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.min.js"></script>
 		<style type="text/css">
 ${demo.css}
 		</style>
@@ -27,38 +19,28 @@ $(function () {
             type: 'column'
         },
         title: {
-            text: 'Monthly Average Rainfall'
+            text: 'Vulnerabilidades'
         },
         subtitle: {
-            text: 'Source: WorldClimate.com'
+            text: 'Panorama Global Nuevo Cuscatlan'
         },
         xAxis: {
             categories: [
-                'Jan',
-                'Feb',
-                'Mar',
-                'Apr',
-                'May',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
-                'Nov',
-                'Dec'
+                'Riesgos',
+                
             ],
             crosshair: true
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Rainfall (mm)'
+                text: 'Viviendas'
             }
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -69,30 +51,42 @@ $(function () {
                 borderWidth: 0
             }
         },
-        series: [{
+        series: [
 
 
 
+                <?php
+                $sql=mysql_query("SELECT riesgo.nombre riesgo, COUNT(*) AS cantidad
+                                FROM riesgo_vivienda
+                                INNER JOIN riesgo
+                                ON riesgo.id_riesgo=riesgo_vivienda.id_riesgo
+                                GROUP BY nombre
+                                ORDER BY cantidad DESC");
+                while($res=mysql_fetch_array($sql)){
+                ?>  
 
-            name: '<?php echo $res['nombre']; ?>',
+            {name: '<?php echo $res['riesgo'] ?>',
+            data: [<?php echo $res['cantidad'] ?>] }, 
 
-            
-            data: [<?php echo $res['cantidad'] ?>]
+ 
 
-            <?php
-            }
-            ?>
-        }
+                <?php
+                }
+                ?>
 
-        ]
+
+
+            ]
     });
 });
 		</script>
 	</head>
 	<body>
+
 <script src="../js/highcharts.js"></script>
 <script src="../js/highcharts-3d.js"></script>
 <script src="../js/exporting.js"></script>
+
 
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 

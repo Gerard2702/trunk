@@ -1,5 +1,5 @@
 <?php
-    include_once("../php/conexion.php");
+    include_once("../../librerias/php/conexion.php");
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -73,9 +73,9 @@ $(function () {
 		</script>
 	</head>
 	<body>
-<script src="../js/highcharts.js"></script>
-<script src="../js/highcharts-3d.js"></script>
-<script src="../js/exporting.js"></script>
+<script src="../../librerias/js/highcharts.js"></script>
+<script src="../../librerias/js/highcharts-3d.js"></script>
+<script src="../../librerias/js/exporting.js"></script>
 
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 
