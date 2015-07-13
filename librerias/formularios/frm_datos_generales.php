@@ -1,5 +1,6 @@
 <script src="librerias/js/cargarFormularios.js"></script>
 <script src="librerias/js/funcionesFrmgenerales.js"></script>
+
 <?php  
     session_start(); /* Verificar inicio de sesion*/
     $usuario = $_SESSION['usuario'];
