@@ -13,6 +13,9 @@
 					INNER JOIN tenencia_vivienda ON vivienda.id_tenencia=tenencia_vivienda.id_tenencia
 					INNER JOIN persona ON vivienda.id_vivienda = persona.id_vivienda
 					GROUP BY Id";
+
+					
+
 			$result = $conn->prepare($sql) or die ($sql);
 
 			if (!$result->execute()) return false;
@@ -27,7 +30,7 @@
 						'Tipo_Familia' => $row['Tipo_Familia'],
 						'Religion' => $row['Religion'],
 						'Cant_Familia' => $row['cant_familia'],
-						'Personas' => $row['cantidad']
+						'Personas' => $row['cantidad'],
 					);
 				}
 
