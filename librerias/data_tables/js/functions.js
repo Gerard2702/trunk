@@ -11,17 +11,19 @@ $(document).ready(function() {
 							var row = $("<tr />");
 							$("<td />").text(record.Colonia).appendTo(row);
 							$("<td />").text(record.Direccion).appendTo(row);
-							$("<td />").text(record.Numero).appendTo(row);
+							$("<td />").text(record.Tenencia).appendTo(row);
 							$("<td />").text(record.Tipo_Familia).appendTo(row);
 							$("<td />").text(record.Religion).appendTo(row);
+							$("<td />").text(record.Cant_Familia).appendTo(row);
+							$("<td />").text(record.Personas).appendTo(row);
 							row.appendTo("table");
 						}
 					})
 				}
 
 				$('table').dataTable({
-					"bJQueryUI": true,
-				})
+				
+					})
 			}
 		});
 })

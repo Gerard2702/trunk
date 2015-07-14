@@ -21,7 +21,7 @@ $(document).ready(function() {
 				}
 
 				$('table').dataTable({
-					"bJQueryUI": true,
+					
 				})
 			}
 		});
