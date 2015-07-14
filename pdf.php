@@ -126,7 +126,7 @@ function Footer()
 }
 
 // Creación del objeto de la clase heredada
-$pdf = new PDF();
+$pdf = new PDF('P','mm','legal');
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetMargins(10,20,20);
@@ -298,14 +298,14 @@ $pdf->ln(5);
 $pdf->AddPage('L');
 $pdf->SetMargins(20,20,20);
 $pdf->SetFont('Helvetica','B',12);
-$pdf->Cell(0,10,'HABITANTES VIVIENDA',0,0,'C');
+$pdf->Cell(0,10,'HABITANTES DE LA VIVIENDA VIVIENDA',0,0,'C');
 $pdf->ln(10);
 // Para realizar esto utilizaremos la funcion Row()
 $pdf->SetFont('Helvetica','',10);
 // tipo y tamaño de letra
-$pdf->SetWidths(array(40,11, 25,11,25,25,25,25,25,25,25));
+$pdf->SetWidths(array(20,60,11, 25,11,25,35,25,25,25,25,25));
 // Definimos el tamaño de las columnas, tomando en cuenta que las declaramos en milimetros, ya que nuestra hoja esta en milimetros.
-$pdf->Row(array('Nombre y Apellido', 'Sexo', 'F. Nacimiento','Edad','Parentesco','Estudios','Ocupacion','Ingreso Eco.','Discapacidad','Causa Disca.','Enfermedad'));
+$pdf->Row(array('N.Familia','Nombre y Apellido', 'Sexo', 'F. Nacimiento','Edad','Parentesco','Estudios','Ocupacion','Ingreso Eco.','Discapacidad','Causa Disca.','Enfermedad'));
 $rspersonas=mysql_query("SELECT persona.id_persona,persona.nombre as nombre,persona.apellido as apellido,persona.fecha_nac as fecha_nacimiento,persona.genero as genero,nacionalidad.nombre as nacionalidad,
     nivel_educativo.nombre as nivel_educativo,discapacidad.nombre as discapacidad,causa_disca.descripcion as causa_discapacidad,
     ocupacion.nombre as ocupacion,parentesco.nombre as parentesco,situacion_laboral.nombre as situacion_laboral,
@@ -315,13 +315,14 @@ $rspersonas=mysql_query("SELECT persona.id_persona,persona.nombre as nombre,pers
     on persona.id_discapacidad=discapacidad.id_disca inner join causa_disca on persona.id_causadisca=causa_disca.id_causa inner join 
     ocupacion on persona.id_ocupacion=ocupacion.id_ocupacion inner join parentesco on persona.id_parentesco=parentesco.id_parentesco inner join  
     situacion_laboral on persona.id_sitlaboral=situacion_laboral.id_sitlaboral inner join enfermedad on persona.id_enfermedad=enfermedad.id_enfermedad 
-    inner join ingreso_economico on persona.id_ingreso=ingreso_economico.id_ingreso where persona.id_vivienda=35;");
+    inner join ingreso_economico on persona.id_ingreso=ingreso_economico.id_ingreso where persona.id_vivienda=20 order by persona.num_familia;");
 $numpersonas=mysql_num_rows($rspersonas);
 $fila=mysql_fetch_assoc($rspersonas);
+$pdf->ln(10);
 if ($numpersonas>0)
 {
     while($fila=mysql_fetch_assoc($rspersonas)){
-        $pdf->Row(array($fila['nombre'],$fila['apellido']));
+        $pdf->Row(array($fila['numero_familia'],$fila['nombre'].', '.$fila['apellido'],$fila['genero'],$fila['fecha_nacimiento'],'33',$fila['parentesco'],$fila['nivel_educativo'],$fila['ocupacion'],$fila['ingreso'],$fila['discapacidad'],$fila['causa_discapacidad'],$fila['enfermedad']));
     }
     };
 
