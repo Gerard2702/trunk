@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<div id="tasa" style="width: 36%; height: 350px; margin: 0 auto;float:left;"></div>
+<div id="tasaem" style="width: 36%; height: 350px; margin: 0 auto;float:left;"></div>
 <div id="genero" style="width: 28%; height: 350px; margin: 0 auto;float:left;"></div>
 <div id="tenencia" style="width: 36%; height: 350px; margin: 0 auto;float:left;"></div>
 		
@@ -29,7 +29,7 @@
 <script>
 	
 	$(function () {
-	    $('#tasa').highcharts({
+	    $('#tasaem').highcharts({
         chart: {
             type: 'pie',
             options3d: {
